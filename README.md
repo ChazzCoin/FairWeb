@@ -1,5 +1,5 @@
 # FWEB
-FairWeb or FWEB is a complete web scrapping tool-kit.
+FairWeb or FWEB is a complete webpage downloader and web-scrapping tool-kit.
 
 1. FusedDownloader -> Uses two libraries to attempt to download the URL. 
     - v1 = NewsPaper.Article
