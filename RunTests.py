@@ -31,14 +31,14 @@ v1_wins = []
 v2_wins = []
 
 
-def compare(url, hookup_v1, hookup_v2):
+def compare(url, json_v1, json_v2):
     from Utils import DICT
     val_v1 = False
-    date_v1 = DICT.get("published_date", hookup_v1)
-    body_v1 = DICT.get("body", hookup_v1)
+    date_v1 = DICT.get("published_date", json_v1)
+    body_v1 = DICT.get("body", json_v1)
     val_v2 = False
-    date_v2 = DICT.get("published_date", hookup_v2)
-    body_v2 = DICT.get("body", hookup_v2)
+    date_v2 = DICT.get("date", json_v2)
+    body_v2 = DICT.get("body", json_v2)
 
     if date_v1 and not body_v1.startswith("Something went wrong"):
         val_v1 = True
@@ -53,21 +53,21 @@ def compare(url, hookup_v1, hookup_v2):
     else:
         both_failed.append(url)
 
-from FWEB.Downloader.ArchiveDownloader_v1 import Extract
+from FWEB.Downloader.ArchiveDownloader_v1 import DownloadWebPage
 from FWEB.Downloader import ArticleDownloader
 from FWEB import FusedDownloader
 
 def test1():
     for url in urls:
         downloader_v1 = ArticleDownloader.download_article(url)
-        downloader_v2 = Extract(url).json
+        downloader_v2 = DownloadWebPage.start_url(url).json
         compare(url, downloader_v1, downloader_v2)
 
 def test2():
     for url in urls:
         FusedDownloader.download_v2(url)
 
-test2()
+test1()
 
 print("Total Urls Tried:", len(urls))
 print("Both Success:", len(both_success))

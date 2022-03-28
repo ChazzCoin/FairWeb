@@ -1,12 +1,38 @@
 from Crawler.ArchiveCrawler_v2 import ArchiveCrawler
-from FWEB import URL, Log
-
+from FWEB.Futils import URL, Regex
+from FWEB.Db import Ext
+from FWEB.rsLogger import Log
 Log = Log("FWEB.StartCrawler")
 
-url = input(" Please enter a URL to Crawl... ")
-UrlIsValid = URL.is_valid_url(url)
+@Ext.injectUrls
+def runDbUrls(_urls):
+    Log.i("Running Crawl on Database URL Queue...")
+    for single_url in _urls:
+        try:
+            crawl(single_url)
+        except Exception as e:
+            Log.e(f"Failed to crawl URL= [ {single_url} ]", error=e)
+            continue
 
-if UrlIsValid:
-    Log.i("Url is Valid. Starting up Archive Crawler...")
-    ArchiveCrawler(url)
+def runSingleUrl(_url):
+    Log.i(f"Running Crawl on URL= [ {_url} ] ...")
+    UrlIsValid = URL.is_valid_url(_url)
+    if UrlIsValid:
+        crawl(_url)
+
+def crawl(_url):
+    Log.i("Starting up Archive Crawler...")
+    ArchiveCrawler.start_SuicideMode(_url, max=200)
+    # ArchiveCrawler(_url, max=200, suicideMode=True).run()
     Log.i("Crawler is finished!")
+
+def init(user_input=None):
+    if not user_input:
+        user_input = input(" Please enter a URL to Crawl... ")
+    if Regex.contains("database", user_input):
+        runDbUrls()
+    else:
+        runSingleUrl(user_input)
+
+if __name__ == '__main__':
+    runDbUrls()

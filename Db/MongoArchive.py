@@ -1,6 +1,10 @@
 from pymongo import cursor
-from Engine.Parser.HookupParser import Parser
-from FWEB import LIST, DICT, Ext, Log, Find, MongoAddUpdate, MongoCore
+# from Engine.Parser.HookupParser import Parser
+from FWEB.Futils import LIST, DICT, Ext
+from FWEB.rsLogger import Log
+from FWEB.Db.MongoCore import MongoCore
+from FWEB.Db.MongoQuery import Find
+from FWEB.Db.MongoAddUpdate import MongoAddUpdate
 
 Log = Log("MongoArchive")
 
@@ -20,7 +24,7 @@ class MongoArchive(MongoCore):
             return self._find.find_list_of_record_ids_where_date(date=date)
         else:
             temp = self._find.find_list_of_record_ids_where_date(date=date)
-            return MongoResearch.to_list(temp)
+            return MongoCore.to_list(temp)
 
     def get_record_where_id(self, _id: str) -> list:
         """ -> RETURN Single Record for ID in List. <- """

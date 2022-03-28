@@ -1,12 +1,14 @@
 import requests
-from FWEB import Log
+from FWEB import Resources
+from FWEB.Futils import Ext
+from FWEB.rsLogger import Log
 Log = Log("FWEB.Core.HttpRequest")
 
 HEADERS = {
     "scheme": "https",
     "method": "GET",
     "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.51 Safari/537.36",
-    "accept-language": "en-US,en;q=0.9",
+    "accept-language": "en-US",
     "accept-encoding": "gzip, deflate, br",
     "content-type": "text/html",
     "accept": "text/html",
@@ -37,8 +39,13 @@ PROXIES = {
   'http': 'http://10.10.1.10:3128',
   'https': 'http://10.10.1.10:1080',
 }
+
+
 # -> Step One -> Call URL and get Raw HTML back in Response Object.
+# @Ext.safe_run
+@Ext.sleep(5)
 def get_request(url):
+    HEADERS["user-agent"] = Resources.get_random_user_agent()
     Log.i("Making HTTP Request.", v=f"URL= [ {url} ] ")
     response = requests.get(url, headers=HEADERS)
     if response.status_code > 205:

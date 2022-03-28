@@ -1,4 +1,5 @@
-from FWEB import Log, LIST, Ext
+from FWEB.Futils import LIST, Ext
+from FWEB.rsLogger import Log
 Log = Log("FWEB.Futils.Language")
 
 """

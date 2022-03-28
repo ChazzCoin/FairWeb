@@ -1,6 +1,6 @@
 from newspaper import Article
 from FWEB.Parser import JsonParser
-from FWEB import Log
+from FWEB.rsLogger import Log
 Log = Log("FWEB.Downloader.ArticleDownloader")
 
 def download_article(url) -> bool:

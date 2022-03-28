@@ -1,7 +1,7 @@
 import re
 import requests
 from FWEB.Futils import Regex as Re
-from FWEB import Log
+from FWEB.rsLogger import Log
 Log = Log("FWEB.Futils.URL")
 
 """

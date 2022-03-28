@@ -1,4 +1,5 @@
-from FWEB import DICT, DATE, Log
+from FWEB.Futils import DICT, DATE
+from FWEB.rsLogger import Log
 from FWEB.Parser import Keys
 Log = Log("FWEB.Parser.JsonParser")
 

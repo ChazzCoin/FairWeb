@@ -1,4 +1,5 @@
-from FWEB import DICT, Log
+from FWEB.Futils import DICT
+from FWEB.rsLogger import Log
 Log = Log("MongoAddUpdate")
 
 MAX_THRESHOLD = 500

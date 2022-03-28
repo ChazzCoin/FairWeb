@@ -1,5 +1,5 @@
 from queue import Queue as Qu
-from FWEB import Log
+from FWEB.rsLogger import Log
 Log = Log("FWEB.Queue.UrlQueue")
 
 class FQueue:
@@ -78,6 +78,10 @@ class FQueue:
         temp = self.mainQueue.get()
         self.processedQueue.put(temp)
         return temp
+
+    def clear_all(self):
+        self.mainQueue = Qu(1)
+        self.processedQueue = Qu(1)
 
     def size(self):
         try:

@@ -1,6 +1,8 @@
 from bson.objectid import ObjectId
 from pymongo import cursor
-from FWEB import LIST, DICT, DATE, MongoCore, Log
+from FWEB.Futils import LIST, DICT, DATE
+from FWEB.Db.MongoCore import MongoCore
+from FWEB.rsLogger import Log
 Log = Log("MongoQuery")
 
 

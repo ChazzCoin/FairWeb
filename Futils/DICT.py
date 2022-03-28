@@ -1,8 +1,5 @@
 import json
-import pandas as pd
-
-from FWEB import Log
-Log = Log("FWEB.Futils.DICT")
+# import pandas as pd
 
 """
 -> "dict" object extension/helper functions
@@ -14,8 +11,8 @@ def get(key: str, dic, default=False):
     Safely returns result or False.
     """
     try:
-        if isinstance(dic, pd.DataFrame):
-            dic = dic.to_dict()
+        # if isinstance(dic, pd.DataFrame):
+        #     dic = dic.to_dict()
         if type(dic) is not dict:
             dic = dic.__dict__
         if dic.__contains__(key):
@@ -31,7 +28,7 @@ def get(key: str, dic, default=False):
                 return result
         return default
     except Exception as e:
-        Log.e("Failed to get key for dict", error=e)
+        print("Failed to get key for dict")
         return default
 
 def get_all(dic, *keys, force_type=None) -> []:
@@ -162,7 +159,7 @@ def removeKeyValue(key, dic: dict) -> dict:
         del dic[key]
         return dic
     except Exception as e:
-        Log.e("Failed to delete key value", error=e)
+        print("Failed to delete key value")
         return dic
 
 def addKeyValue(key, value, dic: dict, forceList=False) -> dict:

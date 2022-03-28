@@ -1,5 +1,8 @@
+import sys
+import threading
 import time
-from FWEB import Log, LIST
+from FWEB.Futils import LIST
+from FWEB.rsLogger import Log
 Log = Log("FWEB.Futils.Extensions")
 
 def safe_run(func):
@@ -11,6 +14,19 @@ def safe_run(func):
             Log.e("Safe Run Failed with error ->", error=e)
             return False
     return wrapper
+
+def safe_run_return(default=False):
+    def wrapper(func):
+        def runner(*args):
+            try:
+                Log.i("Safe Running")
+                return func(args)
+            except Exception as e:
+                Log.e("Safe Run Failed with error ->", error=e)
+                return default
+        return runner
+    return wrapper
+
 
 def safe_args(func):
     def wrapper(*items) -> []:
@@ -37,3 +53,43 @@ def sleep(seconds):
             return func(*args)
         return runner
     return wrapper
+
+def timelimit(timeout):
+    """Borrowed from web.py, rip Aaron Swartz
+    """
+    def _1(function):
+        def _2(*args, **kw):
+            class Dispatch(threading.Thread):
+                def __init__(self):
+                    threading.Thread.__init__(self)
+                    self.result = None
+                    self.error = None
+
+                    self.setDaemon(True)
+                    self.start()
+
+                def run(self):
+                    try:
+                        self.result = function(*args, **kw)
+                    except:
+                        self.error = sys.exc_info()
+            c = Dispatch()
+            c.join(timeout)
+            if c.isAlive():
+                raise TimeoutError()
+            if c.error:
+                raise c.error[0](c.error[1])
+            return c.result
+        return _2
+    return _1
+
+def print_duration(method):
+    """Prints out the runtime duration of a method in seconds
+    """
+    def timed(*args, **kw):
+        ts = time.time()
+        result = method(*args, **kw)
+        te = time.time()
+        print('%r %2.2f sec' % (method.__name__, te - ts))
+        return result
+    return timed

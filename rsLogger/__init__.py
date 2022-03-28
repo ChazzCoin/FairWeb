@@ -1,1 +1,1 @@
-from FAIR.Logger.CoreLogger import Log
+from FWEB.rsLogger.CoreLogger import Log

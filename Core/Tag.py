@@ -1,5 +1,6 @@
 from bs4.element import Tag as bsTag
-from FWEB import Log, Regex, DICT, LIST
+from FWEB.Futils import Regex, DICT, LIST
+from FWEB.rsLogger import Log
 Log = Log("FWEB.Tag")
 
 
@@ -13,9 +14,10 @@ Log = Log("FWEB.Tag")
         Tag = { name, text, attrs?, next_element?/Tag? }
     """
 
-
-def search(master_element, terms, enableName=False, enableText=False, enableAttributes=False):
+def search(master_element, terms, enableName=True, enableText=True, enableAttributes=True):
     """ -> Master Search, Handles both Elements or Tags. <- """
+    if not master_element:
+        return False
     if not is_tag(master_element):
         # Element
         return search_element(master_element, terms, enableName=enableName, enableText=enableText, enableAttributes=enableAttributes)
@@ -24,8 +26,9 @@ def search(master_element, terms, enableName=False, enableText=False, enableAttr
         return search_tag_deep(master_element, terms,
                                  enableName=enableName, enableText=enableText, enableAttributes=enableAttributes)
 
-
 def search_element(master_element, terms, enableName=False, enableText=False, enableAttributes=False):
+    if not master_element:
+        return False
     for tag in master_element:
         temp = find(tag, terms,
                         enableName=enableName, enableText=enableText, enableAttributes=enableAttributes)
@@ -37,9 +40,10 @@ def search_element(master_element, terms, enableName=False, enableText=False, en
             return result
     return False
 
-
 def search_tag_deep(master_tag: bsTag, terms, enableName=False, enableText=False, enableAttributes=False):
     """ -> Loops All Elements in Tag, then Recursively Loops each Tag <- """
+    if not master_tag:
+        return False
     if not is_tag(master_tag):
         return False
     try:
@@ -64,7 +68,6 @@ def search_tag_deep(master_tag: bsTag, terms, enableName=False, enableText=False
         Log.e(" -> find_tag() has failed.", error=e)
         return False
 
-
 def search_tag(master_tag: bsTag, terms, enableName=True, enableText=True, enableAttributes=True, depth=0):
     """ -> A Recursive Loop through each "next_element"/Tag <- """
     if not is_tag(master_tag):
@@ -87,7 +90,6 @@ def search_tag(master_tag: bsTag, terms, enableName=True, enableText=True, enabl
     except Exception as e:
         Log.e("Something went wrong during tag search.", error=e)
         return False
-
 
 def search_all_tag(master_tag: bsTag, terms, enableName=True, enableText=True, enableAttributes=True, depth=0) -> []:
     """ -> EXPERIMENTAL AND NOT FINISHED <- """
@@ -117,9 +119,6 @@ def search_all_tag(master_tag: bsTag, terms, enableName=True, enableText=True, e
         Log.e("Something went wrong during tag search.", error=e)
         return []
 
-
-
-
 def find(master_tag, terms, enableName, enableText, enableAttributes):
     """ -> Searches the single current  <- """
     Log.v(f" -> find() {terms}.")
@@ -142,7 +141,6 @@ def find(master_tag, terms, enableName, enableText, enableAttributes):
             return attributes
         return False
 
-
 def is_tag(master_tag):
     if not master_tag:
         Log.w(" -> search_tag() master_tag is Empty.")
@@ -151,7 +149,6 @@ def is_tag(master_tag):
         Log.w(" -> search_tag() master_tag is not a [bsTag].")
         return False
     return True
-
 
 def search_name(master_tag, terms):
     """ -> CORE SEARCH OF TAG NAME <- """
@@ -162,7 +159,6 @@ def search_name(master_tag, terms):
     if tagTemp:
         return "name", tagName, master_tag
     return False
-
 
 def search_attributes(master_tag, terms):
     """ -> CORE SEARCH OF TAG ATTRIBUTES <- """
@@ -187,7 +183,6 @@ def search_attributes(master_tag, terms):
         Log.e("Finding Attribute ", error=e)
         return False
 
-
 def get_attribute(master_tag, key):
     """ -> CORE SEARCH OF TAG ATTRIBUTES <- """
     if not is_tag(master_tag):
@@ -197,7 +192,6 @@ def get_attribute(master_tag, key):
         value = DICT.get(key, attributes)
         return value
     return False
-
 
 def search_text(master_tag, terms):
     """ -> CORE SEARCH OF TAG TEXT <- """
@@ -211,7 +205,6 @@ def search_text(master_tag, terms):
             return "text", master_tag.text, master_tag
     return False
 
-
 def get_text(master_tag):
     """ -> CORE GET OF TAG TEXT <- """
     if not is_tag(master_tag):
@@ -222,7 +215,6 @@ def get_text(master_tag):
         return master_tag.text
     return False
 
-
 def get_value_for_key(master_tag, key):
     if not is_tag(master_tag):
         return False
@@ -230,7 +222,6 @@ def get_value_for_key(master_tag, key):
     if results:
         return results
     return False
-
 
 def search_key(master_tag, terms):
     if not is_tag(master_tag):
@@ -240,7 +231,6 @@ def search_key(master_tag, terms):
         return LIST.get(0, results)
     return False
 
-
 def search_value(master_tag, terms):
     if not is_tag(master_tag):
         return False
@@ -248,7 +238,6 @@ def search_value(master_tag, terms):
     if results:
         return LIST.get(1, results)
     return False
-
 
 def search_tag_name(master_tag, terms):
     if not is_tag(master_tag):

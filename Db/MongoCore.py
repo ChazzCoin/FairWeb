@@ -1,8 +1,9 @@
 from pymongo import MongoClient
 from pymongo.database import Database
-from FWEB.Db import fig
+from FWEB import fig
 from dateutil import parser
-from FWEB import DATE, DICT, Log
+from FWEB.Futils import DATE, DICT
+from FWEB.rsLogger import Log
 import datetime
 Log = Log("FWEB.Db.MongoCore")
 
@@ -23,9 +24,9 @@ class MongoCore:
     c_archive: Database
     c_hookups: Database
     c_words: Database
-    c_urls: Database
+    c_sources: Database
 
-    def __init__(self, url=fig.local_mongo_db_uri):
+    def __init__(self, url=fig.sozin_mongo_db_uri):
         Log.i(f"Initiating MongoDB at url={url}")
         try:
             self.client = MongoClient(url)
@@ -37,7 +38,7 @@ class MongoCore:
         self.c_archive = self.master.get_collection("archive")
         self.c_hookups = self.master.get_collection("hookups")
         self.c_words = self.master.get_collection("words")
-        self.c_urls = self.master.get_collection("urls")
+        self.c_sources = self.master.get_collection("sources")
 
     def get_var(self, var_name):
         """  GETTER HELPER  """

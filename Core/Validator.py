@@ -1,4 +1,6 @@
-from FWEB import DATE, DICT, Log, MongoArchive
+from FWEB.Futils import DATE, DICT
+from FWEB.rsLogger import Log
+from FWEB.Db.MongoArchive import MongoArchive
 Log = Log("FWEB.Core.Validator")
 
 def validateAndSave(article: {}, saveToArchive=False, setDateToToday=False) -> bool:

@@ -1,1 +1,1 @@
-from FAIR.Parser import JsonParser
+from FWEB.Parser import JsonParser

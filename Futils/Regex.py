@@ -1,5 +1,6 @@
 import re
-from FWEB import DATE, LIST, Ext, Log
+from FWEB.Futils import DATE, LIST, Ext
+from FWEB.rsLogger import Log
 Log = Log("FWEB.Futils.Regex")
 
 def remove_special_characters(text):
@@ -26,8 +27,9 @@ def contains(search_term, content):
         Log.e(f"Failed to regex findall. {search_term}", error=e)
         return False
 
-@Ext.safe_args
+# @Ext.safe_args
 def contains_any(search_terms, content):
+    search_terms = LIST.flatten(search_terms)
     for term in search_terms:
         temp = contains(term, content)
         if temp:

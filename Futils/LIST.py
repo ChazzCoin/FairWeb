@@ -1,4 +1,4 @@
-from FWEB import Log
+from FWEB.rsLogger import Log
 Log = Log("FWEB.Futils.LIST")
 
 """

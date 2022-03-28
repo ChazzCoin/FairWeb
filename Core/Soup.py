@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
 from bs4.element import Tag as bsTag
-from FWEB import Tag, Log
+from FWEB.Core import Tag
+from FWEB.rsLogger import Log
 Log = Log("Clients.Archive.ArchiveDownloader_v2")
 
 
@@ -14,10 +15,9 @@ def safe_find(tag, term):
     except Exception as e:
         Log.e("Failed to find term.", error=e)
 
-
 def safe_findAll(tag, term):
     try:
-        return tag.find(term)
+        return tag.findAll(term)
     except Exception as e:
         Log.e("Failed to find term.", error=e)
 
@@ -26,6 +26,7 @@ class Parse:
     status = False
     soup = None
     tag_body: bsTag = None
+    tag_head: bsTag = None
     tag_time: bsTag = None
     element_img = None
     element_p1 = None
@@ -46,11 +47,12 @@ class Parse:
     def extract_elements_and_tags(self):
         Log.i(f"Extracting HTML Elements.")
         self.tag_body = safe_find(self.soup, "body")  # -> 99%
+        self.tag_head = safe_find(self.soup, "head")  # -> 99%
         self.tag_time = safe_find(self.tag_body, "time")  # ->
         self.element_img = safe_findAll(self.tag_body, "img")
         self.element_p1 = safe_findAll(self.tag_body, "p")  # ->
         self.tag_h1 = safe_find(self.tag_body, "h1")  # ->
-        self.element_meta = safe_findAll(self.soup, "meta")
+        self.element_meta = safe_findAll(self.tag_head, "meta")
         self.element_span = safe_findAll(self.tag_body, "span")
         Log.i("Parsing Finished")
 
