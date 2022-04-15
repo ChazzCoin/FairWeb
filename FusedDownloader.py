@@ -1,46 +1,84 @@
-from FWEB.Downloader.ArchiveDownloader_v1 import DownloadWebPage
-from FWEB.Downloader import ArticleDownloader
-from FWEB.Core import Validator
-from FWEB.Futils import Ext
-from FWEB.rsLogger import Log
+from Downloader.ArchiveDownloader_v1 import DownloadWebPage
+from Downloader import ArticleDownloader
+from fwebCore import Validator
+from fwebLogger.LOGGER import Log
 Log = Log("FWEB.FusedDownloader")
 
-@Ext.safe_run
-def download_v1(url, saveToArchive=False, setDateToToday=False):
+updateUrl = False
+
+@Validator.mongo_save
+def download(url):
+    if not url:
+        Log.e(f"Url argument is invalid.")
+        return False
     # -> v1
     downloader_v1 = fweb_downloader_v1(url)
     if downloader_v1:
-        result = Validator.validateAndSave(saveToArchive, setDateToToday, downloader_v1)
-        return result
+        json_v1 = Validator.validate_article(downloader_v1)
+        if json_v1:
+            return downloader_v1
     # -> v2
-    downloader_v2 = fweb_downloader_v2(url).json
+    Log.i(f"Downloading Article from CLIENT=[ User ]")
+    downloader_v2 = fweb_downloader_v2(url, client="User")
     if downloader_v2:
-        result = Validator.validateAndSave(saveToArchive, setDateToToday, downloader_v2)
-        return result
+        json_v2 = Validator.validate_article(downloader_v2)
+        if json_v2:
+            return downloader_v2.json
     return False
 
+
+# def updateUrlStatus(url, status):
+#     if updateUrl:
+#         if status == "success":
+#             return dbURL.UPDATE_TO_SUCCESS(url)
+#         return dbURL.UPDATE_TO_FAILED(url)
+#     return False
+
 @Validator.mongo_save
-def download_v2(url):
+def crawler_downloader(url, response):
+    # -> v2
+    downloader_v2 = fweb_response(url, response, client="archive crawler")
+    if downloader_v2 and Validator.validate_article(downloader_v2):
+        # updateUrlStatus(url, "success")
+        return downloader_v2.json
     # -> v1
     downloader_v1 = fweb_downloader_v1(url)
     if downloader_v1 and Validator.validate_article(downloader_v1):
+        # updateUrlStatus(url, "success")
         return downloader_v1
-    # -> v2
-    downloader_v2 = fweb_downloader_v2(url)
-    if downloader_v2 and Validator.validate_article(downloader_v2):
-        return downloader_v2.json
+    # updateUrlStatus(url, "failed")
     return False
 
-# @Ext.safe_run_return(False)
+@Validator.mongo_save
+def client_downloader(url, client):
+    if not url:
+        Log.e(f"Url argument is invalid.")
+        return False
+    # -> v1
+    downloader_v1 = fweb_downloader_v1(url)
+    if downloader_v1:
+        json_v1 = Validator.validate_article(downloader_v1)
+        if json_v1:
+            # updateUrlStatus(url, "success")
+            return downloader_v1
+    # -> v2
+    Log.i(f"Downloading Article from CLIENT=[ {client} ]")
+    downloader_v2 = fweb_downloader_v2(url, client=client)
+    if downloader_v2:
+        json_v2 = Validator.validate_article(downloader_v2)
+        if json_v2:
+            # updateUrlStatus(url, "success")
+            return downloader_v2.json
+    # updateUrlStatus(url, "failed")
+    return False
+
 def fweb_downloader_v1(url):
     return ArticleDownloader.download_article(url)
 
-# @Ext.safe_run_return(False)
-def fweb_downloader_v2(url):
-    extractor = DownloadWebPage.start_url(url)
+def fweb_downloader_v2(url, client="fweb_downloader_v2"):
+    extractor = DownloadWebPage.start_url(url, client=client)
     return extractor
 
-if __name__ == '__main__':
-    url1 = "https://www.americanbanker.com/payments/news/inside-ripples-plans-for-mainstream-crypto-payments",
-    url2 = "https://towardsdatascience.com/decorators-in-python-fundamentals-for-data-scientists-eada7f4eba85"
-    fweb_downloader_v1(url2)
+def fweb_response(url, response, client="fweb_response"):
+    extractor = DownloadWebPage.start_response(url, response, client=client)
+    return extractor

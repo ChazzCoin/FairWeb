@@ -1,5 +1,5 @@
-from FWEB.Core import HttpRequest, Soup
-from FWEB.rsLogger import Log
+from fwebCore import HttpRequest, Soup
+from fwebLogger.LOGGER import Log
 Log = Log("FWEB.Crawler.UrlExtractor")
 
 def request_and_parse(_url):

@@ -1,1 +1,1 @@
-from FWEB.FQueue.UrlQueue import FQueue
+from FQueue.UrlQueue import FQueue

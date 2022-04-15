@@ -1,16 +1,20 @@
+import gc
 import os
 from bs4 import BeautifulSoup
-from FWEB.Futils import DICT, URL, LIST
-from FWEB import FusedDownloader
-from FWEB.Core import HttpRequest
-from FWEB.FQueue.UrlQueue import FQueue
-from FWEB.rsLogger import Log
+
+from fwebDB import dbURL
+from fwebUtils import DICT, URL, LIST
+import FusedDownloader
+from fwebCore import HttpRequest
+from FQueue.UrlQueue import FQueue
+from fwebLogger.LOGGER import Log
 Log = Log("FWEB.Crawler.ArchiveCrawler_v2")
 
 way_back_machine_url = "https://web.archive.org"
 avoid_list = ['youtube', 'twitter', 'facebook', 'instagram', 'advertising', 'apple', 'google',
               'spotify', 'tiktok', 'soundcloud', 'linkedin', 'flickr', 'oauth', 'terms-of-service',
-              'privacy-policy', 'contact-us', 'fr', 'de', "coupon.", "coupons.", ".coupon", ".coupons"]
+              'privacy-policy', 'contact-us', 'fr', 'de', "coupon", "coupons", "search", "help",
+              "login", "logout", "amazon", "policy", "policies", "mobile", "yimg", "mail", "oath"]
 
 
 class SoupError(Exception):
@@ -29,6 +33,7 @@ class KillThySelf(Exception):
 
 class Modes:
     NORMAL = "NORMAL"
+    QUEUED = "QUEUED"
     SUICIDE = "SUICIDE"
     KILL = "KILL"
 
@@ -38,50 +43,105 @@ class ArchiveCrawler:
     # -> kwargs
     max = 100
     suicideSwitch = False
+    stayWithin = True
     # -> Global
     MODE = Modes.NORMAL
     queue: FQueue = None
     extraction_success = []
     extraction_failed = []
+    base_url = ""
     stay_within = ""
+    response = None
     soup = None
     total_count = 0
 
-    def __init__(self, url, **kwargs):
+    def __init__(self, **kwargs):
         """
         -> Takes single URL, grabs every URL, then tries to download them all.
         -> Takes next URL, grabs every URL, tries to download them all.
         -> !Potential for Forever-Loop!
         """
-        self.handle_kwargs(**kwargs)
         self.pid = os.getpid()
-        self.stay_within = URL.get_site_name(url)
-        self.queue = FQueue(maxSize=self.max, avoidList=avoid_list)
         Log.i(f"Launching ArchiveCrawler with PID=[ {self.pid} ]")
-        self.queue.add(url)
+        self.handle_kwargs(**kwargs)
+        self.queue = FQueue(maxSize=self.max, avoidList=avoid_list)
         Log.i(f"Ready to START: ArchiveCrawler PID=[ {self.pid} ]")
 
+    def __del__(self):
+        self.clean_mongo()
+        gc.collect()
+
+    def init_WithUrl(self, url):
+        """
+            -> Takes single URL, grabs every URL, then tries to download them all.
+            -> Takes next URL, grabs every URL, tries to download them all.
+            -> !Potential for Forever-Loop!
+        """
+        self.process_url(url)
+        self.queue.add(url)
+        return self
+
+    def process_url(self, url):
+        self.stay_within = URL.get_site_name(url)
+        self.base_url = URL.extract_base_url(url)
+
     @classmethod
-    def start(cls, _url, **kwargs):
-        cls(_url, **kwargs).run()
+    def Start_WithUrl(cls, _url, **kwargs):
+        cls(**kwargs).init_WithUrl(_url).run()
 
     @classmethod
     def start_NormalMode(cls, _url, **kwargs):
         kwargs["suicideMode"] = False
-        cls(_url, **kwargs).run()
+        cls(**kwargs).init_WithUrl(_url).run()
 
     @classmethod
     def start_SuicideMode(cls, _url, **kwargs):
         kwargs["suicideMode"] = True
-        cls(_url, **kwargs).run()
+        cls(**kwargs).init_WithUrl(_url).run()
+
+    @classmethod
+    def start_QUEUED(cls, **kwargs):
+        kwargs["suicideMode"] = True
+        kwargs["stayWithin"] = DICT.get("stayWithin", kwargs, default=False)
+        kwargs["MODE"] = DICT.get("MODE", kwargs, default=Modes.SUICIDE)
+        kwargs["max"] = DICT.get("max", kwargs, default=0)
+        nc = cls(**kwargs)
+        processing_queue = dbURL.GET_QUEUED_LIST()
+        if processing_queue:
+            nc.add_all(processing_queue)
+            nc.run()
+            return True
+        Log.e("No URLs from DB!")
+        return False
+
+    @classmethod
+    def start_DEEP_MODE(cls, _url, **kwargs):
+        kwargs["suicideMode"] = False
+        kwargs["max"] = 0
+        kwargs["stayWithin"] = False
+        cls(**kwargs).init_WithUrl(_url).run()
 
     def handle_kwargs(self, **kwargs):
         self.max = DICT.get("max", kwargs, default=100)
         self.suicideSwitch = DICT.get("suicideMode", kwargs, default=False)
+        self.MODE = DICT.get("MODE", kwargs, default=Modes.SUICIDE)
+        self.stayWithin = DICT.get("stayWithin", kwargs, default=True)
 
     def run(self):
         Log.i(f"STARTING: ArchiveCrawler PID=[ {self.pid} ]")
+        self.clean_mongo()
         self.run_spider_queue()
+        self.clean_mongo()
+        gc.collect()
+
+    @staticmethod
+    def clean_mongo():
+        return dbURL.CLEAN_QUEUED_LIST()
+
+    def add_all(self, *urls):
+        urls = LIST.flatten(urls)
+        for url in urls:
+            self.queue.add(url)
 
     def verify_mode(self):
         if self.MODE == Modes.NORMAL:
@@ -105,18 +165,20 @@ class ArchiveCrawler:
                 Log.v("Cleaning Queue.")
                 self.queue.clean()
             Log.v("Getting next item in Queue.")
-            _url = self.queue.get()
+            current_url = self.queue.get()
+            # -> Get/Set Request Response
+            self.set_response(current_url)
             # -> Attempt Download
-            self.attempt_download(_url)
+            self.attempt_download(current_url)
             # -> Begin to die? or Continue as Normal?
             if self.verify_mode():
                 # -> Run URL Extraction
-                self.extract_urls(_url)
+                self.extract_urls(current_url)
             self.print_status()
 
     def attempt_download(self, url):
         Log.i("Attempting Archive Download.")
-        result = FusedDownloader.download_v2(url)
+        result = FusedDownloader.crawler_downloader(url, self.response)
         if result:
             Log.v("Extraction Success")
             self.extraction_success.append(url)
@@ -124,52 +186,97 @@ class ArchiveCrawler:
             Log.v("Extraction Failed")
             self.extraction_failed.append(url)
 
-    def request(self, _url):
+    def set_response(self, _url):
         try:
             Log.v("Making Request via requests and parsing html via bs4.")
             request_response = HttpRequest.get_request(_url)
-            response = LIST.get(1, request_response)
-            self.soup = BeautifulSoup(response.text, 'html.parser')
+            self.response = LIST.get(1, request_response)
+            self.soup = BeautifulSoup(self.response.text, 'html.parser')
             Log.v("Request Made")
         except Exception as e:
             Log.e("Failed to make request.", error=e)
 
     def extract_urls(self, _url):
-        # -> Request
-        self.request(_url)
         # -> Parse out URLs
         if self.soup is None:
-            return False
+            return
         Log.v("Extracting URLs via Soup.")
-        extracted_urls = self.soup.findAll('a', href=True)
+        # 1. Soup Based URLs
+        soup_urls = self.find_urls_in_soup()
+        # 2. Regex Based URLs
+        regex_urls = URL.find_urls_in_str(str(self.soup))
+        # 3. Combined All URLs
+        urls = soup_urls + regex_urls
         # -> Add all URLs to Queue
-        self.handle_extracted_urls(extracted_urls)
+        filtered_urls = self.handle_extracted_urls(urls)
+        self.add_urls_to_queue(filtered_urls)
 
-    """
-    -> Need to verify that url we are getting isn't just the ext of the base url.
-    -> We are missing URLS!!!
-    url = www.cnet.com
-    ext = '/news/steve-wilhite-creator-of-the-gif-dies/'
-    """
+    def find_urls_in_soup(self):
+        soup_refs = self.soup.findAll('a', href=True)  # 1. Soup->Tag
+        soup_urls = []
+        for item in soup_refs:
+            href_url = DICT.get("href", item)
+            if str(href_url).startswith("/"):
+                href_url = "https://" + self.base_url + href_url
+            soup_urls.append(href_url)
+        return soup_urls
+
+    @staticmethod
+    def filter_extracted_urls(extracted_urls):
+        extracted_urls = list(set(extracted_urls))
+        extracted_urls = URL.filter_out_bad_exts(extracted_urls)
+        extracted_urls = URL.filter_out_avoid_list(extracted_urls, avoid_list)
+        return extracted_urls
+
     def handle_extracted_urls(self, extracted_urls):
         if not extracted_urls:
             Log.i("No Extracted URLS")
             return
         Log.i("Looping extracted urls.")
-        for item in extracted_urls:
+        extracted_urls = self.filter_extracted_urls(extracted_urls)
+        dbURL.ADD_TO_QUEUED(extracted_urls)
+        return extracted_urls
+
+    def add_urls_to_queue(self, extracted_urls):
+        if not extracted_urls:
+            Log.i("No Extracted URLS")
+            return
+        for ex_url in extracted_urls:
             if self.queue.isFull():
                 Log.i("Queue is FULL!")
                 return
-            _url = DICT.get("href", item)
-            Log.d(f"Looking at URL= [ {_url} ]")
-            if str(_url).startswith("/web/"):
-                Log.i(f"Url is in way back machine. Fixing url.. [ {_url} ].")
-                _url = way_back_machine_url + _url
-            if self.stay_within != "" and self.stay_within in _url:
-                if _url and str(_url).startswith("http"):
-                    self.queue.add(_url)
+            Log.d(f"Looking at URL= [ {ex_url} ]")
+            # -> TODO: Check WayBackMachine ...
+            if str(ex_url).startswith("/web/"):
+                Log.i(f"Url is in way back machine. Fixing url.. [ {ex_url} ].")
+                ex_url = way_back_machine_url + ex_url
+            if self.check_stay_within():
+                if self.stay_within != "" and self.stay_within in ex_url:
+                    if ex_url and URL.is_url(ex_url):
+                        self.queue.add(ex_url)
+                        continue
+                    else:
+                        Log.v(f"Not inside staywithin [ {ex_url} ]")
+                        continue
                 else:
-                    Log.v(f"Not inside staywithin [ {_url} ]")
+                    continue
+            # If all else fails, add it.
+            if ex_url and URL.is_url(ex_url):
+                self.queue.add(ex_url)
+
+    def mode_add(self, url):
+        if self.MODE == Modes.QUEUED:
+            dbURL.ADD_TO_QUEUED(url)
+            return
+        self.queue.add(url)
+
+    def mode_pop(self):
+        if self.MODE == Modes.QUEUED:
+            return dbURL.POP_QUEUED()
+        return self.queue.get()
+
+    def check_stay_within(self):
+        return self.stayWithin
 
     def suicideCheck(self):
         if self.suicideSwitch and self.queue.isFull():
@@ -177,6 +284,7 @@ class ArchiveCrawler:
             self.change_mode(Modes.SUICIDE)
 
     def killThySelf(self):
+        self.clean_mongo()
         raise KillThySelf("Kill Order Initiated.")
 
     def print_status(self):
@@ -209,6 +317,8 @@ if __name__ == '__main__':
     verge = "https://www.theverge.com/tech"
     yahoo = "https://finance.yahoo.com/"
     engadget = "https://www.engadget.com/"
+    download = "https://www.medium.com"
+    ArchiveCrawler.start_QUEUED(stayWithin=False)
     # if guard in guardian:
     #     print(True)
     # c = ArchiveCrawler(engadget)

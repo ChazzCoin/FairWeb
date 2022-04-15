@@ -1,5 +1,7 @@
 from queue import Queue as Qu
-from FWEB.rsLogger import Log
+
+from fwebUtils import URL
+from fwebLogger.LOGGER import Log
 Log = Log("FWEB.Queue.UrlQueue")
 
 class FQueue:
@@ -47,9 +49,8 @@ class FQueue:
     def add(self, obj):
         if self.avoidList:
             result = False
-            for item in self.avoidList:
-                if item in obj:
-                    result = True
+            if URL.avoid_url(obj, self.avoidList):
+                result = True
             if not result:
                 self.safe_put(obj)
                 return

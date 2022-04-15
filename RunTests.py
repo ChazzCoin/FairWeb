@@ -60,7 +60,7 @@ from FWEB import FusedDownloader
 def test1():
     for url in urls:
         downloader_v1 = ArticleDownloader.download_article(url)
-        downloader_v2 = DownloadWebPage.start_url(url).json
+        downloader_v2 = DownloadWebPage.start_url(url, client="Running Tests").json
         compare(url, downloader_v1, downloader_v2)
 
 def test2():

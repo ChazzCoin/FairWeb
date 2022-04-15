@@ -1,12 +1,13 @@
 from Crawler.ArchiveCrawler_v2 import ArchiveCrawler
-from FWEB.Futils import URL, Regex
-from FWEB.Db import Ext
-from FWEB.rsLogger import Log
+from fwebUtils import URL, Regex
+from Jarticle.jURL import jURL
+from fwebLogger.LOGGER import Log
 Log = Log("FWEB.StartCrawler")
 
-@Ext.injectUrls
-def runDbUrls(_urls):
+def runDbUrls():
     Log.i("Running Crawl on Database URL Queue...")
+    u = jURL().url_constructor()
+    _urls = u.get_urls("000")
     for single_url in _urls:
         try:
             crawl(single_url)
@@ -23,7 +24,6 @@ def runSingleUrl(_url):
 def crawl(_url):
     Log.i("Starting up Archive Crawler...")
     ArchiveCrawler.start_SuicideMode(_url, max=200)
-    # ArchiveCrawler(_url, max=200, suicideMode=True).run()
     Log.i("Crawler is finished!")
 
 def init(user_input=None):
