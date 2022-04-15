@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: FWEB
+Version: 1.0.0
+Summary: A complete Python Package for Downloading Articles and WebPages.
+Home-page: https://github.com/chazzcoin/FWEB
+Author: ChazzCoin
+Author-email: chazzcoin@gmail.com
+License: BSD 2-clause
+Platform: UNKNOWN
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+
+UNKNOWN
+
