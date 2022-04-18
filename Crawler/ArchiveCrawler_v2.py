@@ -2,9 +2,9 @@ import gc
 import os
 from bs4 import BeautifulSoup
 
-from fwebDB import dbURL
+from Jarticle.jURL import jURL
 from fwebUtils import DICT, URL, LIST
-import FusedDownloader
+from Downloader import FusedDownloader
 from fwebCore import HttpRequest
 from FQueue.UrlQueue import FQueue
 from fwebLogger.LOGGER import Log
@@ -106,7 +106,7 @@ class ArchiveCrawler:
         kwargs["MODE"] = DICT.get("MODE", kwargs, default=Modes.SUICIDE)
         kwargs["max"] = DICT.get("max", kwargs, default=0)
         nc = cls(**kwargs)
-        processing_queue = dbURL.GET_QUEUED_LIST()
+        processing_queue = jURL.GET_FROM_QUEUED()
         if processing_queue:
             nc.add_all(processing_queue)
             nc.run()
@@ -136,7 +136,7 @@ class ArchiveCrawler:
 
     @staticmethod
     def clean_mongo():
-        return dbURL.CLEAN_QUEUED_LIST()
+        return jURL()
 
     def add_all(self, *urls):
         urls = LIST.flatten(urls)
@@ -234,7 +234,7 @@ class ArchiveCrawler:
             return
         Log.i("Looping extracted urls.")
         extracted_urls = self.filter_extracted_urls(extracted_urls)
-        dbURL.ADD_TO_QUEUED(extracted_urls)
+        jURL.ADD_TO_QUEUED(extracted_urls)
         return extracted_urls
 
     def add_urls_to_queue(self, extracted_urls):
@@ -266,13 +266,13 @@ class ArchiveCrawler:
 
     def mode_add(self, url):
         if self.MODE == Modes.QUEUED:
-            dbURL.ADD_TO_QUEUED(url)
+            jURL.ADD_TO_QUEUED(url)
             return
         self.queue.add(url)
 
     def mode_pop(self):
         if self.MODE == Modes.QUEUED:
-            return dbURL.POP_QUEUED()
+            return jURL.GET_FROM_QUEUED()
         return self.queue.get()
 
     def check_stay_within(self):

@@ -3,4 +3,4 @@
 # -> run main.py with venv
 #
 cd ../../.
-sudo scp -r FWEB/ hark@192.168.1.166:/home/hark/bin/TiffanySystem
+sudo scp -r FWEB/ hark@192.168.1.166:/home/hark/bin/TiffanySystem/

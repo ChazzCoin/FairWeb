@@ -6,7 +6,7 @@ Log = Log("FWEB.FusedDownloader")
 
 updateUrl = False
 
-@Validator.mongo_save
+@Validator.download_save
 def download(url):
     if not url:
         Log.e(f"Url argument is invalid.")
