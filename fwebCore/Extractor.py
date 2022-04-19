@@ -1,6 +1,6 @@
-from fwebUtils import URL, Regex, Language, LIST, Ext, DATE
+from fwebUtils import URL, Regex, Language, LIST, DATE
 from fwebCore import Tag, Soup
-from fwebLogger.LOGGER import Log
+from fwebUtils.LOGGER import Log
 from dateutil import parser
 
 Log = Log("FWEB.Core.Extractor")

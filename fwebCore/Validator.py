@@ -1,5 +1,5 @@
 from fwebUtils import DATE, DICT, Regex
-from fwebLogger.LOGGER import Log
+from fwebUtils.LOGGER import Log
 from Jarticle.jArticles import jArticles
 
 Log = Log("FWEB.Core.Validator")

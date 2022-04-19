@@ -2,7 +2,7 @@ import re
 import requests
 from fwebUtils import Regex as Re
 from fwebUtils import LIST, Regex
-from fwebLogger.LOGGER import Log
+from fwebUtils.LOGGER import Log
 
 Log = Log("FWEB.Futils.URL")
 

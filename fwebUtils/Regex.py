@@ -1,6 +1,6 @@
 import re
-from fwebUtils import DATE, LIST, Ext
-from fwebLogger.LOGGER import Log
+from fwebUtils import DATE, LIST
+from fwebUtils.LOGGER import Log
 Log = Log("FWEB.Futils.Regex")
 
 def remove_special_characters(text):

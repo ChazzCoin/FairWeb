@@ -1,7 +1,7 @@
 from bs4 import BeautifulSoup
 from bs4.element import Tag as bsTag
 from fwebCore import Tag
-from fwebLogger.LOGGER import Log
+from fwebUtils.LOGGER import Log
 Log = Log("FWEB.Core.Soup")
 
 # -> Step Two -> Convert Response Object to HTML Object

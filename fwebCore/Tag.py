@@ -1,6 +1,6 @@
 from bs4.element import Tag as bsTag
 from fwebUtils import Regex, DICT, LIST
-from fwebLogger.LOGGER import Log
+from fwebUtils.LOGGER import Log
 Log = Log("FWEB.Tag")
 
 

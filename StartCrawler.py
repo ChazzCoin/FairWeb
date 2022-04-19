@@ -1,7 +1,7 @@
 from Crawler.ArchiveCrawler_v2 import ArchiveCrawler
 from fwebUtils import URL, Regex
 from Jarticle.jURL import jURL
-from fwebLogger.LOGGER import Log
+from fwebUtils.LOGGER import Log
 Log = Log("FWEB.StartCrawler")
 
 def runDbUrls():

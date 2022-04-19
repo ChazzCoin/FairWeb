@@ -7,7 +7,7 @@ from fwebUtils import DICT, URL, LIST
 from Downloader import FusedDownloader
 from fwebCore import HttpRequest
 from FQueue.UrlQueue import FQueue
-from fwebLogger.LOGGER import Log
+from fwebUtils.LOGGER import Log
 Log = Log("FWEB.Crawler.ArchiveCrawler_v2")
 
 way_back_machine_url = "https://web.archive.org"

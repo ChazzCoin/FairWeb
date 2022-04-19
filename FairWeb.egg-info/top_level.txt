@@ -1,8 +1,8 @@
 Crawler
 Downloader
 FQueue
+fwebConfig
 fwebCore
-fwebLogger
 fwebParser
 fwebResources
 fwebUtils

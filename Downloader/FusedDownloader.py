@@ -1,7 +1,7 @@
 from Downloader.ArchiveDownloader_v1 import DownloadWebPage
 from Downloader import ArticleDownloader
 from fwebCore import Validator
-from fwebLogger.LOGGER import Log
+from fwebUtils.LOGGER import Log
 Log = Log("FWEB.FusedDownloader")
 
 updateUrl = False

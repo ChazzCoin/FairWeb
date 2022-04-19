@@ -1,7 +1,7 @@
 from queue import Queue as Qu
 
 from fwebUtils import URL
-from fwebLogger.LOGGER import Log
+from fwebUtils.LOGGER import Log
 Log = Log("FWEB.Queue.UrlQueue")
 
 class FQueue:

@@ -1,5 +1,5 @@
 from fwebUtils import DICT, DATE
-from fwebLogger.LOGGER import Log
+from fwebUtils.LOGGER import Log
 from fwebParser import Keys
 
 Log = Log("FWEB.Parser.JsonParser")

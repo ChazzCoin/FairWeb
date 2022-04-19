@@ -2,7 +2,7 @@ import sys
 import threading
 import time
 from fwebUtils import LIST
-from fwebLogger.LOGGER import Log
+from fwebUtils.LOGGER import Log
 Log = Log("FWEB.Futils.Extensions")
 
 def safe_run(func):

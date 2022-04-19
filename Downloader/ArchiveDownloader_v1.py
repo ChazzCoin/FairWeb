@@ -1,7 +1,7 @@
 from fwebUtils import URL, LIST
 from fwebCore import HttpRequest, Soup
 from fwebCore.Extractor import Extractor
-from fwebLogger.LOGGER import Log
+from fwebUtils.LOGGER import Log
 import json
 import sys
 
