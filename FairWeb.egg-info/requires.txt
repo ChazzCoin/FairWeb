@@ -1,4 +1,0 @@
-requests==2.27.1
-newspaper3k~=0.2.8
-python-dateutil~=2.7.5
-beautifulsoup4==4.9.3

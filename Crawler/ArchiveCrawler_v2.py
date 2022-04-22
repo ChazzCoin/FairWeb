@@ -171,9 +171,9 @@ class ArchiveCrawler:
             # -> Attempt Download
             self.attempt_download(current_url)
             # -> Begin to die? or Continue as Normal?
-            if self.verify_mode():
-                # -> Run URL Extraction
-                self.extract_urls(current_url)
+            # if self.verify_mode():
+            # -> Run URL Extraction
+            self.extract_urls(current_url)
             self.print_status()
 
     def attempt_download(self, url):
