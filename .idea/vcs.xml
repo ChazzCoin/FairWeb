@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../FCoRE" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../FairNLP" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../FairPICS" vcs="Git" />
+  </component>
+</project>

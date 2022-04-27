@@ -1,7 +1,7 @@
 from bs4 import BeautifulSoup
 from bs4.element import Tag as bsTag
-from FWEB.Core import Tag
-from FWEB.rsLogger import Log
+from Core import Tag
+from FLog.LOGGER import Log
 Log = Log("Clients.Archive.ArchiveDownloader_v2")
 
 
@@ -36,12 +36,16 @@ class Parse:
 
     def __init__(self, response):
         self.response = response
-        self.to_html()
-        self.extract_elements_and_tags()
+        if self.to_html():
+            self.extract_elements_and_tags()
 
     # -> Step Two -> Convert Response Object to HTML Object
     def to_html(self):
-        self.soup = BeautifulSoup(self.response.text, 'html.parser')
+        if self.response:
+            self.soup = BeautifulSoup(self.response.text, 'html.parser')
+            return True
+        else:
+            return False
 
     # -> Step Three -> Convert HTML into Element/Tag Objects
     def extract_elements_and_tags(self):
@@ -50,11 +54,27 @@ class Parse:
         self.tag_head = safe_find(self.soup, "head")  # -> 99%
         self.tag_time = safe_find(self.tag_body, "time")  # ->
         self.element_img = safe_findAll(self.tag_body, "img")
-        self.element_p1 = safe_findAll(self.tag_body, "p")  # ->
+        self.element_p1 = safe_findAll(self.soup, "p")  # ->
         self.tag_h1 = safe_find(self.tag_body, "h1")  # ->
         self.element_meta = safe_findAll(self.tag_head, "meta")
         self.element_span = safe_findAll(self.tag_body, "span")
+        self.doTest()
         Log.i("Parsing Finished")
+
+    def doTest(self):
+        # test_tag =
+        # test_tag = self.soup.find("meta", {"name": "keywords"})
+        # test_attr = Tag.get_attribute(test_tag, "content")
+        #
+        # test_tag = self.soup.findAll("meta")
+        # for item in test_tag:
+        #     test = Tag.get_attribute(item, "name")
+        #     if test and Regex.contains_any(["keywords"], test):
+        #         keywords = Tag.get_attribute(item, "content")
+        #         print(keywords)
+        # test_attr = Tag.get_attribute(test_tag, "datetime")
+        # print(test_attr)
+        pass
 
 if __name__ == '__main__':
     test1 = "https://public.totalglobalsports.com/public/event/2038/game-complex/466/1653/35242"

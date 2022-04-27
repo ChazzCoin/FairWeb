@@ -1,6 +1,6 @@
 from queue import Queue as Qu
-from FWEB.rsLogger import Log
-Log = Log("FWEB.Queue.UrlQueue")
+from FLog.LOGGER import Log
+Log = Log("FairWEB.Queue.UrlQueue")
 
 class FQueue:
     maxSize = 0

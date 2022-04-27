@@ -1,10 +1,12 @@
 import os
 from bs4 import BeautifulSoup
-from FWEB.Futils import DICT, URL, LIST
-from FWEB import FusedDownloader
-from FWEB.Core import HttpRequest
-from FWEB.FQueue.UrlQueue import FQueue
-from FWEB.rsLogger import Log
+from FSON import DICT
+from FList import LIST
+from fairNLP import URL
+from FusedDL import FusedDownloader
+from Core import HttpRequest
+from FQueue.UrlQueue import FQueue
+from FLog.LOGGER import Log
 Log = Log("FWEB.Crawler.ArchiveCrawler_v2")
 
 way_back_machine_url = "https://web.archive.org"

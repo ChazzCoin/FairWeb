@@ -1,6 +1,7 @@
 from newspaper import Article
-from FWEB.Parser import JsonParser
-from FWEB.rsLogger import Log
+from fairParser import JsonParser
+from fairNLP import URL
+from FLog.LOGGER import Log
 Log = Log("FWEB.Downloader.ArticleDownloader")
 
 def download_article(url) -> bool:
@@ -17,7 +18,8 @@ def download_article(url) -> bool:
         article.parse()
         Log.s(f"Successfully Downloaded Article. Attempting to Parse into Hookup.")
         # -> Parse from Article Object into Hookup Object
-        json = JsonParser.parse(article)
+        json = JsonParser.parse(article, client="newspaper3k")
+        json["source"] = URL.get_site_name(url)
         return json
     except Exception as e:
         Log.e("Failed to Download Article.", error=e)

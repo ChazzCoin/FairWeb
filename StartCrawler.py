@@ -1,10 +1,8 @@
 from Crawler.ArchiveCrawler_v2 import ArchiveCrawler
-from FWEB.Futils import URL, Regex
-from FWEB.Db import Ext
-from FWEB.rsLogger import Log
-Log = Log("FWEB.StartCrawler")
+from fairNLP import URL, Regex
+from FLog.LOGGER import Log
+Log = Log("FairWEB.StartCrawler")
 
-@Ext.injectUrls
 def runDbUrls(_urls):
     Log.i("Running Crawl on Database URL Queue...")
     for single_url in _urls:
@@ -33,6 +31,3 @@ def init(user_input=None):
         runDbUrls()
     else:
         runSingleUrl(user_input)
-
-if __name__ == '__main__':
-    runDbUrls()

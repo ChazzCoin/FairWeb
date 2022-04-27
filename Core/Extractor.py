@@ -1,9 +1,11 @@
-from FWEB.Futils import URL, Regex, Language, LIST, Ext
-from FWEB.Core import Tag
-from FWEB.rsLogger import Log
+from fairNLP import URL, Language, Regex
+from FList import LIST
+from FDate import DATE
+from Core import Tag, Soup
+from FLog.LOGGER import Log
 from dateutil import parser
 
-Log = Log("FWEB.Core.Extractor")
+Log = Log("Core.Extractor")
 
 DATE_TAGS = ['rnews:datePublished', 'article:published_time', 'OriginalPublicationDate',
              'datePublished', 'og:published_time', 'article_date_original',
@@ -45,27 +47,39 @@ def parse_date(obj=None):
         return False
 
 items = ["author", "source", "url",
-         "source_url", "imgUrl", "title",
-         "date", "description", "body", "tags"]
+         "source_url", "img_url", "title",
+         "date", "description", "body", "keywords"]
 
 class Extractor:
+    base_url = ""
+    isReddit = False
+    subReddit = None
     soup = None
     data = {}
 
     @classmethod
-    def Extract(cls, soup):
+    def Extract(cls, soup, url, client=False):
         newCls = cls()
+        newCls.base_url = URL.extract_base_url(url)
+        newCls.set_data("client", client)
+        if Regex.contains("reddit", url):
+            newCls.isReddit = True
+            newCls.subReddit = URL.extract_sub_reddit(url)
+            newCls.set_data("subreddit", newCls.subReddit)
         newCls.soup = soup
         newCls.build_json()
         return newCls
 
     def build_json(self):
         """  DYNAMIC {JSON/DICT} BUILDER  """
-        self.extract_tags(self.soup.tag_body)
+        self.data = {}
         for item in items:
             func = self.safe_get_att(item)
             if func:
-                func()
+                try:
+                    func()
+                except Exception as e:
+                    Log.e(f"Failed to extract: {func}", error=e)
 
     def set_data(self, key, value):
         self.data[key] = value
@@ -87,37 +101,47 @@ class Extractor:
     """
         -> Get Attributes
     """
+    def keywords(self):
+        test_tag = self.soup.soup.findAll("meta")
+        for item in test_tag:
+            test = Tag.get_attribute(item, "name")
+            if test and Regex.contains_any(["keywords"], test):
+                keywords = Tag.get_attribute(item, "content")
+                self.set_data("keywords", keywords)
+                return True
+        return False
 
     # -> Date <- #
-
     def date(self):
+        if self.isReddit:
+            self.reddit_date()
+            return True
         if self.master_date_extraction():
             return True
         if self.soup.tag_body:
-            attemptOne = self.date_attempt_one()
-            if attemptOne:
+            if self.date_attempt_one():
                 return True
-            attemptTwo = self.date_attempt_two()
-            if attemptTwo:
+            if self.date_attempt_two():
                 return True
-            attemptThree = self.date_attempt_three()
-            if attemptThree:
+            if self.date_attempt_three():
                 return True
-            attemptFour = self.date_attempt_four()
-            if attemptFour:
+            if self.date_attempt_four():
                 return True
-            attemptFive = self.date_attempt_five()
-            if attemptFive:
+            if self.date_attempt_five():
                 return True
-            attemptSix = self.date_attempt_six()
-            if attemptSix:
+            if self.date_attempt_six():
                 return True
-            attemptLast = self.date_attempt_last()
-            if attemptLast:
-                return True
-            return False
+            return self.date_attempt_last()
 
     def master_date_extraction(self):
+        time_tag = self.soup.soup.find("time")
+        if time_tag:
+            time_attr = Tag.get_attribute(time_tag, "datetime")
+            if time_attr and self.attempt_date_parse_set(time_attr):
+                return True
+        return self.date_attempt_master_two()
+
+    def date_attempt_master_two(self):
         temp_date = Tag.search(self.soup.element_meta, DATE_TAGS)
         if temp_date:
             raw_date = self.get_content(temp_date)
@@ -188,17 +212,23 @@ class Extractor:
                 return True
         return False
 
+    def reddit_date(self):
+        timestamp_tag = self.soup.soup.find("a", {"data-testid": "post_timestamp"})
+        if timestamp_tag:
+            date_ready = DATE.parse_reddit_timestamp_to_datetime(timestamp_tag.text)
+            self.set_data("published_date", date_ready)
+
     def attempt_date_parse_set(self, potential_date):
         date = parse_date(potential_date)
         if date:
-            self.set_data("date", date)
+            self.set_data("published_date", date)
             return True
         return False
 
     # -> Author <- #
-
+    # @Ext.timelimit(3)
     def author(self):
-        temp_author = Tag.search(self.soup.element_meta, ["og:author", "author"])
+        temp_author = Tag.search_element(self.soup.element_meta, ["og:author", "author"])
         if temp_author:
             author = self.get_content(temp_author)
             self.set_data("author", author)
@@ -206,9 +236,13 @@ class Extractor:
             self.set_data("author", UNKNOWN)
 
     # -> Title <- #
-
     def title(self):
         try:
+            title_tag = self.soup.soup.find('title')
+            if title_tag:
+                title_text = title_tag.string
+                self.set_data("title", title_text)
+                return
             text = self.soup.tag_h1.text
             self.set_data("title", text)
             if not text or text == "":
@@ -227,21 +261,60 @@ class Extractor:
         return False
 
     # -> Description <- #
-
     def description(self):
+        if self.master_description():
+            return True
         temp_description = Tag.search(self.soup.element_meta, ["og:description", "description"])
         if temp_description:
             descr = self.get_content(temp_description)
             self.set_data("description", descr)
 
-    # -> Body <- #
+    def master_description(self):
+        description_tag = self.soup.soup.find("meta", {"name": "description"})
+        if description_tag:
+            desc_text = Tag.get_attribute(description_tag, "content")
+            if desc_text:
+                self.set_data("description", desc_text)
+                return True
+        return False
 
+    # -> Body <- #
     def body(self):
-        if self.soup.element_p1:
+        # -> If Reddit
+        if self.isReddit:
+            self.reddit_body()
+        elif self.soup.element_p1:
             body = ""
             for p1_item in self.soup.element_p1:
                 body = Language.combine_args_str(body, "\n", self.get_safe_text(p1_item))
             self.set_data("body", body)
+
+    def reddit_body(self):
+        # -> Grab Main Post
+        post_content = self.soup.soup.findAll("div", {"data-test-id": "post-content"})
+        post = ""
+        for item in post_content:
+            innerTemp = Soup.safe_findAll(item, "p")
+            if innerTemp:
+                for innerItem in innerTemp:
+                    post = Language.combine_args_str(post, "\n", innerItem.text)
+        # -> Grab Comments
+        comment_content = self.soup.soup.findAll("div", {"data-testid": "comment"})
+        comments = []
+        for item in comment_content:
+            innerTemp = Soup.safe_findAll(item, "p")
+            comment = ""
+            if innerTemp:
+                for innerItem in innerTemp:
+                    comment = Language.combine_args_str(comment, "\n", innerItem.text)
+                comments.append(comment)
+        # -> Form Body
+        body = post
+        index = 1
+        for com in comments:
+            body = Language.combine_args_str(body, f"\n\n -> COMMENT {index}: \n", com, "\n")
+            index += 1
+        self.set_data("body", body)
 
     def get_safe_text(self, obj):
         try:
@@ -252,7 +325,11 @@ class Extractor:
 
     # -> ImgUrl <- #
 
-    def imgUrl(self):
+    def img_url(self):
+        if self.isReddit and self.reddit_img_url():
+            return True
+        if self.master_img_url():
+            return True
         if self.soup.element_img:
             attemptOne = self.attempt_img_url_one()
             if attemptOne:
@@ -264,6 +341,47 @@ class Extractor:
             if attemptThree:
                 return True
             return False
+
+    def master_img_url(self):
+        img_tags = self.soup.tag_body.findAll("img")
+        if not img_tags:
+            return False
+        # -> Find Largest img Width in list of image tags.
+        highest_width = 0
+        highest_img = None
+        for inner_img in img_tags:
+            result = Tag.get_attribute(inner_img, "width")
+            if result:
+                result = str(result).replace("%", "")
+                if int(result) > highest_width:
+                    highest_width = int(result)
+                    highest_img = inner_img
+        # -> "src" as Key
+        img_url_by_attribute = Tag.get_attribute(highest_img, "src")
+        if img_url_by_attribute:
+            self.set_data("imgUrl", img_url_by_attribute)
+            return True
+        # -> Convert to String, Regex for all URLS
+        img_url_by_regex = URL.find_urls_in_str(highest_img)
+        if img_url_by_regex:
+            img_url = LIST.get(0, img_url_by_regex)
+            self.set_data("imgUrl", img_url)
+            return True
+        return False
+
+    def reddit_img_url(self):
+        img_tags = self.soup.tag_body.findAll("img")
+        if not img_tags:
+            return False
+        for inner_img in img_tags:
+            result = Tag.get_attribute(inner_img, "alt")
+            if result:
+                if str(result).startswith(self.subReddit):
+                    img_url = Tag.get_attribute(inner_img, "src")
+                    self.set_data("imgUrl", img_url)
+                    return True
+        return False
+
 
     def attempt_img_url_one(self):
         try:

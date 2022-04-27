@@ -1,7 +1,7 @@
 import requests
-from FWEB import Resources
-from FWEB.Futils import Ext
-from FWEB.rsLogger import Log
+import Resources
+from FExt import EXT
+from FLog.LOGGER import Log
 Log = Log("FWEB.Core.HttpRequest")
 
 HEADERS = {
@@ -43,7 +43,7 @@ PROXIES = {
 
 # -> Step One -> Call URL and get Raw HTML back in Response Object.
 # @Ext.safe_run
-@Ext.sleep(5)
+@EXT.sleep(5)
 def get_request(url):
     HEADERS["user-agent"] = Resources.get_random_user_agent()
     Log.i("Making HTTP Request.", v=f"URL= [ {url} ] ")

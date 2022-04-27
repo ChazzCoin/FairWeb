@@ -1,9 +1,8 @@
 import random
-
-from FWEB import fig
+import os
 
 class Resource:
-    USER_AGENTS = fig.USERAGENTS
+    USER_AGENTS = os.path.join(os.path.dirname(__file__), 'useragents.txt')
 
 def get_random_user_agent():
     return get_random_resource(Resource.USER_AGENTS)

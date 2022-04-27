@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../FairNLP/.idea/FAIR.iml" filepath="$PROJECT_DIR$/../FairNLP/.idea/FAIR.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../FCoRE/.idea/FCoRE.iml" filepath="$PROJECT_DIR$/../FCoRE/.idea/FCoRE.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/FairWeb.iml" filepath="$PROJECT_DIR$/.idea/FairWeb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../FairPICS/.idea/Fopics.iml" filepath="$PROJECT_DIR$/../FairPICS/.idea/Fopics.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../TiffanySystems/.idea/TiffanySystems.iml" filepath="$PROJECT_DIR$/../../TiffanySystems/.idea/TiffanySystems.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../FairMongo/.idea/pyFongo.iml" filepath="$PROJECT_DIR$/../FairMongo/.idea/pyFongo.iml" />
+    </modules>
+  </component>
+</project>

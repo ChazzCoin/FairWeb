@@ -1,1 +1,1 @@
-from FWEB.Crawler.ArchiveCrawler_v2 import ArchiveCrawler
+from Crawler.ArchiveCrawler_v2 import ArchiveCrawler
