@@ -2,7 +2,7 @@ from newspaper import Article
 from fairParser import JsonParser
 from fairNLP import URL
 from FLog.LOGGER import Log
-Log = Log("FWEB.Downloader.ArticleDownloader")
+Log = Log("FairWEB.newspaper3k.ArticleDownloader")
 
 def download_article(url) -> bool:
     """

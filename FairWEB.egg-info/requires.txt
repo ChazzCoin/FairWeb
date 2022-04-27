@@ -1,3 +1,0 @@
-FCoRE>=1.0.2
-FairNLP>=1.2.0
-FairMongo>=1.0.4

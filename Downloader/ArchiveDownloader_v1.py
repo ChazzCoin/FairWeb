@@ -6,7 +6,7 @@ from FLog.LOGGER import Log
 import json
 import sys
 
-Log = Log("FWEB.Downloader.ArchiveDownloader_v1")
+Log = Log("FairWEB.ArchiveDownloader_v1")
 
 class DownloadWebPage:
     response = None

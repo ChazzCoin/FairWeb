@@ -52,29 +52,33 @@ def client_downloader(url, client):
     if not url:
         Log.e(f"Url argument is invalid.")
         return False
-    # -> v2
-    Log.i(f"Downloading Article from CLIENT=[ {client} ]")
-    downloader_v2 = fweb_downloader_v2(url, client=client)
-    if downloader_v2:
-        json_v2 = Validator.validate_article(downloader_v2)
-        if json_v2:
-            return downloader_v2.json
     # -> v1
+    Log.i(f"1. Attempting newspaper3k Download of Article from CLIENT=[ {client} ]")
     downloader_v1 = fweb_downloader_v1(url)
     if downloader_v1:
         json_v1 = Validator.validate_article(downloader_v1)
         if json_v1:
             return downloader_v1
+    # -> v2
+    Log.i(f"2. Attempting FairDownloader Download of Article from CLIENT=[ {client} ]")
+    downloader_v2 = fweb_downloader_v2(url, client=client)
+    if downloader_v2:
+        json_v2 = Validator.validate_article(downloader_v2)
+        if json_v2:
+            return downloader_v2.json
     return False
 
 def fweb_downloader_v1(url):
+    """ Original Article Downloader -> newspaper3k """
     return ArticleDownloader.download_article(url)
 
 def fweb_downloader_v2(url, client="fweb_downloader_v2"):
+    """ Fair Article Downloader -> URL Based """
     extractor = DownloadWebPage.start_url(url, client=client)
     return extractor
 
 def fweb_response(url, response, client="fweb_response"):
+    """ Fair Article Downloader -> HTTP Response Based """
     extractor = DownloadWebPage.start_response(url, response, client=client)
     return extractor
 

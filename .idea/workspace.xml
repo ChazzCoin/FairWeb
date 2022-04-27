@@ -5,67 +5,67 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="560a4c82-5719-4761-bc3f-b9ce770e62d8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Core/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Downloader/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FusedDL/FusedDownloader.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FusedDL/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pip-deploy.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../TiffanySystems/HarkServer/harkDataProvider/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../FCoRE/.idea/FCoRE.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../FCoRE/.idea/FCoRE.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FairMongo/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../FairMongo/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FairMongo/.idea/pyFongo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../FairMongo/.idea/pyFongo.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FairNLP/.idea/FAIR.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../FairNLP/.idea/FAIR.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FairNLP/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../FairNLP/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FairNLP/fairParser/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../FairNLP/fairParser/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FairNLP/pip-deploy.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../FairNLP/pip-deploy.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FairNLP/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/../FairNLP/setup.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FairPICS/.idea/Fopics.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../FairPICS/.idea/Fopics.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FairPICS/fopCategories/Categorizer.py" beforeDir="false" afterPath="$PROJECT_DIR$/../FairPICS/fopCategories/Categorizer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FairPICS/fopResources/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../FairPICS/fopResources/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Extractor.py" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Extractor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/HttpRequest.py" beforeDir="false" afterPath="$PROJECT_DIR$/Core/HttpRequest.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FCoRE/FSON/DICT.py" beforeDir="false" afterPath="$PROJECT_DIR$/../FCoRE/FSON/DICT.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FCoRE/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/../FCoRE/setup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FairNLP/fairNLP/Language.py" beforeDir="false" afterPath="$PROJECT_DIR$/../FairNLP/fairNLP/Language.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/FairWeb.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/FairWeb.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Core/Soup.py" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Soup.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Core/Tag.py" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Tag.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Core/Validator.py" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Validator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Crawler/ArchiveCrawler_v2.py" beforeDir="false" afterPath="$PROJECT_DIR$/Crawler/ArchiveCrawler_v2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Crawler/UrlExtractor.py" beforeDir="false" afterPath="$PROJECT_DIR$/Crawler/UrlExtractor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Crawler/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/Crawler/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Db/Ext.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Db/MongoAddUpdate.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Db/MongoArchive.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Db/MongoCore.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Db/MongoQuery.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Db/MongoURL.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Db/__init__.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Downloader/ArchiveDownloader_v1.py" beforeDir="false" afterPath="$PROJECT_DIR$/Downloader/ArchiveDownloader_v1.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Downloader/ArticleDownloader.py" beforeDir="false" afterPath="$PROJECT_DIR$/Downloader/ArticleDownloader.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FQueue/UrlQueue.py" beforeDir="false" afterPath="$PROJECT_DIR$/FQueue/UrlQueue.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FQueue/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/FQueue/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FusedDownloader.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Futils/DATE.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Futils/DICT.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Futils/Ext.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Futils/LIST.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Futils/Language.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Futils/Regex.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Futils/URL.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Futils/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Parser/JsonParser.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Parser/Keys.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Parser/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RunTests.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/StartCrawler.py" beforeDir="false" afterPath="$PROJECT_DIR$/StartCrawler.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fig.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rsLogger/CoreLogger.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rsLogger/Futils.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rsLogger/LogColors.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rsLogger/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rsLogger/fig.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FairWEB.egg-info/PKG-INFO" beforeDir="false" afterPath="$PROJECT_DIR$/FairWEB.egg-info/PKG-INFO" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FusedDL/FusedDownloader.py" beforeDir="false" afterPath="$PROJECT_DIR$/FusedDL/FusedDownloader.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StartCrawler.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/FairWEB-1.3.0.tar.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TiffanySystems/HarkServer/DiscordAPI.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../TiffanySystems/HarkServer/DiscordAPI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TiffanySystems/HarkServer/DiscordSays.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../TiffanySystems/HarkServer/DiscordSays.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TiffanySystems/HarkServer/Tweeter.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../TiffanySystems/HarkServer/Tweeter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TiffanySystems/HarkServer/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../TiffanySystems/HarkServer/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TiffanySystems/HarkServer/api-local.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../TiffanySystems/HarkServer/api-local.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TiffanySystems/HarkServer/api.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../TiffanySystems/HarkServer/api.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TiffanySystems/HarkServer/harkBuild/hark_deploy" beforeDir="false" afterPath="$PROJECT_DIR$/../../TiffanySystems/HarkServer/harkBuild/hark_deploy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TiffanySystems/HarkServer/harkConfig/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../TiffanySystems/HarkServer/harkConfig/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TiffanySystems/HarkServer/harkDataProvider/hookup_tweets.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../TiffanySystems/HarkServer/harkDataProvider/hookup_tweets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TiffanySystems/HarkServer/harkDataProvider/hookup_tweets_sent.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../TiffanySystems/HarkServer/harkDataProvider/hookup_tweets_sent.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TiffanySystems/HarkServer/harkFAIR/Cache/LocalCache.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TiffanySystems/HarkServer/harkFAIR/Core/DATE.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TiffanySystems/HarkServer/harkFAIR/Core/DICT.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TiffanySystems/HarkServer/harkFAIR/Core/Ext.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TiffanySystems/HarkServer/harkFAIR/Core/FILE.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../TiffanySystems/HarkServer/harkDataProvider/Provider.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TiffanySystems/HarkServer/harkFAIR/Core/LIST.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TiffanySystems/HarkServer/harkFAIR/Core/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TiffanySystems/HarkServer/harkFAIR/FUNDLE/CoreTerms.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TiffanySystems/HarkServer/harkFAIR/FUNDLE/CoreTopic.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TiffanySystems/HarkServer/harkFAIR/FUNDLE/Sources.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TiffanySystems/HarkServer/harkFAIR/FUNDLE/Tickers.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TiffanySystems/HarkServer/harkFAIR/FUNDLE/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TiffanySystems/HarkServer/harkFAIR/FUNDLE/stocks.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TiffanySystems/HarkServer/harkFAIR/FUNDLE/stopwords-en.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TiffanySystems/HarkServer/harkFAIR/Helper.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TiffanySystems/HarkServer/harkFAIR/Language.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TiffanySystems/HarkServer/harkFAIR/Logger/CoreLogger.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TiffanySystems/HarkServer/harkFAIR/Logger/Futils.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TiffanySystems/HarkServer/harkFAIR/Logger/LogColors.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TiffanySystems/HarkServer/harkFAIR/Logger/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TiffanySystems/HarkServer/harkFAIR/Logger/fig.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TiffanySystems/HarkServer/harkFAIR/Parser/HookupParser.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TiffanySystems/HarkServer/harkFAIR/Parser/JsonParser.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TiffanySystems/HarkServer/harkFAIR/Parser/Keys.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TiffanySystems/HarkServer/harkFAIR/Parser/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TiffanySystems/HarkServer/harkFAIR/Regex.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TiffanySystems/HarkServer/harkFAIR/Ticker.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TiffanySystems/HarkServer/harkFAIR/URL.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TiffanySystems/HarkServer/harkFAIR/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TiffanySystems/HarkServer/harkFAIR/fig.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TiffanySystems/Jarticle/jarEngine/Enhancements/TopicProcessor_v1.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../TiffanySystems/Jarticle/jarEngine/Enhancements/TopicProcessor_v1.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +80,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../FCoRE" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -115,20 +115,20 @@
       <recent name="$PROJECT_DIR$/Downloader" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.FusedDownloader">
-    <configuration name="ArchiveCrawler_v2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="FairWeb" />
+  <component name="RunManager" selected="Python.rss_cron">
+    <configuration name="RedditClient" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="TheArchiveMachine" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Crawler" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../../TiffanySystems/TheArchiveMachine/archClients" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Crawler/ArchiveCrawler_v2.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../../TiffanySystems/TheArchiveMachine/archClients/RedditClient.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -137,19 +137,19 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="ArticleDownloader" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="FairWeb" />
+    <configuration name="RssFeedClient" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="TheArchiveMachine" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Downloader" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../../TiffanySystems/TheArchiveMachine/archClients" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Downloader/ArticleDownloader.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../../TiffanySystems/TheArchiveMachine/archClients/RssFeedClient.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -158,19 +158,19 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="FusedDownloader" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="FairWeb" />
+    <configuration name="TwitterClient" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="TheArchiveMachine" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../../TiffanySystems/TheArchiveMachine/archClients" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/FusedDL/FusedDownloader.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../../TiffanySystems/TheArchiveMachine/archClients/TwitterClient.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -179,7 +179,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="URL" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="Validator" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="FairWeb" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -187,11 +187,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Futils" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Core" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Futils/URL.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Core/Validator.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -200,19 +200,19 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="__init__" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="FairWeb" />
+    <configuration name="rss_cron" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="TheArchiveMachine" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Resources" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../../TiffanySystems/TheArchiveMachine" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Resources/__init__.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../../TiffanySystems/TheArchiveMachine/rss_cron.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -223,11 +223,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.FusedDownloader" />
-        <item itemvalue="Python.ArticleDownloader" />
-        <item itemvalue="Python.ArchiveCrawler_v2" />
-        <item itemvalue="Python.__init__" />
-        <item itemvalue="Python.URL" />
+        <item itemvalue="Python.rss_cron" />
+        <item itemvalue="Python.Validator" />
+        <item itemvalue="Python.TwitterClient" />
+        <item itemvalue="Python.RssFeedClient" />
+        <item itemvalue="Python.RedditClient" />
       </list>
     </recent_temporary>
   </component>

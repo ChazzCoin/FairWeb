@@ -83,8 +83,9 @@ def search_tag(master_tag: bsTag, terms, enableName=True, enableText=True, enabl
             return result
         else:
             count = depth + 1
-            if count == 1000:
+            if count >= 2000:
                 Log.i(f" -> search_tag() is still searching... Terms=[ {terms} ]")
+                return False
             next_tag = master_tag.next_element
             return search_tag(next_tag, terms,
                                   enableName=enableName, enableText=enableText, enableAttributes=enableAttributes,
@@ -108,8 +109,9 @@ def search_all_tag(master_tag: bsTag, terms, enableName=True, enableText=True, e
             # return result
         else:
             count = depth + 1
-            if count == 1000:
+            if count >= 2000:
                 Log.i(f" -> search_tag() is still searching... Terms=[ {terms} ]")
+                return []
             next_tag = master_tag.next_element
             temp = search_tag(next_tag, terms,
                                   enableName=enableName, enableText=enableText, enableAttributes=enableAttributes,
@@ -121,6 +123,7 @@ def search_all_tag(master_tag: bsTag, terms, enableName=True, enableText=True, e
         Log.e("Something went wrong during tag search.", error=e)
         return []
 
+""" Next Layer """
 def find(master_tag, terms, enableName, enableText, enableAttributes):
     """ -> Searches the single current  <- """
     Log.v(f" -> find() {terms}.")

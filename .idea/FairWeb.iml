@@ -8,6 +8,9 @@
     <orderEntry type="module" module-name="FAIR" />
     <orderEntry type="module" module-name="Fopics" />
     <orderEntry type="module" module-name="FCoRE" />
-    <orderEntry type="module" module-name="TiffanySystems" />
+    <orderEntry type="module" module-name="HarkServer" />
+    <orderEntry type="module" module-name="MasterJarticle" />
+    <orderEntry type="module" module-name="TheArchiveMachine" />
+    <orderEntry type="module" module-name="venv" />
   </component>
 </module>

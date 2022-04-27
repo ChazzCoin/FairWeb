@@ -6,8 +6,11 @@
       <module fileurl="file://$PROJECT_DIR$/../FCoRE/.idea/FCoRE.iml" filepath="$PROJECT_DIR$/../FCoRE/.idea/FCoRE.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/FairWeb.iml" filepath="$PROJECT_DIR$/.idea/FairWeb.iml" />
       <module fileurl="file://$PROJECT_DIR$/../FairPICS/.idea/Fopics.iml" filepath="$PROJECT_DIR$/../FairPICS/.idea/Fopics.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../../TiffanySystems/.idea/TiffanySystems.iml" filepath="$PROJECT_DIR$/../../TiffanySystems/.idea/TiffanySystems.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../TiffanySystems/HarkServer/.idea/HarkServer.iml" filepath="$PROJECT_DIR$/../../TiffanySystems/HarkServer/.idea/HarkServer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../TiffanySystems/Jarticle/.idea/MasterJarticle.iml" filepath="$PROJECT_DIR$/../../TiffanySystems/Jarticle/.idea/MasterJarticle.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../TiffanySystems/TheArchiveMachine/.idea/TheArchiveMachine.iml" filepath="$PROJECT_DIR$/../../TiffanySystems/TheArchiveMachine/.idea/TheArchiveMachine.iml" />
       <module fileurl="file://$PROJECT_DIR$/../FairMongo/.idea/pyFongo.iml" filepath="$PROJECT_DIR$/../FairMongo/.idea/pyFongo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../TiffanySystems/venv/.idea/venv.iml" filepath="$PROJECT_DIR$/../../TiffanySystems/venv/.idea/venv.iml" />
     </modules>
   </component>
 </project>

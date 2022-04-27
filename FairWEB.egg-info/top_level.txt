@@ -1,6 +1,0 @@
-Core
-Crawler
-Downloader
-FQueue
-FusedDL
-Resources
