@@ -74,10 +74,3 @@ class Parse:
         # test_attr = Tag.get_attribute(test_tag, "datetime")
         # print(test_attr)
         pass
-
-if __name__ == '__main__':
-    test1 = "https://public.totalglobalsports.com/public/event/2038/game-complex/466/1653/35242"
-    test = "https://public.totalglobalsports.com/public/event/2038/individual-team/18/35266/9"
-    s = Parse(test1)
-    result = Tag.search_tag_deep(s.tag_body, "tbody", enableName=True)
-    print(result)

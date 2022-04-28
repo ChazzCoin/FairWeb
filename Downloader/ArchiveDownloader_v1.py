@@ -1,3 +1,4 @@
+import FExt.EXT
 from FList import LIST
 from fairNLP import URL
 from Core import HttpRequest, Soup, Extractor
@@ -5,6 +6,7 @@ from Core.Extractor import Extractor
 from FLog.LOGGER import Log
 import json
 import sys
+import timeout_decorator
 
 Log = Log("FairWEB.ArchiveDownloader_v1")
 
@@ -20,7 +22,7 @@ class DownloadWebPage:
     json = {}
 
     def __init__(self, url):
-        sys.setrecursionlimit(5000)
+        sys.setrecursionlimit(10000)
         self.result = True
         self.url = url
         self.base_url = URL.extract_base_url(url)
@@ -73,17 +75,22 @@ class DownloadWebPage:
         self.soup = Soup.Parse(self.response)
 
     # -> Step Four -> Extract Data from Elements/Tags
+    @timeout_decorator.timeout(30)
     def extract_data(self):
         Log.i(f"Attempting to Extract Data from HTML Elements.")
         if not self.soup:
             return False
-        temp = Extractor.Extract(self.soup, self.url, client=self.client)
-        self.json = temp.data
-        self.set_json("url", self.url)
-        source = URL.get_site_name(self.url)
-        self.set_json("client", self.client)
-        self.set_json("source", source)
-        self.set_json("source_url", f"www.{source}.com")
+        try:
+            temp = Extractor.Extract(self.soup, self.url, client=self.client)
+            self.json = temp.data
+            self.set_json("url", self.url)
+            source = URL.get_site_name(self.url)
+            self.set_json("client", self.client)
+            self.set_json("source", source)
+            self.set_json("source_url", f"www.{source}.com")
+        except Exception as e:
+            Log.e("Failed to Extract.", error=e)
+            return False
 
     def set_json(self, key, value):
         self.json[key] = value

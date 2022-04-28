@@ -4,6 +4,7 @@ from FDate import DATE
 from Core import Tag, Soup
 from FLog.LOGGER import Log
 from dateutil import parser
+import sys
 
 Log = Log("Core.Extractor")
 
@@ -59,6 +60,7 @@ class Extractor:
 
     @classmethod
     def Extract(cls, soup, url, client=False):
+        sys.setrecursionlimit(10000)
         newCls = cls()
         newCls.base_url = URL.extract_base_url(url)
         newCls.set_data("client", client)

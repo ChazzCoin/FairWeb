@@ -45,12 +45,16 @@ PROXIES = {
 # @Ext.safe_run
 @EXT.sleep(5)
 def get_request(url):
-    HEADERS["user-agent"] = Resources.get_random_user_agent()
-    Log.i("Making HTTP Request.", v=f"URL= [ {url} ] ")
-    response = requests.get(url, headers=HEADERS)
-    if response.status_code > 205:
-        Log.w(f"Failed to make HTTP Request with URL= [ {url} ] ")
+    try:
+        HEADERS["user-agent"] = Resources.get_random_user_agent()
+        Log.i("Making HTTP Request.", v=f"URL= [ {url} ] ")
+        response = requests.get(url, headers=HEADERS, timeout=10)
+        if response.status_code > 205:
+            Log.w(f"Failed to make HTTP Request with URL= [ {url} ] ")
+            return False
+        else:
+            Log.s(f"Successful HTTP Request")
+            return True, response
+    except Exception as e:
+        Log.e("Request Failed.", error=e)
         return False
-    else:
-        Log.s(f"Successful HTTP Request")
-        return True, response

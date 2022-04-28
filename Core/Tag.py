@@ -4,7 +4,9 @@ from FList import LIST
 from fairNLP import Regex
 from FLog.LOGGER import Log
 Log = Log("FWEB.Tag")
+import sys
 
+sys.setrecursionlimit(10000)
 
 """
         1. Element -> holds Tag(s)
@@ -15,7 +17,6 @@ Log = Log("FWEB.Tag")
         Element = { Tag(s)? }
         Tag = { name, text, attrs?, next_element?/Tag? }
     """
-
 def search(master_element, terms, enableName=True, enableText=True, enableAttributes=True):
     """ -> Master Search, Handles both Elements or Tags. <- """
     if not master_element:
@@ -27,7 +28,6 @@ def search(master_element, terms, enableName=True, enableText=True, enableAttrib
         # Tag
         return search_tag_deep(master_element, terms,
                                  enableName=enableName, enableText=enableText, enableAttributes=enableAttributes)
-
 def search_element(master_element, terms, enableName=False, enableText=False, enableAttributes=False):
     if not master_element:
         return False
@@ -60,17 +60,18 @@ def search_tag_deep(master_tag: bsTag, terms, enableName=False, enableText=False
         all_tags = master_tag.find_all_next()
         if all_tags:
             for subTag in all_tags:
-                temp = search_tag(subTag, terms,
-                                      enableName=enableName, enableText=enableText, enableAttributes=enableAttributes)
-                if temp:
-                    return temp
+                if subTag and subTag != "\n" and subTag != "" and subTag != " ":
+                    temp = search_tag(subTag, terms,
+                                        enableName=enableName, enableText=enableText, enableAttributes=enableAttributes)
+                    if temp:
+                        return temp
         Log.w(f" -> find_tag() found nothing for TERMS=[ {terms} ].")
         return False
     except Exception as e:
         Log.e(" -> find_tag() has failed.", error=e)
         return False
 
-def search_tag(master_tag: bsTag, terms, enableName=True, enableText=True, enableAttributes=True, depth=0):
+def search_tag(master_tag: bsTag, terms, enableName=True, enableText=True, enableAttributes=True):
     """ -> A Recursive Loop through each "next_element"/Tag <- """
     if not is_tag(master_tag):
         return False
@@ -82,46 +83,13 @@ def search_tag(master_tag: bsTag, terms, enableName=True, enableText=True, enabl
         if result:
             return result
         else:
-            count = depth + 1
-            if count >= 2000:
-                Log.i(f" -> search_tag() is still searching... Terms=[ {terms} ]")
-                return False
             next_tag = master_tag.next_element
-            return search_tag(next_tag, terms,
-                                  enableName=enableName, enableText=enableText, enableAttributes=enableAttributes,
-                                  depth=count)
+            if next_tag and next_tag != "\n" and next_tag != "" and next_tag != " ":
+                return search_tag(next_tag, terms,
+                                      enableName=enableName, enableText=enableText, enableAttributes=enableAttributes)
     except Exception as e:
         Log.e("Something went wrong during tag search.", error=e)
         return False
-
-def search_all_tag(master_tag: bsTag, terms, enableName=True, enableText=True, enableAttributes=True, depth=0) -> []:
-    """ -> EXPERIMENTAL AND NOT FINISHED <- """
-    if not is_tag(master_tag):
-        return False
-    try:
-        Log.i(f"Searching... [ {master_tag.name} ]")
-        results = []
-        # -> Search Tag
-        result = find(master_tag, terms,
-                          enableName=enableName, enableText=enableText, enableAttributes=enableAttributes)
-        if result:
-            results.append(result)
-            # return result
-        else:
-            count = depth + 1
-            if count >= 2000:
-                Log.i(f" -> search_tag() is still searching... Terms=[ {terms} ]")
-                return []
-            next_tag = master_tag.next_element
-            temp = search_tag(next_tag, terms,
-                                  enableName=enableName, enableText=enableText, enableAttributes=enableAttributes,
-                                  depth=count)
-            if temp:
-                results.append(temp)
-        return results
-    except Exception as e:
-        Log.e("Something went wrong during tag search.", error=e)
-        return []
 
 """ Next Layer """
 def find(master_tag, terms, enableName, enableText, enableAttributes):

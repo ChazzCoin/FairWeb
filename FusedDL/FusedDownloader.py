@@ -85,4 +85,6 @@ def fweb_response(url, response, client="fweb_response"):
 if __name__ == '__main__':
     url1 = "https://www.americanbanker.com/payments/news/inside-ripples-plans-for-mainstream-crypto-payments",
     url2 = "https://towardsdatascience.com/decorators-in-python-fundamentals-for-data-scientists-eada7f4eba85"
-    download(url2)
+    url3 = "https://www.wsj.com/articles/meta-platforms-facebook-fb-q1-earnings-report-2022-1165102219"
+    url4 = "https://www.newsobserver.com/news/business/article260136540.html"
+    fweb_downloader_v2(url4)

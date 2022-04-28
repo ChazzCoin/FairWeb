@@ -6,24 +6,18 @@
   <component name="ChangeListManager">
     <list default="true" id="560a4c82-5719-4761-bc3f-b9ce770e62d8" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/../../TiffanySystems/HarkServer/harkDataProvider/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FCoRE/.idea/FCoRE.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../FCoRE/.idea/FCoRE.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FCoRE/FSON/DICT.py" beforeDir="false" afterPath="$PROJECT_DIR$/../FCoRE/FSON/DICT.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../FCoRE/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/../FCoRE/setup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FairMongo/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/../FairMongo/setup.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../FairNLP/fairNLP/Language.py" beforeDir="false" afterPath="$PROJECT_DIR$/../FairNLP/fairNLP/Language.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/FairWeb.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/FairWeb.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FairNLP/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/../FairNLP/setup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FairPICS/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/../FairPICS/setup.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Extractor.py" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Extractor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/HttpRequest.py" beforeDir="false" afterPath="$PROJECT_DIR$/Core/HttpRequest.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Core/Soup.py" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Soup.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Core/Tag.py" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Tag.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Validator.py" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Validator.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Downloader/ArchiveDownloader_v1.py" beforeDir="false" afterPath="$PROJECT_DIR$/Downloader/ArchiveDownloader_v1.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Downloader/ArticleDownloader.py" beforeDir="false" afterPath="$PROJECT_DIR$/Downloader/ArticleDownloader.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FairWEB.egg-info/PKG-INFO" beforeDir="false" afterPath="$PROJECT_DIR$/FairWEB.egg-info/PKG-INFO" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FusedDL/FusedDownloader.py" beforeDir="false" afterPath="$PROJECT_DIR$/FusedDL/FusedDownloader.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StartCrawler.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/FairWEB-1.3.0.tar.gz" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../TiffanySystems/HarkServer/DiscordAPI.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../TiffanySystems/HarkServer/DiscordAPI.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../TiffanySystems/HarkServer/DiscordSays.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../TiffanySystems/HarkServer/DiscordSays.py" afterDir="false" />
@@ -66,6 +60,8 @@
       <change beforePath="$PROJECT_DIR$/../../TiffanySystems/HarkServer/harkFAIR/__init__.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../TiffanySystems/HarkServer/harkFAIR/fig.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../TiffanySystems/Jarticle/jarEngine/Enhancements/TopicProcessor_v1.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../TiffanySystems/Jarticle/jarEngine/Enhancements/TopicProcessor_v1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TiffanySystems/TheArchiveMachine/DiscordAlert/Alert.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../TiffanySystems/TheArchiveMachine/DiscordAlert/Alert.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TiffanySystems/TheArchiveMachine/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../TiffanySystems/TheArchiveMachine/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +76,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../FCoRE" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -104,7 +100,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -115,8 +111,8 @@
       <recent name="$PROJECT_DIR$/Downloader" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.rss_cron">
-    <configuration name="RedditClient" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.FusedDownloader">
+    <configuration name="Alert" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="TheArchiveMachine" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -124,11 +120,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../../TiffanySystems/TheArchiveMachine/archClients" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../../TiffanySystems/TheArchiveMachine/DiscordAlert" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../../TiffanySystems/TheArchiveMachine/archClients/RedditClient.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../../TiffanySystems/TheArchiveMachine/DiscordAlert/Alert.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -137,19 +133,19 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="RssFeedClient" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="TheArchiveMachine" />
+    <configuration name="FusedDownloader" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="FairWeb" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../../TiffanySystems/TheArchiveMachine/archClients" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/FusedDL" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../../TiffanySystems/TheArchiveMachine/archClients/RssFeedClient.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/FusedDL/FusedDownloader.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -158,19 +154,19 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="TwitterClient" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="TheArchiveMachine" />
+    <configuration name="Tag" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="FairWeb" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../../TiffanySystems/TheArchiveMachine/archClients" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Core" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../../TiffanySystems/TheArchiveMachine/archClients/TwitterClient.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Core/Tag.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -223,11 +219,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.FusedDownloader" />
+        <item itemvalue="Python.Tag" />
+        <item itemvalue="Python.Alert" />
         <item itemvalue="Python.rss_cron" />
         <item itemvalue="Python.Validator" />
-        <item itemvalue="Python.TwitterClient" />
-        <item itemvalue="Python.RssFeedClient" />
-        <item itemvalue="Python.RedditClient" />
       </list>
     </recent_temporary>
   </component>
@@ -252,5 +248,66 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Core/Tag.py</url>
+          <line>19</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Core/Tag.py</url>
+          <line>29</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Core/Tag.py</url>
+          <line>44</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Core/Tag.py</url>
+          <line>94</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Core/Tag.py</url>
+          <line>80</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Core/Tag.py</url>
+          <line>81</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Core/Tag.py</url>
+          <line>85</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Core/Tag.py</url>
+          <line>89</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Core/Tag.py</url>
+          <line>73</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Core/Tag.py</url>
+          <line>146</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Core/Tag.py</url>
+          <line>145</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
