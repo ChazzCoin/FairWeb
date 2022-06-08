@@ -1,5 +1,7 @@
 from queue import Queue as Qu
 from FLog.LOGGER import Log
+from fairNLP import Regex, URL
+
 Log = Log("FairWEB.Queue.UrlQueue")
 
 class FQueue:
@@ -15,7 +17,7 @@ class FQueue:
         self.noDuplicates = noDuplicates
         self.avoidList = avoidList
         self.mainQueue = Qu(self.maxSize)
-        self.processedQueue = Qu(self.maxSize)
+        self.processedQueue = Qu()
 
     def isDup(self, obj):
         if obj in self.mainQueue.queue:
@@ -48,8 +50,9 @@ class FQueue:
         if self.avoidList:
             result = False
             for item in self.avoidList:
-                if item in obj:
-                    result = True
+                url = URL.get_base_url(obj)
+                if Regex.contains(item, url):
+                    return
             if not result:
                 self.safe_put(obj)
                 return
@@ -65,13 +68,13 @@ class FQueue:
         elif self.noDuplicates:
             if not self.isDup(obj=obj):
                 self.mainQueue.put(obj)
-                Log.i(f"{obj} added to queue!")
+                Log.d(f"{obj} added to queue!")
                 return True
             else:
                 return False
         else:
             self.mainQueue.put(obj)
-            Log.i(f"{obj} added to queue!")
+            Log.d(f"{obj} added to queue!")
             return True
 
     def get(self):

@@ -6,7 +6,7 @@ from Core.Extractor import Extractor
 from FLog.LOGGER import Log
 import json
 import sys
-import timeout_decorator
+# import timeout_decorator
 
 Log = Log("FairWEB.ArchiveDownloader_v1")
 
@@ -75,7 +75,7 @@ class DownloadWebPage:
         self.soup = Soup.Parse(self.response)
 
     # -> Step Four -> Extract Data from Elements/Tags
-    @timeout_decorator.timeout(30)
+    # @timeout_decorator.timeout(30)
     def extract_data(self):
         Log.i(f"Attempting to Extract Data from HTML Elements.")
         if not self.soup:

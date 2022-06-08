@@ -19,7 +19,6 @@ def download_v1(url, saveToArchive=False, setDateToToday=False):
         return result
     return False
 
-@Validator.mongo_save
 def download(url):
     return download_v2(url)
 
@@ -30,9 +29,9 @@ def download_v2(url):
     if downloader_v1 and Validator.validate_article(downloader_v1):
         return downloader_v1
     # -> v2
-    downloader_v2 = fweb_downloader_v2(url)
-    if downloader_v2 and Validator.validate_article(downloader_v2):
-        return downloader_v2.json
+    # downloader_v2 = fweb_downloader_v2(url)
+    # if downloader_v2 and Validator.validate_article(downloader_v2):
+    #     return downloader_v2.json
     return False
 
 @Validator.mongo_save
@@ -87,4 +86,4 @@ if __name__ == '__main__':
     url2 = "https://towardsdatascience.com/decorators-in-python-fundamentals-for-data-scientists-eada7f4eba85"
     url3 = "https://www.wsj.com/articles/meta-platforms-facebook-fb-q1-earnings-report-2022-1165102219"
     url4 = "https://www.newsobserver.com/news/business/article260136540.html"
-    fweb_downloader_v2(url4)
+    download("https://dailyhodl.com/2022/05/24/analyst-benjamin-cowen-forecasts-bitcoin-rally-as-btc-follows-2018-market-structure-move-for-move/")

@@ -76,7 +76,7 @@ def search_tag(master_tag: bsTag, terms, enableName=True, enableText=True, enabl
     if not is_tag(master_tag):
         return False
     try:
-        Log.i(f"Searching... [ {master_tag.name} ]")
+        Log.d(f"Searching... [ {master_tag.name} ]")
         # -> Search Tag
         result = find(master_tag, terms,
                           enableName=enableName, enableText=enableText, enableAttributes=enableAttributes)

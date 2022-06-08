@@ -2,7 +2,7 @@ import os
 from bs4 import BeautifulSoup
 from FSON import DICT
 from FList import LIST
-from fairNLP import URL
+from fairNLP import URL, Regex
 from FusedDL import FusedDownloader
 from Core import HttpRequest
 from FQueue.UrlQueue import FQueue
@@ -12,8 +12,10 @@ Log = Log("FWEB.Crawler.ArchiveCrawler_v2")
 way_back_machine_url = "https://web.archive.org"
 avoid_list = ['youtube', 'twitter', 'facebook', 'instagram', 'advertising', 'apple', 'google',
               'spotify', 'tiktok', 'soundcloud', 'linkedin', 'flickr', 'oauth', 'terms-of-service',
-              'privacy-policy', 'contact-us', 'fr', 'de', "coupon.", "coupons.", ".coupon", ".coupons"]
+              'privacy-policy', 'contact-us', '.fr', '.de', "coupon.", "coupons.", ".coupon", ".coupons",
+              ".chinese", "chinese.", ".japan", "japan.", ".kr", ".fr", ".getinvisiblehand"]
 
+MAX_QUEUE = 100
 
 class SoupError(Exception):
     def __init__(self, message, errors=None):
@@ -38,7 +40,7 @@ class ArchiveCrawler:
     pid = None
     timer = None
     # -> kwargs
-    max = 100
+    max = MAX_QUEUE
     suicideSwitch = False
     # -> Global
     MODE = Modes.NORMAL
@@ -48,6 +50,7 @@ class ArchiveCrawler:
     stay_within = ""
     soup = None
     total_count = 0
+    base_site = ""
 
     def __init__(self, url, **kwargs):
         """
@@ -58,6 +61,7 @@ class ArchiveCrawler:
         self.handle_kwargs(**kwargs)
         self.pid = os.getpid()
         self.stay_within = URL.get_site_name(url)
+        self.base_site = URL.get_base_url(url)
         self.queue = FQueue(maxSize=self.max, avoidList=avoid_list)
         Log.i(f"Launching ArchiveCrawler with PID=[ {self.pid} ]")
         self.queue.add(url)
@@ -70,15 +74,19 @@ class ArchiveCrawler:
     @classmethod
     def start_NormalMode(cls, _url, **kwargs):
         kwargs["suicideMode"] = False
-        cls(_url, **kwargs).run()
+        newClass = cls(_url, **kwargs)
+        newClass.run()
+        return newClass
 
     @classmethod
     def start_SuicideMode(cls, _url, **kwargs):
         kwargs["suicideMode"] = True
-        cls(_url, **kwargs).run()
+        newClass = cls(_url, **kwargs)
+        newClass.run()
+        return newClass
 
     def handle_kwargs(self, **kwargs):
-        self.max = DICT.get("max", kwargs, default=100)
+        self.max = DICT.get("max", kwargs, default=MAX_QUEUE)
         self.suicideSwitch = DICT.get("suicideMode", kwargs, default=False)
 
     def run(self):
@@ -101,7 +109,10 @@ class ArchiveCrawler:
     def run_spider_queue(self):
         Log.i(f"Starting URL Queue with {self.queue.size()}.")
         # -> Work Queue.
+        # while self.total_count <= MAX_QUEUE:
+        #     pass
         while not self.queue.isEmpty():
+            self.total_count += 1
             # -> Clean Queue Check.
             if self.queue.size() > self.max / 2:
                 Log.v("Cleaning Queue.")
@@ -143,7 +154,10 @@ class ArchiveCrawler:
         if self.soup is None:
             return False
         Log.v("Extracting URLs via Soup.")
-        extracted_urls = self.soup.findAll('a', href=True)
+        soup_urls = self.soup.findAll('a', href=True)
+        fair_urls = URL.find_urls_in_str(self.soup.__str__())
+        extracted_urls = LIST.flatten(soup_urls, fair_urls)
+
         # -> Add all URLs to Queue
         self.handle_extracted_urls(extracted_urls)
 
@@ -158,25 +172,45 @@ class ArchiveCrawler:
             Log.i("No Extracted URLS")
             return
         Log.i("Looping extracted urls.")
-        for item in extracted_urls:
-            if self.queue.isFull():
-                Log.i("Queue is FULL!")
-                return
-            _url = DICT.get("href", item)
-            Log.d(f"Looking at URL= [ {_url} ]")
-            if str(_url).startswith("/web/"):
-                Log.i(f"Url is in way back machine. Fixing url.. [ {_url} ].")
-                _url = way_back_machine_url + _url
-            if self.stay_within != "" and self.stay_within in _url:
-                if _url and str(_url).startswith("http"):
-                    self.queue.add(_url)
+        try:
+            for item in extracted_urls:
+                if self.queue.isFull():
+                    Log.i("Queue is FULL!")
+                    return
+                _url = DICT.get("href", item)
+                Log.d(f"Looking at URL= [ {_url} ]")
+                # Web Archive Site
+                if str(_url).startswith("/web/") and _url:
+                    Log.i(f"Url is in way back machine. Fixing url.. [ {_url} ].")
+                    _url = str(way_back_machine_url) + str(_url)
+                # If url begins with / then it's an ext.
+                if str(_url).startswith("/"):
+                    _url = f"https://{self.base_site}{str(_url)}"
+                # Check Staywithin
+                if self.stay_within != "" and Regex.contains(self.stay_within, _url):
+                    if _url and str(_url).startswith("http"):
+                        self.queue.add(_url)
+                        continue
+                    else:
+                        Log.v(f"Not inside staywithin [ {_url} ]")
+                        continue
                 else:
-                    Log.v(f"Not inside staywithin [ {_url} ]")
+                    if _url and str(_url).startswith("http"):
+                        self.queue.add(_url)
+                        continue
+            return
+        except Exception as e:
+            Log.e(f"Failed to handle URLs. Continuing... error=[ {e} ]")
+            return
 
     def suicideCheck(self):
-        if self.suicideSwitch and self.queue.isFull():
-            Log.i("Queue is FULL! Changing MODE to SUICIDE.")
-            self.change_mode(Modes.SUICIDE)
+        if self.suicideSwitch:
+            queue_count = self.queue.size()
+            if self.queue.isFull() \
+                    or queue_count >= self.max - 1\
+                    or self.total_count >= self.max:
+                Log.i("Queue is FULL! Changing MODE to SUICIDE.")
+                self.change_mode(Modes.SUICIDE)
 
     def killThySelf(self):
         raise KillThySelf("Kill Order Initiated.")
@@ -185,7 +219,9 @@ class ArchiveCrawler:
         print("\n")
         Log.i(f"---------------------------------------------")
         # Log.i(f"Time: {DATE.to_hours_minutes_seconds(self.timer.current_time())} Hours:Minutes:Seconds.")
-        Log.i(f"Spider Queue: {self.queue.size()}")
+        Log.i(f"Crawler Mode: {self.MODE}")
+        Log.i(f"Spider Queue Size: {self.queue.size()}")
+        Log.i(f"Total URLs Crawled: {self.total_count}")
         Log.i(f"Extraction Success: {len(self.extraction_success)}")
         Log.i(f"Extraction Failed: {len(self.extraction_failed)}")
         Log.i(f"---------------------------------------------")
@@ -213,4 +249,4 @@ if __name__ == '__main__':
     engadget = "https://www.engadget.com/"
     # if guard in guardian:
     #     print(True)
-    # c = ArchiveCrawler(engadget)
+    c = ArchiveCrawler.start_SuicideMode(_url=coindesk)

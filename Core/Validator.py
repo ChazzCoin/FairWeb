@@ -48,7 +48,7 @@ def validate_article(article):
             newArticle = DICT.replace_key_value(article, "published_date", DATE.mongo_date_today_str())
             return newArticle
     # Date has been validated here.
-    if v_body(body):
+    if v_body(body) and v_date(date):
         Log.s(f"Article Validated by [ BODY ] and [ DATE=[ {date} ] ]")
         return article
     # Last resort, False
@@ -70,7 +70,7 @@ def v_title(title):
     return False
 
 def v_date(date):
-    if date:
+    if date and date != "False":
         return True
     return False
 
