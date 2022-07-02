@@ -88,3 +88,15 @@ def mongo_save(func):
             return True
         return False
     return wrapper
+
+def mongo_update(func):
+    """ -> DECORATOR <- """
+    def wrapper(*args):
+        # -> func() should return Article in JSON format.
+        article = func(*args)
+        if article:
+            Log.i("ARTICLE HAS BEEN WRAPPED AND VALIDATED!")
+            jArticles.ADD_ARTICLES(article)
+            return True
+        return False
+    return wrapper

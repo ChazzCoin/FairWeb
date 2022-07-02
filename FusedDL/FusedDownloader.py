@@ -86,4 +86,6 @@ if __name__ == '__main__':
     url2 = "https://towardsdatascience.com/decorators-in-python-fundamentals-for-data-scientists-eada7f4eba85"
     url3 = "https://www.wsj.com/articles/meta-platforms-facebook-fb-q1-earnings-report-2022-1165102219"
     url4 = "https://www.newsobserver.com/news/business/article260136540.html"
-    download("https://dailyhodl.com/2022/05/24/analyst-benjamin-cowen-forecasts-bitcoin-rally-as-btc-follows-2018-market-structure-move-for-move/")
+    wallstreetj = "https://www.wsj.com/articles/primary-elections-2022-south-carolina-nevada-races-test-trumps-sway-in-gop-11655199002"
+    date_none = "https://finance.yahoo.com/news/metaverse-real-estate-market-growing-115600231.html"
+    download(date_none)

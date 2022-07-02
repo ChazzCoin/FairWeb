@@ -63,7 +63,7 @@ class ArchiveCrawler:
         self.stay_within = URL.get_site_name(url)
         self.base_site = URL.get_base_url(url)
         self.queue = FQueue(maxSize=self.max, avoidList=avoid_list)
-        Log.i(f"Launching ArchiveCrawler with PID=[ {self.pid} ]")
+        Log.i(f"Launching ArchiveCrawler. URL=[ {url} ] PID=[ {self.pid} ]")
         self.queue.add(url)
         Log.i(f"Ready to START: ArchiveCrawler PID=[ {self.pid} ]")
 
@@ -157,7 +157,6 @@ class ArchiveCrawler:
         soup_urls = self.soup.findAll('a', href=True)
         fair_urls = URL.find_urls_in_str(self.soup.__str__())
         extracted_urls = LIST.flatten(soup_urls, fair_urls)
-
         # -> Add all URLs to Queue
         self.handle_extracted_urls(extracted_urls)
 

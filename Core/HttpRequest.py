@@ -1,4 +1,8 @@
 import requests
+from Core import Soup
+
+from FList import LIST
+
 import Resources
 from FExt import EXT
 from FLog.LOGGER import Log
@@ -58,3 +62,25 @@ def get_request(url):
     except Exception as e:
         Log.e("Request Failed.", error=e)
         return False
+
+# -> Step One -> Call URL and get Raw HTML back in Response Object.
+def request_to_html(url):
+    Log.i(f"Making Request to URL = [ {url} ]")
+    resp = get_request(url)
+    if resp:
+        response = LIST.get(1, resp, False)
+        return to_html(response)
+    return False
+
+# -> Step Two -> Convert Response Object to HTML Object
+def to_html(response):
+    try:
+        Log.i(f"Parsing Response Text to HTML Objects.")
+        return Soup.Parse(response)
+    except Exception as e:
+        Log.e("Failed to parse into HTML.", error=e)
+        return False
+
+if __name__ == '__main__':
+    date_none = "https://finance.yahoo.com/news/metaverse-real-estate-market-growing-115600231.html"
+    request_to_html(date_none)

@@ -1,7 +1,7 @@
 from fairNLP import URL, Language, Regex
 from FList import LIST
 from FDate import DATE
-from Core import Tag, Soup
+from Core import Tag, Soup, HttpRequest
 from FLog.LOGGER import Log
 from dateutil import parser
 import sys
@@ -72,6 +72,21 @@ class Extractor:
         newCls.build_json()
         return newCls
 
+    @classmethod
+    def Extract_PublishedDate(cls, url):
+        sys.setrecursionlimit(10000)
+        newCls = cls()
+        soup = HttpRequest.request_to_html(url)
+        newCls.soup = soup
+        newCls.base_url = URL.extract_base_url(url)
+        if Regex.contains("reddit", url):
+            newCls.isReddit = True
+            newCls.subReddit = URL.extract_sub_reddit(url)
+            newCls.set_data("subreddit", newCls.subReddit)
+        if newCls.date():
+            return newCls.data["published_date"]
+        return False
+
     def build_json(self):
         """  DYNAMIC {JSON/DICT} BUILDER  """
         self.data = {}
@@ -115,33 +130,41 @@ class Extractor:
 
     # -> Date <- #
     def date(self):
-        if self.isReddit:
-            self.reddit_date()
-            return True
-        if self.master_date_extraction():
-            return True
-        if self.soup.tag_body:
-            if self.date_attempt_one():
+        try:
+            if self.isReddit:
+                self.reddit_date()
                 return True
-            if self.date_attempt_two():
+            if self.master_date_extraction():
                 return True
-            if self.date_attempt_three():
-                return True
-            if self.date_attempt_four():
-                return True
-            if self.date_attempt_five():
-                return True
-            if self.date_attempt_six():
-                return True
-            return self.date_attempt_last()
+            if self.soup.tag_body:
+                if self.date_attempt_one():
+                    return True
+                if self.date_attempt_two():
+                    return True
+                if self.date_attempt_three():
+                    return True
+                if self.date_attempt_four():
+                    return True
+                if self.date_attempt_five():
+                    return True
+                if self.date_attempt_six():
+                    return True
+                return self.date_attempt_last()
+        except Exception as e:
+            Log.d(f"Date Extraction Failure. Error=[ {e} ]")
+            return False
 
     def master_date_extraction(self):
-        time_tag = self.soup.soup.find("time")
-        if time_tag:
-            time_attr = Tag.get_attribute(time_tag, "datetime")
-            if time_attr and self.attempt_date_parse_set(time_attr):
-                return True
-        return self.date_attempt_master_two()
+        try:
+            time_tag = self.soup.soup.find("time")
+            if time_tag:
+                time_attr = Tag.get_attribute(time_tag, "datetime")
+                if time_attr and self.attempt_date_parse_set(time_attr):
+                    return True
+            return self.date_attempt_master_two()
+        except Exception as e:
+            Log.d(f"Failed to master extract date. Error=[ {e} ]")
+            return False
 
     def date_attempt_master_two(self):
         temp_date = Tag.search(self.soup.element_meta, DATE_TAGS)
@@ -441,3 +464,9 @@ class Extractor:
             if tag:
                 tags.append(tag)
         return set(tags)
+
+if __name__ == '__main__':
+    date_none = "https://finance.yahoo.com/news/metaverse-real-estate-market-growing-115600231.html"
+    curr1 = "https://cointelegraph.com/news/blockchain-metaverse-ecosystems-gain-traction-as-brands-create-digital-experiences"
+    temp = Extractor.Extract_PublishedDate(curr1)
+    print(temp)
