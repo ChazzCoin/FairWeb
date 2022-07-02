@@ -106,6 +106,7 @@ class ArchiveCrawler:
     def change_mode(self, newMode):
         self.MODE = newMode
 
+    # -> 1. Start: Run Queue until Empty
     def run_spider_queue(self):
         Log.i(f"Starting URL Queue with {self.queue.size()}.")
         # -> Work Queue.
@@ -127,6 +128,7 @@ class ArchiveCrawler:
                 self.extract_urls(_url)
             self.print_status()
 
+    # -> 2. Download Article
     def attempt_download(self, url):
         Log.i("Attempting Archive Download.")
         result = FusedDownloader.download_v2(url)
@@ -140,9 +142,7 @@ class ArchiveCrawler:
     def request(self, _url):
         try:
             Log.v("Making Request via requests and parsing html via bs4.")
-            request_response = HttpRequest.get_request(_url)
-            response = LIST.get(1, request_response)
-            self.soup = BeautifulSoup(response.text, 'html.parser')
+            self.soup = HttpRequest.get_request_3k_to_html(_url)
             Log.v("Request Made")
         except Exception as e:
             Log.e("Failed to make request.", error=e)
@@ -154,7 +154,7 @@ class ArchiveCrawler:
         if self.soup is None:
             return False
         Log.v("Extracting URLs via Soup.")
-        soup_urls = self.soup.findAll('a', href=True)
+        soup_urls = self.soup.soup.findAll('a', href=True)
         fair_urls = URL.find_urls_in_str(self.soup.__str__())
         extracted_urls = LIST.flatten(soup_urls, fair_urls)
         # -> Add all URLs to Queue
@@ -185,6 +185,8 @@ class ArchiveCrawler:
                 # If url begins with / then it's an ext.
                 if str(_url).startswith("/"):
                     _url = f"https://{self.base_site}{str(_url)}"
+                if str(_url).startswith("//"):
+                    _url = f"https://www.{str(_url)}"
                 # Check Staywithin
                 if self.stay_within != "" and Regex.contains(self.stay_within, _url):
                     if _url and str(_url).startswith("http"):
@@ -246,6 +248,11 @@ if __name__ == '__main__':
     verge = "https://www.theverge.com/tech"
     yahoo = "https://finance.yahoo.com/"
     engadget = "https://www.engadget.com/"
+    meta1 = "https://www.investors.com"
+    meta2 = "https://www.minergate.com"
+    meta3 = "https://www.pocketgamer.biz"
+    meta4 = "https://www.uktech.news"
+    meta5 = "https://www.newsanyway.com"
     # if guard in guardian:
     #     print(True)
-    c = ArchiveCrawler.start_SuicideMode(_url=coindesk)
+    c = ArchiveCrawler.start_SuicideMode(_url=meta5)

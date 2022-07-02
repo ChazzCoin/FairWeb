@@ -51,6 +51,14 @@ items = ["author", "source", "url",
          "source_url", "img_url", "title",
          "date", "description", "body", "keywords"]
 
+def ExtractDate(url):
+    """ Convenience Method """
+    return Extractor.Extract_PublishedDate(url)
+
+def ExtractDateFromHTML(RawHTML):
+    """ Convenience Method """
+    return Extractor.Extract_PublishedDateFromRawHTML(RawHTML=RawHTML)
+
 class Extractor:
     base_url = ""
     isReddit = False
@@ -76,13 +84,26 @@ class Extractor:
     def Extract_PublishedDate(cls, url):
         sys.setrecursionlimit(10000)
         newCls = cls()
-        soup = HttpRequest.request_to_html(url)
-        newCls.soup = soup
+        # soup = HttpRequest.request_to_html(url)
+        soup2 = HttpRequest.get_request_3k_to_html(url)
+        newCls.soup = soup2
         newCls.base_url = URL.extract_base_url(url)
         if Regex.contains("reddit", url):
             newCls.isReddit = True
             newCls.subReddit = URL.extract_sub_reddit(url)
             newCls.set_data("subreddit", newCls.subReddit)
+        if newCls.date():
+            return newCls.data["published_date"]
+        return False
+
+    @classmethod
+    def Extract_PublishedDateFromRawHTML(cls, RawHTML):
+        if not RawHTML:
+            return False
+        sys.setrecursionlimit(10000)
+        newCls = cls()
+        # soup = HttpRequest.request_to_html(url)
+        newCls.soup = Soup.Parse(rawText=RawHTML)
         if newCls.date():
             return newCls.data["published_date"]
         return False

@@ -1,5 +1,6 @@
 import requests
 from Core import Soup
+from http.cookiejar import CookieJar as cj
 
 from FList import LIST
 
@@ -7,6 +8,8 @@ import Resources
 from FExt import EXT
 from FLog.LOGGER import Log
 Log = Log("FWEB.Core.HttpRequest")
+
+FAIL_ENCODING = 'ISO-8859-1'
 
 HEADERS = {
     "scheme": "https",
@@ -63,6 +66,28 @@ def get_request(url):
         Log.e("Request Failed.", error=e)
         return False
 
+def get_request_3k_to_html(url):
+    from Downloader import ArticleDownloader
+    html = ArticleDownloader.download_html(url)
+    parsed_html = Soup.Parse(rawText=html)
+    return parsed_html
+
+@EXT.sleep(5)
+def get_request_v2(url):
+    try:
+        HEADERS["user-agent"] = Resources.get_random_user_agent()
+        Log.i("Making HTTP Request.", v=f"URL= [ {url} ] ")
+        response = requests.get(url, **get_request_kwargs())
+        if response.status_code > 205:
+            Log.w(f"Failed to make HTTP Request with URL= [ {url} ] ")
+            return False
+        else:
+            Log.s(f"Successful HTTP Request")
+            return True, response
+    except Exception as e:
+        Log.e("Request Failed.", error=e)
+        return False
+
 # -> Step One -> Call URL and get Raw HTML back in Response Object.
 def request_to_html(url):
     Log.i(f"Making Request to URL = [ {url} ]")
@@ -81,6 +106,45 @@ def to_html(response):
         Log.e("Failed to parse into HTML.", error=e)
         return False
 
+# -> Step One -> Call URL and get Raw HTML back in Response Object.
+def request_to_html_v2(url):
+    Log.i(f"Making Request to URL = [ {url} ]")
+    resp = get_request_v2(url)
+    if resp:
+        response = LIST.get(1, resp, False)
+        return to_html_v2(response)
+    return False
+
+def to_html_v2(response):
+    if response.encoding != FAIL_ENCODING:
+        # return response as a unicode string
+        html = response.text
+    else:
+        html = response.content
+        if 'charset' not in response.headers.get('content-type'):
+            encodings = response.utils.get_encodings_from_headers(response.headers)
+            if len(encodings) > 0:
+                response.encoding = encodings[0]
+                html = response.text
+    return html or ''
+
+def get_request_kwargs():
+    """This Wrapper method exists b/c some values in req_kwargs dict
+    are methods which need to be called every time we make a request
+    """
+    HEADERS["user-agent"] = Resources.get_random_user_agent()
+    timeout = 7
+    proxies = {}
+    return {
+        'headers': HEADERS,
+        'cookies': cj(),
+        'timeout': timeout,
+        'allow_redirects': True,
+        'proxies': proxies
+    }
+
 if __name__ == '__main__':
+    url1 = "https://cointelegraph.com/news/price-analysis-1-28-btc-eth-bnb-ada-sol-xrp-luna-doge-dot-avax"
     date_none = "https://finance.yahoo.com/news/metaverse-real-estate-market-growing-115600231.html"
-    request_to_html(date_none)
+    test = get_request_3k_to_html(url1)
+    print(test)

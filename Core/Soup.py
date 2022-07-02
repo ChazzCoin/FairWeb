@@ -5,8 +5,11 @@ from FLog.LOGGER import Log
 Log = Log("FairWeb.Core.Soup.Parse()")
 
 # -> Step Two -> Convert Response Object to HTML Object
-def to_html(response):
+def to_html_from_response(response):
     return BeautifulSoup(response.text, 'html.parser')
+
+def to_html_from_text(text):
+    return BeautifulSoup(text, 'html.parser')
 
 def safe_find(tag, term):
     try:
@@ -24,6 +27,7 @@ class Parse:
     response = None
     status = False
     soup = None
+    raw_text = None
     tag_body: bsTag = None
     tag_head: bsTag = None
     tag_time: bsTag = None
@@ -33,15 +37,26 @@ class Parse:
     element_meta = None
     element_span = None
 
-    def __init__(self, response):
+    def __init__(self, response=None, rawText=None):
         self.response = response
-        if self.to_html():
+        self.raw_text = rawText
+        if rawText:
+            if self.to_html_from_raw_text():
+                self.extract_elements_and_tags()
+        elif self.to_html():
             self.extract_elements_and_tags()
 
     # -> Step Two -> Convert Response Object to HTML Object
     def to_html(self):
         if self.response:
             self.soup = BeautifulSoup(self.response.text, 'html.parser')
+            return True
+        else:
+            return False
+
+    def to_html_from_raw_text(self):
+        if self.raw_text:
+            self.soup = BeautifulSoup(self.raw_text, 'html.parser')
             return True
         else:
             return False
