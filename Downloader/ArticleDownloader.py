@@ -51,4 +51,6 @@ if __name__ == '__main__':
     url3 = "https://www.businessinsider.com/tomi-lahren-spoke-at-police-training-event-dismissed-reform-wapo-2022-1"
     url4 = "https://www.foxbusiness.com/business-leaders/elon-musk-offers-support-to-canadian-truckers-amid-covid-vaccine-mandate"
     newTest2 = "https://towardsdatascience.com/a-step-by-step-guide-to-scheduling-tasks-for-your-data-science-project-d7df4531fc41"
-    download_article(url1)
+    miner1 = "https://minergate.com/blog"
+    download_article(miner1)
+    download_html(miner1)

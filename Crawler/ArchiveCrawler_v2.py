@@ -154,7 +154,10 @@ class ArchiveCrawler:
         if self.soup is None:
             return False
         Log.v("Extracting URLs via Soup.")
-        soup_urls = self.soup.soup.findAll('a', href=True)
+        if self.soup.soup:
+            soup_urls = self.soup.soup.findAll('a', href=True)
+        else:
+            soup_urls = self.soup.findAll('a', href=True)
         fair_urls = URL.find_urls_in_str(self.soup.__str__())
         extracted_urls = LIST.flatten(soup_urls, fair_urls)
         # -> Add all URLs to Queue
@@ -188,10 +191,12 @@ class ArchiveCrawler:
                 if str(_url).startswith("//"):
                     _url = f"https://www.{str(_url)}"
                 # Check Staywithin
-                if self.stay_within != "" and Regex.contains(self.stay_within, _url):
-                    if _url and str(_url).startswith("http"):
-                        self.queue.add(_url)
-                        continue
+                if self.stay_within != "":
+                    base_url = URL.get_base_url(_url)
+                    if Regex.contains(self.stay_within, base_url):
+                        if _url and str(_url).startswith("http"):
+                            self.queue.add(_url)
+                            continue
                     else:
                         Log.v(f"Not inside staywithin [ {_url} ]")
                         continue
@@ -249,10 +254,11 @@ if __name__ == '__main__':
     yahoo = "https://finance.yahoo.com/"
     engadget = "https://www.engadget.com/"
     meta1 = "https://www.investors.com"
-    meta2 = "https://www.minergate.com"
+    meta2 = "https://www.minergate.com/blog"
     meta3 = "https://www.pocketgamer.biz"
     meta4 = "https://www.uktech.news"
     meta5 = "https://www.newsanyway.com"
+    meta6 = "https://cointelegraph.com/tags/nft"
     # if guard in guardian:
     #     print(True)
-    c = ArchiveCrawler.start_SuicideMode(_url=meta5)
+    c = ArchiveCrawler.start_SuicideMode(_url=meta6)

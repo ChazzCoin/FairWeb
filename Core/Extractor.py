@@ -1,3 +1,5 @@
+from FSON import DICT
+
 from fairNLP import URL, Language, Regex
 from FList import LIST
 from FDate import DATE
@@ -57,7 +59,11 @@ def ExtractDate(url):
 
 def ExtractDateFromHTML(RawHTML):
     """ Convenience Method """
-    return Extractor.Extract_PublishedDateFromRawHTML(RawHTML=RawHTML)
+    try:
+        return Extractor.Extract_PublishedDateFromRawHTML(RawHTML=RawHTML)
+    except Exception as e:
+        Log.e("Failed to extract publish date.", error=e)
+        return False
 
 class Extractor:
     base_url = ""
@@ -105,7 +111,11 @@ class Extractor:
         # soup = HttpRequest.request_to_html(url)
         newCls.soup = Soup.Parse(rawText=RawHTML)
         if newCls.date():
-            return newCls.data["published_date"]
+            date1 = DICT.get("published_date", newCls.data, False)
+            if date1:
+                return date1
+            else:
+                return DICT.get("date", newCls.data, False)
         return False
 
     def build_json(self):
@@ -157,6 +167,8 @@ class Extractor:
                 return True
             if self.master_date_extraction():
                 return True
+            if self.verify_date_found():
+                return True
             if self.soup.tag_body:
                 if self.date_attempt_one():
                     return True
@@ -186,6 +198,13 @@ class Extractor:
         except Exception as e:
             Log.d(f"Failed to master extract date. Error=[ {e} ]")
             return False
+
+    def verify_date_found(self):
+        pdate = DICT.get("published_date", self.data, False)
+        ndate = DICT.get("date", self.data, False)
+        if pdate or ndate:
+            return True
+        return False
 
     def date_attempt_master_two(self):
         temp_date = Tag.search(self.soup.element_meta, DATE_TAGS)
@@ -265,11 +284,15 @@ class Extractor:
             self.set_data("published_date", date_ready)
 
     def attempt_date_parse_set(self, potential_date):
-        date = parse_date(potential_date)
-        if date:
-            self.set_data("published_date", date)
-            return True
-        return False
+        try:
+            date = parse_date(potential_date)
+            if date:
+                self.set_data("published_date", date)
+                return True
+            return False
+        except Exception as e:
+            Log.e(f"Failed to parse date object. DateObj=[ {potential_date} ]", error=e)
+            return False
 
     # -> Author <- #
     # @Ext.timelimit(3)
