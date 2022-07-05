@@ -169,20 +169,21 @@ class Extractor:
                 return True
             if self.verify_date_found():
                 return True
-            if self.soup.tag_body:
-                if self.date_attempt_one():
-                    return True
-                if self.date_attempt_two():
-                    return True
-                if self.date_attempt_three():
-                    return True
-                if self.date_attempt_four():
-                    return True
-                if self.date_attempt_five():
-                    return True
-                if self.date_attempt_six():
-                    return True
-                return self.date_attempt_last()
+            return False
+            # if self.soup.tag_body:
+            #     if self.date_attempt_one():
+            #         return True
+            #     if self.date_attempt_two():
+            #         return True
+            #     if self.date_attempt_three():
+            #         return True
+            #     if self.date_attempt_four():
+            #         return True
+            #     if self.date_attempt_five():
+            #         return True
+            #     if self.date_attempt_six():
+            #         return True
+            #     return self.date_attempt_last()
         except Exception as e:
             Log.d(f"Date Extraction Failure. Error=[ {e} ]")
             return False
@@ -207,11 +208,11 @@ class Extractor:
         return False
 
     def date_attempt_master_two(self):
-        temp_date = Tag.search(self.soup.element_meta, DATE_TAGS)
-        if temp_date:
-            raw_date = self.get_content(temp_date)
-            if self.attempt_date_parse_set(raw_date):
-                return True
+        # temp_date = Tag.search(self.soup.element_meta, DATE_TAGS)
+        # if temp_date:
+        #     raw_date = self.get_content(temp_date)
+        #     if self.attempt_date_parse_set(raw_date):
+        #         return True
         return False
 
     def date_attempt_last(self):

@@ -1,7 +1,9 @@
+import time
+
 import requests
 from Core import Soup
 from http.cookiejar import CookieJar as cj
-
+from Downloader import ArticleDownloader
 from FList import LIST
 
 import Resources
@@ -66,11 +68,20 @@ def get_request(url):
         Log.e("Request Failed.", error=e)
         return False
 
-def get_request_3k_to_html(url):
-    from Downloader import ArticleDownloader
-    html = ArticleDownloader.download_html(url)
-    parsed_html = Soup.Parse(rawText=html)
-    return parsed_html
+def get_request_3k_to_html(url, parseToSoup=True):
+    time.sleep(1)
+    try:
+        Log.v("Making Request via requests and parsing html via bs4.")
+        html = ArticleDownloader.download_html(url)
+        Log.v("Request Made.")
+        if parseToSoup:
+            Log.v("Parsing into Soup Object.")
+            parsed_html = Soup.Parse(rawText=html)
+            return parsed_html
+        return html
+    except Exception as e:
+        Log.e(f"Failed to get HTML from URL=[ {url} ]", error=e)
+        return False
 
 @EXT.sleep(5)
 def get_request_v2(url):

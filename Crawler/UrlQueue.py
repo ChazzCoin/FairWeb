@@ -46,7 +46,15 @@ class FQueue:
             Log.e("Failed to clean queue", e)
             return False
 
+    def add_list(self, list_of_objs):
+        if not list_of_objs:
+            return False
+        for item in list_of_objs:
+            self.add(item)
+
     def add(self, obj):
+        if self.mainQueue.full():
+            return False
         if self.avoidList:
             result = False
             for item in self.avoidList:

@@ -65,7 +65,7 @@ def search_tag_deep(master_tag: bsTag, terms, enableName=False, enableText=False
                                         enableName=enableName, enableText=enableText, enableAttributes=enableAttributes)
                     if temp:
                         return temp
-        Log.w(f" -> find_tag() found nothing for TERMS=[ {terms} ].")
+        Log.v(f" -> find_tag() found nothing for TERMS=[ {terms} ].")
         return False
     except Exception as e:
         Log.e(" -> find_tag() has failed.", error=e)
@@ -116,10 +116,10 @@ def find(master_tag, terms, enableName, enableText, enableAttributes):
 
 def is_tag(master_tag):
     if not master_tag:
-        Log.w(" -> search_tag() master_tag is Empty.")
+        Log.v(" -> search_tag() master_tag is Empty.")
         return False
     if not isinstance(master_tag, bsTag):
-        Log.w(" -> search_tag() master_tag is not a [bsTag].")
+        Log.v(" -> search_tag() master_tag is not a [bsTag].")
         return False
     return True
 
