@@ -37,6 +37,8 @@ if __name__ == '__main__':
     meta6 = "https://cointelegraph.com/tags/nft"
     meta7 = "https://cryptoslate.com/defi/"
     meta8 = "https://medium.com/tag/machine-learning"
+    meta9 = "https://www.barrons.com/topics/technology?mod=BOL_TOPNAV"
+    meta10 = "http://www.coinnewsasia.com/"
     # if guard in guardian:
     #     print(True)
-    run_suicideMode(cnet)
+    run_suicideMode(meta10)

@@ -1,5 +1,5 @@
 from newspaper import Article
-from fairParser import JsonParser
+from ArticleParser import JsonParser
 from fairNLP import URL
 from FLog.LOGGER import Log
 Log = Log("FairWEB.newspaper3k.ArticleDownloader")

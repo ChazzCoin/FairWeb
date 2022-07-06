@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="560a4c82-5719-4761-bc3f-b9ce770e62d8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Crawler/Crawl.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Crawler/UrlProcess.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FCoRE/FConvert/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FCoRE/FList/listSort.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FCoRE/FSON/dictSort.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../TiffanySystems/HarkServer/run-discord-api.sh" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../TiffanySystems/Jarticle/jarClients/CoinMarketCapClient.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../TiffanySystems/Jarticle/jarDiscordAlert/Alert.py" afterDir="false" />
@@ -16,22 +17,32 @@
       <change afterPath="$PROJECT_DIR$/../../TiffanySystems/TheArchiveMachine/archLambdas/__init__.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../TiffanySystems/TheArchiveMachine/handler.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../TiffanySystems/TheArchiveMachine/serverless.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FCoRE/FArt/ART.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FCoRE/FArt/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../FCoRE/FConvert/CONVERT.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FCoRE/FList/LIST.py" beforeDir="false" afterPath="$PROJECT_DIR$/../FCoRE/FList/LIST.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FCoRE/FSON/DICT.py" beforeDir="false" afterPath="$PROJECT_DIR$/../FCoRE/FSON/DICT.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FCoRE/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/../FCoRE/setup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FairArticle/.idea/FairArticle.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../FairArticle/.idea/FairArticle.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FairArticle/ArticleParser/JsonParser.py" beforeDir="false" afterPath="$PROJECT_DIR$/../FairArticle/ArticleParser/JsonParser.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FairArticle/Categories/MainCategories.py" beforeDir="false" afterPath="$PROJECT_DIR$/../FairArticle/Categories/MainCategories.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FairArticle/FArt/ART.py" beforeDir="false" afterPath="$PROJECT_DIR$/../FairArticle/FArt/ART.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../FairMongo/.idea/pyFongo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../FairMongo/.idea/pyFongo.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FairMongo/Jarticle/jArticleProvider.py" beforeDir="false" afterPath="$PROJECT_DIR$/../FairMongo/Jarticle/jArticleProvider.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../FairMongo/Jarticle/jArticles.py" beforeDir="false" afterPath="$PROJECT_DIR$/../FairMongo/Jarticle/jArticles.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FairMongo/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/../FairMongo/setup.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../FairNLP/fairNLP/Regex.py" beforeDir="false" afterPath="$PROJECT_DIR$/../FairNLP/fairNLP/Regex.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../FairNLP/fairParser/JsonParser.py" beforeDir="false" afterPath="$PROJECT_DIR$/../FairNLP/fairParser/JsonParser.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../FairNLP/fairResources/stopwords.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../FairNLP/fairResources/stopwords.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../FairNLP/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/../FairNLP/setup.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../FairPICS/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/../FairPICS/setup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/FairWeb.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/FairWeb.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Extractor.py" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Extractor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/HttpRequest.py" beforeDir="false" afterPath="$PROJECT_DIR$/Core/HttpRequest.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Tag.py" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Tag.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Crawler/ArchiveCrawler_v2.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Crawler/UrlExtractor.py" beforeDir="false" afterPath="$PROJECT_DIR$/Crawler/UrlExtractor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/Core/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Crawler/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/Crawler/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FQueue/UrlQueue.py" beforeDir="false" afterPath="$PROJECT_DIR$/Crawler/UrlQueue.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FQueue/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Downloader/ArticleDownloader.py" beforeDir="false" afterPath="$PROJECT_DIR$/Downloader/ArticleDownloader.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../TiffanySystems/HarkServer/.idea/HarkServer.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../../TiffanySystems/HarkServer/.idea/HarkServer.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../TiffanySystems/HarkServer/DiscordAPI.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../TiffanySystems/HarkServer/DiscordAPI.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../TiffanySystems/HarkServer/harkExporter/ExportProvider.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../TiffanySystems/HarkServer/harkExporter/ExportProvider.py" afterDir="false" />
@@ -59,7 +70,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../FairArticle" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -96,7 +107,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../TiffanySystems/TheArchiveMachine/archLambdas" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyDependenciesConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -114,28 +125,7 @@
       <recent name="$PROJECT_DIR$/Downloader" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.__init__">
-    <configuration name="ArticleDownloader" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="FairWeb" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Downloader" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Downloader/ArticleDownloader.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Python.ExportProvider">
     <configuration name="Crawl" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="FairWeb" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -157,40 +147,19 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Image" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="TheArchiveMachine" />
+    <configuration name="ExportProvider" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="HarkServer" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../../TiffanySystems/TheArchiveMachine/.serverless/requirements/PIL" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../../TiffanySystems/HarkServer/harkExporter" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../../TiffanySystems/TheArchiveMachine/.serverless/requirements/PIL/Image.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="LambdaCrawler" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="TheArchiveMachine" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../../TiffanySystems/TheArchiveMachine/archLambdas" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../../TiffanySystems/TheArchiveMachine/archLambdas/LambdaCrawler.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../../TiffanySystems/HarkServer/harkExporter/ExportProvider.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -220,13 +189,55 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="crawler_cron" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="TheArchiveMachine" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../../TiffanySystems/TheArchiveMachine" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../../TiffanySystems/TheArchiveMachine/crawler_cron.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="jArticleProvider" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="pyFongo" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../FairMongo/Jarticle" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../FairMongo/Jarticle/jArticleProvider.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.ExportProvider" />
+        <item itemvalue="Python.jArticleProvider" />
         <item itemvalue="Python.__init__" />
+        <item itemvalue="Python.crawler_cron" />
         <item itemvalue="Python.ArchiveCrawler_v2" />
-        <item itemvalue="Python.ArticleDownloader" />
-        <item itemvalue="Python.LambdaCrawler" />
-        <item itemvalue="Python.Image" />
       </list>
     </recent_temporary>
   </component>
@@ -279,15 +290,23 @@
       <option name="project" value="LOCAL" />
       <updated>1654789979161</updated>
     </task>
-    <task active="true" id="LOCAL-00006" summary="Web3">
+    <task id="LOCAL-00006" summary="Web3">
       <changelist id="560a4c82-5719-4761-bc3f-b9ce770e62d8" name="Changes" comment="" />
       <created>1655435882021</created>
       <option name="number" value="00006" />
       <option name="presentableId" value="LOCAL-00006" />
       <option name="project" value="LOCAL" />
-      <updated>1655435885902</updated>
+      <updated>1657120784350</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task active="true" id="LOCAL-00007" summary="General-Article">
+      <changelist id="560a4c82-5719-4761-bc3f-b9ce770e62d8" name="Changes" comment="" />
+      <created>1657120768121</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1657120784350</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <option name="clearContext" value="false" />
     <option name="createChangelist" value="false" />
     <option name="createBranch" value="false" />
@@ -312,18 +331,13 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/../FairMongo/Jarticle/jArticleProvider.py</url>
-          <line>91</line>
+          <line>105</line>
           <option name="timeStamp" value="322" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/../FairPICS/fopTopic/Topic.py</url>
           <line>203</line>
           <option name="timeStamp" value="327" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/../../TiffanySystems/HarkServer/harkExporter/PdfArticle.py</url>
-          <line>204</line>
-          <option name="timeStamp" value="393" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/../../TiffanySystems/Jarticle/jarEngine/Processor/ArticleProcessor_v2.py</url>
@@ -354,6 +368,11 @@
           <url>file://$PROJECT_DIR$/Core/HttpRequest.py</url>
           <line>160</line>
           <option name="timeStamp" value="472" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/../FairArticle/FArt/artSort.py</url>
+          <line>27</line>
+          <option name="timeStamp" value="606" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
