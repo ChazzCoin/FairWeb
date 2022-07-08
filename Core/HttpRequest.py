@@ -157,5 +157,9 @@ def get_request_kwargs():
 if __name__ == '__main__':
     url1 = "https://cointelegraph.com/news/price-analysis-1-28-btc-eth-bnb-ada-sol-xrp-luna-doge-dot-avax"
     date_none = "https://finance.yahoo.com/news/metaverse-real-estate-market-growing-115600231.html"
-    test = get_request_3k_to_html(url1)
-    print(test)
+    test = get_request_v2(date_none)
+    res = LIST.get(1, test)
+    resp = res.text
+    print(resp)
+    arttt = ArticleDownloader.parse_html(date_none, resp)
+    print(arttt)

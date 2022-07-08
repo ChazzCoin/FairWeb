@@ -85,8 +85,8 @@ def mongo_save(func):
         if article:
             Log.i("ARTICLE HAS BEEN WRAPPED AND VALIDATED!")
             jArticles.ADD_ARTICLES(article)
-            return True
-        return False
+            return article
+        return article
     return wrapper
 
 def mongo_update(func):
@@ -97,6 +97,6 @@ def mongo_update(func):
         if article:
             Log.i("ARTICLE HAS BEEN WRAPPED AND VALIDATED!")
             jArticles.ADD_ARTICLES(article)
-            return True
-        return False
+            return article
+        return article
     return wrapper

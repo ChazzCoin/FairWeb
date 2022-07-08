@@ -7,6 +7,7 @@
     <mapping directory="$PROJECT_DIR$/../FairPICS" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../../TiffanySystems/HarkServer" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../../TiffanySystems/Jarticle" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../TiffanySystems/MicroCrawler" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../../TiffanySystems/TheArchiveMachine" vcs="Git" />
   </component>
 </project>

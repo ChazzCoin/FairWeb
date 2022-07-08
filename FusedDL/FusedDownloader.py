@@ -88,4 +88,5 @@ if __name__ == '__main__':
     url4 = "https://www.newsobserver.com/news/business/article260136540.html"
     wallstreetj = "https://www.wsj.com/articles/primary-elections-2022-south-carolina-nevada-races-test-trumps-sway-in-gop-11655199002"
     date_none = "https://finance.yahoo.com/news/metaverse-real-estate-market-growing-115600231.html"
-    download(date_none)
+    t = download_v2(date_none)
+    print(t)

@@ -45,6 +45,16 @@ def download_html(url) -> bool:
         Log.e("Failed to Download Article.", error=e)
         return False
 
+def parse_html(url, html):
+    article = Article(url)
+    article.html = html
+    article.parse()
+    article.nlp()
+    # -> Parse from Article Object into Hookup Object
+    json = JsonParser.parse(article, client="newspaper3k", extractDate=True)
+    json["source"] = URL.get_site_name(url)
+    return json
+
 if __name__ == '__main__':
     url1 = "https://cointelegraph.com/news/price-analysis-1-28-btc-eth-bnb-ada-sol-xrp-luna-doge-dot-avax"
     url2 = "https://www.forbes.com/sites/investor/2022/01/28/ethereum-cardano-polygon-solana-avalanche-and-polkadot-deathmatch-who-wins-who-dies/?sh=4292a4897c9b"
