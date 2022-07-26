@@ -18,5 +18,6 @@
     <orderEntry type="module" module-name="MicroGNews" />
     <orderEntry type="module" module-name="MicroSocial" />
     <orderEntry type="module" module-name="MicroArchivers" />
+    <orderEntry type="module" module-name="FAIR" />
   </component>
 </module>

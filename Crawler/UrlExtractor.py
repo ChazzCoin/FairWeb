@@ -62,7 +62,7 @@ def private_filter_out_from_stayWithin(url_list, stayWithin):
     try:
         filtered_list = []
         for _url in url_list:
-            base_url = URL.get_site_name(_url)
+            base_url = URL.get_base_url(_url)
             if Regex.contains(stayWithin, base_url):
                 filtered_list.append(_url)
             else:
