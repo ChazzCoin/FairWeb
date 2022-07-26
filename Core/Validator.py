@@ -2,8 +2,10 @@ from FSON import DICT
 from FDate import DATE
 from fairNLP import Regex
 from FLog.LOGGER import Log
-from Jarticle.jArticles import jArticles
+from Jarticle.jProvider import jPro as jpro
 Log = Log("FWEB.Core.Validator")
+
+jp = jpro()
 
 
 def validateAndSave(article: {}, saveToArchive=False, setDateToToday=False) -> bool:
@@ -75,7 +77,7 @@ def v_date(date):
     return False
 
 def save_article(article):
-    return jArticles.ADD_ARTICLES(article)
+    return jp.ADD_ARTICLES(article)
 
 def mongo_save(func):
     """ -> DECORATOR <- """
@@ -84,7 +86,7 @@ def mongo_save(func):
         article = func(*args)
         if article:
             Log.i("ARTICLE HAS BEEN WRAPPED AND VALIDATED!")
-            jArticles.ADD_ARTICLES(article)
+            jp.ADD_ARTICLES(article)
             return article
         return article
     return wrapper
@@ -96,7 +98,7 @@ def mongo_update(func):
         article = func(*args)
         if article:
             Log.i("ARTICLE HAS BEEN WRAPPED AND VALIDATED!")
-            jArticles.ADD_ARTICLES(article)
+            jp.ADD_ARTICLES(article)
             return article
         return article
     return wrapper

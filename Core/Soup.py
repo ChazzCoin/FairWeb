@@ -76,16 +76,7 @@ class Parse:
         Log.i("Parsing Finished")
 
     def doTest(self):
-        # test_tag =
-        # test_tag = self.soup.find("meta", {"name": "keywords"})
-        # test_attr = Tag.get_attribute(test_tag, "content")
-        #
-        # test_tag = self.soup.findAll("meta")
-        # for item in test_tag:
-        #     test = Tag.get_attribute(item, "name")
-        #     if test and Regex.contains_any(["keywords"], test):
-        #         keywords = Tag.get_attribute(item, "content")
-        #         print(keywords)
-        # test_attr = Tag.get_attribute(test_tag, "datetime")
-        # print(test_attr)
+        for tr in self.soup.find_all('tr')[2:]:
+            tds = tr.find_all('td')
+            print("Nome: %s, Cognome: %s, Email: %s" + "% tds[0].text, tds[1].text, tds[2].text")
         pass
