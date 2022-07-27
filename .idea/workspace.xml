@@ -5,13 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="560a4c82-5719-4761-bc3f-b9ce770e62d8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../FairArticle/JDownloader/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FairArticle/JHelpers/NLTK.py" beforeDir="false" afterPath="$PROJECT_DIR$/../FairArticle/JHelpers/NLTK.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FairArticle/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/../FairArticle/setup.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../FairNLP/.idea/FAIR.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../FairNLP/.idea/FAIR.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Crawler/Crawl.py" beforeDir="false" afterPath="$PROJECT_DIR$/Crawler/Crawl.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Crawler/UrlProcess.py" beforeDir="false" afterPath="$PROJECT_DIR$/Crawler/UrlProcess.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Crawler/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/Crawler/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FusedDL/FusedDownloader.py" beforeDir="false" afterPath="$PROJECT_DIR$/FusedDL/FusedDownloader.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../TiffanySystems/HarkServer/.idea/HarkServer.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../../TiffanySystems/HarkServer/.idea/HarkServer.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../TiffanySystems/HarkServer/DiscordAPI.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../TiffanySystems/HarkServer/DiscordAPI.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../TiffanySystems/HarkServer/DiscordAlert/Alert.py" beforeDir="false" />
@@ -61,7 +59,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../FairArticle" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -97,7 +95,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../FairArticle/JHelpers" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyDependenciesConfigurable" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -451,11 +449,6 @@
           <url>file://$PROJECT_DIR$/../../TiffanySystems/MicroArchivers/MicroRSS/handler.py</url>
           <line>59</line>
           <option name="timeStamp" value="753" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/../FairArticle/JDownloader/__init__.py</url>
-          <line>18</line>
-          <option name="timeStamp" value="781" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
