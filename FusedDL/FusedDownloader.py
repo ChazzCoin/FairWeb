@@ -19,8 +19,8 @@ def download_v1(url, saveToArchive=False, setDateToToday=False):
         return result
     return False
 
-def download(url):
-    return download_v2(url)
+# def download(url):
+#     return download_v2(url)
 
 @Validator.mongo_save
 def download_v2(url):
@@ -33,6 +33,11 @@ def download_v2(url):
     # if downloader_v2 and Validator.validate_article(downloader_v2):
     #     return downloader_v2.json
     return False
+
+def download(url):
+    # -> v1
+    downloader_v1 = fweb_downloader_v1(url)
+    return downloader_v1 if downloader_v1 else False
 
 @Validator.mongo_save
 def crawler_downloader(url, response):

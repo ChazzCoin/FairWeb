@@ -4,12 +4,9 @@ Log = Log("FWEB.Crawler.ArchiveCrawler_v2")
 
 
 # -> 2. Download Article
-def attempt_download(url):
+def attempt_download(url, saveToDB=True):
     Log.i("Attempting Archive Download.")
-    result = FusedDownloader.download_v2(url)
-    if result:
-        Log.v("Extraction Success")
-        return True
+    if saveToDB:
+        return FusedDownloader.download_v2(url)
     else:
-        Log.v("Extraction Failed")
-        return False
+        return FusedDownloader.download(url)

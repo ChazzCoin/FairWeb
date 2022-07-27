@@ -5,61 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="560a4c82-5719-4761-bc3f-b9ce770e62d8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../FCoRE/FClass/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FCoRE/FSYS/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FairArticle/JEngines/JarticleEnhancer.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FairArticle/JEngines/TickerEngine.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FairArticle/JEngines/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FairArticle/JHelpers/NLTK.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FairArticle/JHelpers/PageRank.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FairArticle/JHelpers/Validator.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FairArticle/JHelpers/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FCoRE/.idea/FCoRE.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../FCoRE/.idea/FCoRE.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FCoRE/FList/LIST.py" beforeDir="false" afterPath="$PROJECT_DIR$/../FCoRE/FList/LIST.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FCoRE/FSON/DICT.py" beforeDir="false" afterPath="$PROJECT_DIR$/../FCoRE/FSON/DICT.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FCoRE/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/../FCoRE/setup.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FairArticle/.idea/FairArticle.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../FairArticle/.idea/FairArticle.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FairArticle/ArticleEngines/CategoryEngine.py" beforeDir="false" afterPath="$PROJECT_DIR$/../FairArticle/JEngines/CategoryEngine.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FairArticle/ArticleEngines/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../FairArticle/JEngines/JarticleEnhancer/ActivityLifeCycle.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FairArticle/ArticleParser/JsonParser.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FairArticle/ArticleParser/Keys.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FairArticle/ArticleParser/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../FairArticle/JEngines/JarticleEnhancer/JarticleActivity.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FairArticle/ArticleResources/Sources.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FairArticle/ArticleResources/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FairArticle/ArticleResources/google_sources.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FairArticle/ArticleResources/headline_meta_sources.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FairArticle/ArticleResources/metaverse_sources.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FairArticle/ArticleResources/popular_sources.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FairArticle/ArticleResources/rss_sources.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FairArticle/ArticleResources/stocks.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FairArticle/ArticleResources/tickers.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FairArticle/Categories/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../FairArticle/Categories/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FairArticle/FArt/ART.py" beforeDir="false" afterPath="$PROJECT_DIR$/../FairArticle/JHelpers/ART.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FairArticle/FArt/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../FairArticle/JEngines/JarticleEnhancer/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FairArticle/FArt/artSort.py" beforeDir="false" afterPath="$PROJECT_DIR$/../FairArticle/JHelpers/artSort.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FairArticle/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/../FairArticle/setup.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FairMongo/.idea/pyFongo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../FairMongo/.idea/pyFongo.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FairMongo/Jarticle/jProvider/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../FairMongo/Jarticle/jProvider/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FairMongo/Jarticle/jProvider/jCategories.py" beforeDir="false" afterPath="$PROJECT_DIR$/../FairMongo/Jarticle/jProvider/jCategories.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FairMongo/Jarticle/jdexes/jCompany.py" beforeDir="false" afterPath="$PROJECT_DIR$/../FairMongo/Jarticle/jdexes/jCompany.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FairMongo/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/../FairMongo/setup.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FairArticle/JDownloader/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../FairNLP/.idea/FAIR.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../FairNLP/.idea/FAIR.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FairNLP/fairCache/LocalCache.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FairNLP/fairCache/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FairNLP/fairConfig/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FairNLP/fairConfig/fairFig.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FairNLP/fairNLP/Regex.py" beforeDir="false" afterPath="$PROJECT_DIR$/../FairNLP/fairNLP/Regex.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FairNLP/fairNLP/URL.py" beforeDir="false" afterPath="$PROJECT_DIR$/../FairNLP/fairNLP/URL.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FairNLP/fairParser/HookupParser.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FairNLP/fairParser/JsonParser.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FairNLP/fairParser/Keys.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FairNLP/fairParser/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FairNLP/fairResources/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FairNLP/fairResources/stopwords.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FairResources/.idea/FairResources.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../FairResources/.idea/FairResources.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FairResources/FairResources/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../FairResources/FairResources/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Crawler/UrlExtractor.py" beforeDir="false" afterPath="$PROJECT_DIR$/Crawler/UrlExtractor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Crawler/Crawl.py" beforeDir="false" afterPath="$PROJECT_DIR$/Crawler/Crawl.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Crawler/UrlProcess.py" beforeDir="false" afterPath="$PROJECT_DIR$/Crawler/UrlProcess.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Crawler/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/Crawler/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FusedDL/FusedDownloader.py" beforeDir="false" afterPath="$PROJECT_DIR$/FusedDL/FusedDownloader.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../TiffanySystems/HarkServer/.idea/HarkServer.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../../TiffanySystems/HarkServer/.idea/HarkServer.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../TiffanySystems/HarkServer/DiscordAPI.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../TiffanySystems/HarkServer/DiscordAPI.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../TiffanySystems/HarkServer/DiscordAlert/Alert.py" beforeDir="false" />
@@ -73,11 +25,17 @@
       <change beforePath="$PROJECT_DIR$/../../TiffanySystems/Jarticle/.idea/MasterJarticle.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../../TiffanySystems/Jarticle/.idea/MasterJarticle.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../TiffanySystems/Jarticle/db.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../TiffanySystems/Jarticle/jarDataProvider/Export/German-Tuesday.January.04.2022.08.09.23.PM.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TiffanySystems/Jarticle/jarDataProvider/page_rank.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../TiffanySystems/Jarticle/jarDataProvider/page_rank.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../TiffanySystems/Jarticle/jarDiscordAlert/Alert.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../TiffanySystems/Jarticle/jarDiscordAlert/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../TiffanySystems/Jarticle/jarEngine/Content/NLP/NLTK.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../TiffanySystems/Jarticle/jarEngine/Content/NLP/NLTK.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TiffanySystems/Jarticle/jarEngine/Content/Matcher.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TiffanySystems/Jarticle/jarEngine/Content/NLP/NLTK.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../TiffanySystems/Jarticle/jarEngine/Content/NLP/SPACY.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../TiffanySystems/Jarticle/jarEngine/Content/Tokenizer.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../TiffanySystems/Jarticle/jarEngine/Content/Tokenizer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TiffanySystems/Jarticle/jarEngine/Content/Rank.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TiffanySystems/Jarticle/jarEngine/Content/Score.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TiffanySystems/Jarticle/jarEngine/Content/Summarizer.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TiffanySystems/Jarticle/jarEngine/Content/Ticker.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TiffanySystems/Jarticle/jarEngine/Content/Tokenizer.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../TiffanySystems/Jarticle/jarEngine/Enhancements/SozinProcessor_v1.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../TiffanySystems/Jarticle/jarEngine/Enhancements/SozinEngine.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../TiffanySystems/Jarticle/jarEngine/Enhancements/TopicProcessor_v1.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../TiffanySystems/Jarticle/jarEngine/Processor/ArticleProcessor_v2.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../TiffanySystems/Jarticle/jarEngine/Processor/ArticleProcessor_v2.py" afterDir="false" />
@@ -138,16 +96,16 @@
     <property name="ASKED_MARK_IGNORED_FILES_AS_EXCLUDED" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../FairResources/FairResources" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../FairArticle/JHelpers" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyDependenciesConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/../FairArticle/JHelpers" />
       <recent name="$PROJECT_DIR$/../FairResources/FairResources" />
       <recent name="$PROJECT_DIR$/../../TiffanySystems/MicroSocial/SocialClients" />
       <recent name="$PROJECT_DIR$/../../TiffanySystems/MicroSocial" />
       <recent name="$PROJECT_DIR$/../../TiffanySystems/MicroGNews" />
-      <recent name="$PROJECT_DIR$/../MicroRSS" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/../../TiffanySystems/MicroArchivers" />
@@ -157,20 +115,20 @@
       <recent name="$PROJECT_DIR$/../FairMongo/Jarticle/jdexes" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.URL">
-    <configuration name="HttpRequest" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="FairWeb" />
+  <component name="RunManager" selected="Python.__init__">
+    <configuration name="JProcess" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="FairArticle" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Core" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../FairArticle/JEngines/JarticleEnhancer" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Core/HttpRequest.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../FairArticle/JEngines/JarticleEnhancer/JProcess.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -179,19 +137,19 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="RedditClient" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="MicroArchivers" />
+    <configuration name="MServers" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="pyFongo" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../../TiffanySystems/MicroArchivers/MicroSocial/SocialClients" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../FairMongo/M" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../../TiffanySystems/MicroArchivers/MicroSocial/SocialClients/RedditClient.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../FairMongo/M/MServers.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -200,19 +158,19 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="URL" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="FAIR" />
+    <configuration name="__init__ (2)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="FairArticle" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../FairNLP/fairNLP" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../FairArticle/JEngines/JarticleEnhancer" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../FairNLP/fairNLP/URL.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../FairArticle/JEngines/JarticleEnhancer/__init__.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -222,18 +180,18 @@
       <method v="2" />
     </configuration>
     <configuration name="__init__" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="FairResources" />
+      <module name="FairArticle" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../FairResources/FairResources" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../FairArticle/JDownloader" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../FairResources/FairResources/__init__.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../FairArticle/JDownloader/__init__.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -265,11 +223,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.URL" />
-        <item itemvalue="Python.handler" />
         <item itemvalue="Python.__init__" />
-        <item itemvalue="Python.RedditClient" />
-        <item itemvalue="Python.HttpRequest" />
+        <item itemvalue="Python.__init__ (2)" />
+        <item itemvalue="Python.handler" />
+        <item itemvalue="Python.JProcess" />
+        <item itemvalue="Python.MServers" />
       </list>
     </recent_temporary>
   </component>
@@ -353,6 +311,17 @@
   </component>
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="requirements.txt" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+        <option value="Space.CommitStatus" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -439,16 +408,6 @@
           <option name="timeStamp" value="239" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/../../TiffanySystems/Jarticle/jarEngine/Content/NLP/NLTK.py</url>
-          <line>117</line>
-          <option name="timeStamp" value="265" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/../FairArticle/JEngines/JarticleEnhancer/ActivityLifeCycle.py</url>
-          <line>14</line>
-          <option name="timeStamp" value="706" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/../../TiffanySystems/MicroSocial/SocialClients/TwitterClient.py</url>
           <line>80</line>
           <option name="timeStamp" value="716" />
@@ -489,9 +448,14 @@
           <option name="timeStamp" value="740" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/../FairNLP/fairNLP/URL.py</url>
-          <line>247</line>
-          <option name="timeStamp" value="751" />
+          <url>file://$PROJECT_DIR$/../../TiffanySystems/MicroArchivers/MicroRSS/handler.py</url>
+          <line>59</line>
+          <option name="timeStamp" value="753" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/../FairArticle/JDownloader/__init__.py</url>
+          <line>18</line>
+          <option name="timeStamp" value="781" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

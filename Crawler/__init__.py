@@ -2,6 +2,10 @@ from Crawler.Crawl import ArchiveCrawler
 
 DEFAULT_MAX_QUEUE = 500
 
+def run_ListMode(url, maxQueue=DEFAULT_MAX_QUEUE):
+    c = ArchiveCrawler.start_SuicideMode(_url=url, max=maxQueue, saveToDB=False)
+    return c
+
 def run_suicideMode(url, maxQueue=DEFAULT_MAX_QUEUE):
     c = ArchiveCrawler.start_SuicideMode(_url=url, max=maxQueue)
     return c

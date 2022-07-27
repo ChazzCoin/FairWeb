@@ -45,6 +45,7 @@ class ArchiveCrawler:
     # -> kwargs
     max = MAX_QUEUE
     suicideSwitch = False
+    saveToDB = True
     # -> Global
     MODE = Modes.NORMAL
     queue: FQueue = None
@@ -54,6 +55,8 @@ class ArchiveCrawler:
     soup = None
     total_count = 0
     base_site = ""
+    # -> Alternative Output
+    articles = []
 
     def __init__(self, url, **kwargs):
         """
@@ -102,6 +105,7 @@ class ArchiveCrawler:
     def handle_kwargs(self, **kwargs):
         self.max = DICT.get("max", kwargs, default=MAX_QUEUE)
         self.suicideSwitch = DICT.get("suicideMode", kwargs, default=False)
+        self.saveToDB = DICT.get("saveToDB", kwargs, default=True)
 
     def run(self):
         Log.i(f"STARTING: ArchiveCrawler PID=[ {self.pid} ]")
@@ -141,7 +145,10 @@ class ArchiveCrawler:
     """ (Crawler.UrlProcess.py) -> 2. Process URL """
     def url_process(self, _url):
         # -> Attempt Download
-        if UrlProcess.attempt_download(_url):
+        result = UrlProcess.attempt_download(_url, self.saveToDB)
+        if result:
+            if not self.saveToDB:
+                self.articles.append(result)
             self.extraction_success.append(_url)
         else:
             self.extraction_failed.append(_url)
@@ -203,7 +210,6 @@ class ArchiveCrawler:
     -> Print/Log Status for Developer
     """
     def print_status(self):
-        print("\n")
         Log.i(f"---------------------------------------------")
         # Log.i(f"Time: {DATE.to_hours_minutes_seconds(self.timer.current_time())} Hours:Minutes:Seconds.")
         Log.i(f"Crawler Mode: {self.MODE}")
@@ -212,7 +218,6 @@ class ArchiveCrawler:
         Log.i(f"Article Success: {len(self.extraction_success)}")
         Log.i(f"Article Failed: {len(self.extraction_failed)}")
         Log.i(f"---------------------------------------------")
-        print("\n")
 
 
 
