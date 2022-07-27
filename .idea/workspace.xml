@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="560a4c82-5719-4761-bc3f-b9ce770e62d8" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../FairArticle/JDownloader/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../FairArticle/JDownloader/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../FairArticle/JHelpers/NLTK.py" beforeDir="false" afterPath="$PROJECT_DIR$/../FairArticle/JHelpers/NLTK.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../FairArticle/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/../FairArticle/setup.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../FairNLP/.idea/FAIR.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../FairNLP/.idea/FAIR.iml" afterDir="false" />
@@ -59,7 +60,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../FairArticle" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -449,6 +450,36 @@
           <url>file://$PROJECT_DIR$/../../TiffanySystems/MicroArchivers/MicroRSS/handler.py</url>
           <line>59</line>
           <option name="timeStamp" value="753" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/../FairMongo/M/MCore.py</url>
+          <line>49</line>
+          <option name="timeStamp" value="756" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/../FairMongo/M/MCore.py</url>
+          <line>80</line>
+          <option name="timeStamp" value="760" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/../FairMongo/M/MCore.py</url>
+          <line>66</line>
+          <option name="timeStamp" value="761" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/../FairMongo/M/MCore.py</url>
+          <line>89</line>
+          <option name="timeStamp" value="762" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/../FairMongo/M/MCore.py</url>
+          <line>34</line>
+          <option name="timeStamp" value="763" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/../FairMongo/M/MDB.py</url>
+          <line>31</line>
+          <option name="timeStamp" value="767" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
