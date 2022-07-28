@@ -5,10 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="560a4c82-5719-4761-bc3f-b9ce770e62d8" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../FairArticle/JDownloader/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../FairArticle/JDownloader/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FairArticle/JEngines/JarticleEnhancer/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../FairArticle/JEngines/JarticleEnhancer/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../FairArticle/JHelpers/NLTK.py" beforeDir="false" afterPath="$PROJECT_DIR$/../FairArticle/JHelpers/NLTK.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FairArticle/pip-deploy.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../FairArticle/pip-deploy.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../FairArticle/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/../FairArticle/setup.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../FairNLP/.idea/FAIR.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../FairNLP/.idea/FAIR.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FairResources/FairResources/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../FairResources/FairResources/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FairResources/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/../FairResources/setup.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../TiffanySystems/HarkServer/.idea/HarkServer.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../../TiffanySystems/HarkServer/.idea/HarkServer.iml" afterDir="false" />
@@ -60,7 +63,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../FairArticle" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -95,16 +98,16 @@
     <property name="ASKED_MARK_IGNORED_FILES_AS_EXCLUDED" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../FairArticle/JHelpers" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../FairResources/FairResources/tokenizers" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/../FairArticle/JHelpers" />
+      <recent name="$PROJECT_DIR$/../FairResources/FairResources/tokenizers" />
+      <recent name="$PROJECT_DIR$/../FairResources/FairResources/tokenizers/punkt/PY3" />
       <recent name="$PROJECT_DIR$/../FairResources/FairResources" />
+      <recent name="$PROJECT_DIR$/../FairArticle/JHelpers" />
       <recent name="$PROJECT_DIR$/../../TiffanySystems/MicroSocial/SocialClients" />
-      <recent name="$PROJECT_DIR$/../../TiffanySystems/MicroSocial" />
-      <recent name="$PROJECT_DIR$/../../TiffanySystems/MicroGNews" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/../../TiffanySystems/MicroArchivers" />
@@ -114,8 +117,8 @@
       <recent name="$PROJECT_DIR$/../FairMongo/Jarticle/jdexes" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.__init__">
-    <configuration name="JProcess" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.NLTK">
+    <configuration name="NLTK" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="FairArticle" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -123,11 +126,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../FairArticle/JEngines/JarticleEnhancer" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../FairArticle/JHelpers" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../FairArticle/JEngines/JarticleEnhancer/JProcess.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../FairArticle/JHelpers/NLTK.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -136,19 +139,19 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="MServers" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="pyFongo" />
+    <configuration name="__init__ (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="FairResources" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../FairMongo/M" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../FairResources/FairResources" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../FairMongo/M/MServers.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../FairResources/FairResources/__init__.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -222,11 +225,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.NLTK" />
+        <item itemvalue="Python.__init__ (1)" />
         <item itemvalue="Python.__init__" />
         <item itemvalue="Python.__init__ (2)" />
         <item itemvalue="Python.handler" />
-        <item itemvalue="Python.JProcess" />
-        <item itemvalue="Python.MServers" />
       </list>
     </recent_temporary>
   </component>
