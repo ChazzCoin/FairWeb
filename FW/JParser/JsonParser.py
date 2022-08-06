@@ -1,8 +1,8 @@
-from FSON import DICT
-from FDate import DATE
-from JParser import Keys
-from FLog.LOGGER import Log
-from Core import Extractor
+from F import DICT
+from F import DATE
+from FW.JParser import Keys
+from F.LOG import Log
+from FW.Core import Extractor
 
 Log = Log("FairArticle.Parser.JsonParser")
 

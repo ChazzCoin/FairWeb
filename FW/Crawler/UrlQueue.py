@@ -1,6 +1,7 @@
 from queue import Queue as Qu
-from FLog.LOGGER import Log
-from fairNLP import Regex, URL
+from F.LOG import Log
+from FNLP import URL
+from FNLP.Regex import Re as Regex
 
 Log = Log("FairWEB.Queue.UrlQueue")
 
@@ -87,7 +88,6 @@ class FQueue:
 
     def get(self):
         temp = self.mainQueue.get()
-        self.processedQueue.put(temp)
         return temp
 
     def clear_all(self):

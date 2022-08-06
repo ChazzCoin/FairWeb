@@ -1,10 +1,12 @@
-from FSON import DICT
+from F import DICT
 
-from fairNLP import URL, Language, Regex
-from FList import LIST
-from FDate import DATE
-from Core import Tag, Soup, HttpRequest
-from FLog.LOGGER import Log
+from FNLP import URL
+from FNLP.Language import Utils
+from FNLP.Regex import Re, ReDate
+from F import LIST
+from F import DATE
+from FW.Core import HttpRequest, Tag, Soup
+from F.LOG import Log
 from dateutil import parser
 import sys
 
@@ -78,7 +80,7 @@ class Extractor:
         newCls = cls()
         newCls.base_url = URL.extract_base_url(url)
         newCls.set_data("client", client)
-        if Regex.contains("reddit", url):
+        if Re.contains("reddit", url):
             newCls.isReddit = True
             newCls.subReddit = URL.extract_sub_reddit(url)
             newCls.set_data("subreddit", newCls.subReddit)
@@ -94,7 +96,7 @@ class Extractor:
         soup2 = HttpRequest.get_request_3k_to_html(url)
         newCls.soup = soup2
         newCls.base_url = URL.extract_base_url(url)
-        if Regex.contains("reddit", url):
+        if Re.contains("reddit", url):
             newCls.isReddit = True
             newCls.subReddit = URL.extract_sub_reddit(url)
             newCls.set_data("subreddit", newCls.subReddit)
@@ -153,7 +155,7 @@ class Extractor:
         test_tag = self.soup.soup.findAll("meta")
         for item in test_tag:
             test = Tag.get_attribute(item, "name")
-            if test and Regex.contains_any(["keywords"], test):
+            if test and Re.contains_any(["keywords"], test):
                 keywords = Tag.get_attribute(item, "content")
                 self.set_data("keywords", keywords)
                 return True
@@ -217,12 +219,12 @@ class Extractor:
 
     def date_attempt_last(self):
         raw_str = str(self.soup.tag_time)
-        extraction_attemt = Regex.extract_date(raw_str)
+        extraction_attemt = ReDate.extract_date(raw_str)
         if extraction_attemt:
             if self.attempt_date_parse_set(extraction_attemt):
                 return True
         raw_str = str(self.soup.tag_body)
-        extraction_attemt = Regex.extract_date(raw_str)
+        extraction_attemt = ReDate.extract_date(raw_str)
         if extraction_attemt:
             if self.attempt_date_parse_set(extraction_attemt):
                 return True
@@ -264,7 +266,7 @@ class Extractor:
         for tag in self.soup.element_span:
             text = Tag.get_text(tag)
             if text:
-                date = Regex.extract_date(text)
+                date = ReDate.extract_date(text)
                 if date:
                     self.set_data("date", date)
                     return True
@@ -356,7 +358,7 @@ class Extractor:
         elif self.soup.element_p1:
             body = ""
             for p1_item in self.soup.element_p1:
-                body = Language.combine_args_str(body, "\n", self.get_safe_text(p1_item))
+                body = Utils.combine_args_str(body, "\n", self.get_safe_text(p1_item))
             self.set_data("body", body)
 
     def reddit_body(self):
@@ -367,7 +369,7 @@ class Extractor:
             innerTemp = Soup.safe_findAll(item, "p")
             if innerTemp:
                 for innerItem in innerTemp:
-                    post = Language.combine_args_str(post, "\n", innerItem.text)
+                    post = Utils.combine_args_str(post, "\n", innerItem.text)
         # -> Grab Comments
         comment_content = self.soup.soup.findAll("div", {"data-testid": "comment"})
         comments = []
@@ -376,13 +378,13 @@ class Extractor:
             comment = ""
             if innerTemp:
                 for innerItem in innerTemp:
-                    comment = Language.combine_args_str(comment, "\n", innerItem.text)
+                    comment = Utils.combine_args_str(comment, "\n", innerItem.text)
                 comments.append(comment)
         # -> Form Body
         body = post
         index = 1
         for com in comments:
-            body = Language.combine_args_str(body, f"\n\n -> COMMENT {index}: \n", com, "\n")
+            body = Utils.combine_args_str(body, f"\n\n -> COMMENT {index}: \n", com, "\n")
             index += 1
         self.set_data("body", body)
 

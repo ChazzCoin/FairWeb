@@ -1,4 +1,4 @@
-from Crawler.Crawl import ArchiveCrawler
+from FW.Crawler.Crawl import ArchiveCrawler
 
 DEFAULT_MAX_QUEUE = 500
 

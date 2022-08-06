@@ -1,5 +1,5 @@
 from web3 import Web3
-from FSON import DICT
+from F import DICT
 # from web3.auto import w3
 
 infura_provider = "https://mainnet.infura.io/v3/ae463de8b055408e91bc6dee9b53a96c"

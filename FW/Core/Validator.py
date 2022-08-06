@@ -1,8 +1,8 @@
-from FSON import DICT
-from FDate import DATE
-from fairNLP import Regex
-from FLog.LOGGER import Log
-from Jarticle.jProvider import jPro as jpro
+from F import DICT
+from F import DATE
+from FNLP.Regex import Re as Regex
+from F.LOG import Log
+from FM.Jarticle.jProvider import jPro as jpro
 Log = Log("FWEB.Core.Validator")
 
 jp = jpro()

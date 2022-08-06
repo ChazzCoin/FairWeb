@@ -1,7 +1,8 @@
-from FList import LIST
-from FSON import DICT
-from FLog.LOGGER import Log
-from fairNLP import URL, Regex
+from F import LIST
+from F import DICT
+from F.LOG import Log
+from FNLP import URL
+from FNLP.Regex import Re as Regex
 Log = Log("FairWEB.Crawler.UrlExtractor")
 
 way_back_machine_url = "https://web.archive.org"

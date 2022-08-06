@@ -1,8 +1,8 @@
 from bs4.element import Tag as bsTag
-from FSON import DICT
-from FList import LIST
-from fairNLP import Regex
-from FLog.LOGGER import Log
+from F import DICT
+from F import LIST
+from FNLP.Regex import Re as Regex
+from F.LOG import Log
 Log = Log("FWEB.Tag")
 import sys
 

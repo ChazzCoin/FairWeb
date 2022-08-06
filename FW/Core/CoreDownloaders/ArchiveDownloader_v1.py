@@ -1,12 +1,10 @@
-import FExt.EXT
-from FList import LIST
-from fairNLP import URL
-from Core import HttpRequest, Soup, Extractor
-from Core.Extractor import Extractor
-from FLog.LOGGER import Log
+from F import LIST
+from FNLP import URL
+from FW.Core import HttpRequest, Soup
+from FW.Core.Extractor import Extractor
+from F.LOG import Log
 import json
 import sys
-# import timeout_decorator
 
 Log = Log("FairWEB.ArchiveDownloader_v1")
 

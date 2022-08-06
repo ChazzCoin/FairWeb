@@ -1,5 +1,5 @@
-from FusedDL import FusedDownloader
-from FLog.LOGGER import Log
+from FW.FusedDownloader import FusedDownloader
+from F.LOG import Log
 Log = Log("FWEB.Crawler.ArchiveCrawler_v2")
 
 

@@ -1,11 +1,12 @@
 import os
 
-from Crawler import UrlExtractor, UrlProcess
-from FSON import DICT
-from fairNLP import URL
-from Core import HttpRequest
-from Crawler.UrlQueue import FQueue
-from FLog.LOGGER import Log
+from FW.Crawler import UrlProcess
+from FW.Crawler import UrlExtractor
+from F import DICT
+from FNLP import URL
+from FW.Core import HttpRequest
+from FW.Crawler.UrlQueue import FQueue
+from F.LOG import Log
 Log = Log("FWEB.Crawler.ArchiveCrawler_v2")
 
 way_back_machine_url = "https://web.archive.org"

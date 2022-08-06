@@ -1,14 +1,14 @@
 import time
 
 import requests
-from Core import Soup
+from FW.Core import Soup
 from http.cookiejar import CookieJar as cj
-from Downloader import ArticleDownloader
-from FList import LIST
+from FW.Core.CoreDownloaders import ArticleDownloader
+from F import LIST
 
 import FairResources
-from FExt import EXT
-from FLog.LOGGER import Log
+from F import EXT
+from F.LOG import Log
 Log = Log("FWEB.Core.HttpRequest")
 
 FAIL_ENCODING = 'ISO-8859-1'

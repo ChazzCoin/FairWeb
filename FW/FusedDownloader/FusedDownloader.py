@@ -1,9 +1,11 @@
-from Downloader.ArchiveDownloader_v1 import DownloadWebPage
-from Downloader import ArticleDownloader
-from Core import Validator
-from FExt import EXT
-from FLog.LOGGER import Log
+from FW.Core.CoreDownloaders.ArchiveDownloader_v1 import DownloadWebPage
+from FW.Core.CoreDownloaders import ArticleDownloader
+from FW.Core import Validator
+from F import EXT
+from F.LOG import Log
 Log = Log("FairWEB.FusedDownloader")
+
+from F.CLASS import Thread
 
 @EXT.safe_run
 def download_v1(url, saveToArchive=False, setDateToToday=False):
@@ -22,6 +24,10 @@ def download_v1(url, saveToArchive=False, setDateToToday=False):
 # def download(url):
 #     return download_v2(url)
 
+def downloadCallback(result):
+    print(result)
+    return result
+
 @Validator.mongo_save
 def download_v2(url):
     # -> v1
@@ -35,6 +41,12 @@ def download_v2(url):
     return False
 
 def download(url):
+    # -> v1
+    downloader_v1 = fweb_downloader_v1(url)
+    return downloader_v1 if downloader_v1 else False
+
+@Thread.runInBackground()
+def downloadInBackground(url):
     # -> v1
     downloader_v1 = fweb_downloader_v1(url)
     return downloader_v1 if downloader_v1 else False
@@ -93,5 +105,6 @@ if __name__ == '__main__':
     url4 = "https://www.newsobserver.com/news/business/article260136540.html"
     wallstreetj = "https://www.wsj.com/articles/primary-elections-2022-south-carolina-nevada-races-test-trumps-sway-in-gop-11655199002"
     date_none = "https://finance.yahoo.com/news/metaverse-real-estate-market-growing-115600231.html"
-    t = download_v2(date_none)
-    print(t)
+    url5 = "https://www.reuters.com/business/media-telecom/jury-alex-jones-defamation-case-begin-deliberations-punitive-damages-2022-08-05/"
+    t = downloadInBackground(url5)
+    # t = download_v2(date_none)

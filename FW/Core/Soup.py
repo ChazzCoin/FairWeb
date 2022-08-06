@@ -1,7 +1,6 @@
 from bs4 import BeautifulSoup
 from bs4.element import Tag as bsTag
-from Core import Tag
-from FLog.LOGGER import Log
+from F.LOG import Log
 Log = Log("FairWeb.Core.Soup.Parse()")
 
 # -> Step Two -> Convert Response Object to HTML Object
