@@ -102,10 +102,4 @@ class DownloadWebPage:
             return False
         return True
 
-if __name__ == '__main__':
-    newTest = "https://towardsdatascience.com/how-to-use-qgis-spatial-algorithms-with-python-scripts-4bf980e39898"  # denied
-    newTest1 = "https://www.cnn.com/2022/03/27/politics/joe-biden-vladimir-putin-ukraine-war/index.html"  # denied
-    newTest2 = "https://towardsdatascience.com/a-step-by-step-guide-to-scheduling-tasks-for-your-data-science-project-d7df4531fc41"
-#     newTest3 = "https://www.americanbanker.com/payments/news/inside-ripples-plans-for-mainstream-crypto-payments"
-    d = DownloadWebPage.start_url(url=newTest2)
 

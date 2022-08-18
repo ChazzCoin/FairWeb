@@ -5,19 +5,8 @@
     <orderEntry type="jdk" jdkName="Python 3.8 (FairSystems)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="pyFongo" />
-    <orderEntry type="module" module-name="FCoRE" />
-    <orderEntry type="module" module-name="HarkServer" />
-    <orderEntry type="module" module-name="MasterJarticle" />
-    <orderEntry type="module" module-name="TheArchiveMachine" />
-    <orderEntry type="module" module-name="venv" />
-    <orderEntry type="module" module-name="FairArticle" />
-    <orderEntry type="module" module-name="MicroCrawler" />
-    <orderEntry type="module" module-name="FairAlerts" />
     <orderEntry type="module" module-name="FairResources" />
-    <orderEntry type="module" module-name="MicroRSS" />
-    <orderEntry type="module" module-name="MicroGNews" />
-    <orderEntry type="module" module-name="MicroSocial" />
-    <orderEntry type="module" module-name="MicroArchivers" />
     <orderEntry type="module" module-name="FAIR" />
+    <orderEntry type="module" module-name="FCoRE" />
   </component>
 </module>

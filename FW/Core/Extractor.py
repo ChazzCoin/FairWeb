@@ -511,9 +511,3 @@ class Extractor:
             if tag:
                 tags.append(tag)
         return set(tags)
-
-if __name__ == '__main__':
-    date_none = "https://finance.yahoo.com/news/metaverse-real-estate-market-growing-115600231.html"
-    curr1 = "https://cointelegraph.com/news/blockchain-metaverse-ecosystems-gain-traction-as-brands-create-digital-experiences"
-    temp = Extractor.Extract_PublishedDate(curr1)
-    print(temp)

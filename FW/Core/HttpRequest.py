@@ -1,10 +1,10 @@
 import time
-
+import urllib.request
 import requests
 from FW.Core import Soup
 from http.cookiejar import CookieJar as cj
 from FW.Core.CoreDownloaders import ArticleDownloader
-from F import LIST
+from F import LIST, DICT
 
 import FairResources
 from F import EXT
@@ -51,11 +51,11 @@ PROXIES = {
 
 # -> Step One -> Call URL and get Raw HTML back in Response Object.
 # @Ext.safe_run
-@EXT.sleep(1)
+# @EXT.sleep(1)
 def get_request(url):
     try:
         HEADERS["user-agent"] = FairResources.get_random_user_agent()
-        Log.i("Making HTTP Request.", v=f"URL= [ {url} ] ")
+        Log.i("Making [ v1 ] HTTP Request.", v=f"URL= [ {url} ] ")
         response = requests.get(url, headers=HEADERS, timeout=10)
         if response.status_code > 205:
             Log.w(f"Failed to make HTTP Request with URL= [ {url} ] ")
@@ -86,7 +86,7 @@ def get_request_3k_to_html(url, parseToSoup=True):
 def get_request_v2(url):
     try:
         HEADERS["user-agent"] = FairResources.get_random_user_agent()
-        Log.i("Making HTTP Request.", v=f"URL= [ {url} ] ")
+        Log.i("Making [ v2 ] HTTP Request.", v=f"URL= [ {url} ] ")
         response = requests.get(url, **get_request_kwargs())
         if response.status_code > 205:
             Log.w(f"Failed to make HTTP Request with URL= [ {url} ] ")
@@ -118,7 +118,7 @@ def to_html(response):
 
 # -> Step One -> Call URL and get Raw HTML back in Response Object.
 def request_to_html_v2(url):
-    Log.i(f"Making Request to URL = [ {url} ]")
+    Log.i(f"Making [ v2 ] Request to URL = [ {url} ]")
     resp = get_request_v2(url)
     if resp:
         response = LIST.get(1, resp, False)
@@ -153,22 +153,32 @@ def get_request_kwargs():
         'proxies': proxies
     }
 
-if __name__ == '__main__':
-    from Soup import BeautifulSoup
-    from bs4.dammit import EncodingDetector
-    url1 = "https://cointelegraph.com/news/price-analysis-1-28-btc-eth-bnb-ada-sol-xrp-luna-doge-dot-avax"
-    date_none = "https://finance.yahoo.com/news/metaverse-real-estate-market-growing-115600231.html"
-    tableUrl = "https://www.quiverquant.com/dashboard/NVDA/"
-    table2 = "https://sec.report/Senate-Stock-Disclosures"
-    test = get_request_v2(table2)
-    test2 = get_request(table2)
-    resp = LIST.get(1, test)
-    resp2 = LIST.get(1, test2)
-    http_encoding = resp.encoding if 'charset' in resp.headers.get('content-type', '').lower() else None
-    html_encoding = EncodingDetector.find_declared_encoding(resp.content, is_html=True)
-    encoding = html_encoding or http_encoding
-    testing = BeautifulSoup(resp.text, 'lxml', from_encoding=encoding)
-    resp = str(resp.text)
-    print(resp)
-    arttt = ArticleDownloader.parse_html(date_none, resp)
-    print(arttt)
+
+
+def urllib(url):
+    import urllib.request
+    fp = urllib.request.urlopen(url)
+    mybytes = fp.read()
+    mystr = mybytes.decode("utf8")
+    fp.close()
+    return mystr
+
+def get_request_urllib(url):
+    try:
+        Log.i("Making [ urllib ] HTTP Request.", v=f"URL= [ {url} ] ")
+        fp = urllib.request.urlopen(url, timeout=10)
+        responseCode = DICT.get("code", fp)
+        mybytes = fp.read()
+        response = mybytes.decode("utf8")
+        fp.close()
+        if not response and responseCode and int(responseCode) >= 200:
+            Log.w(f"Failed to make HTTP Request with URL= [ {url} ] ")
+            return False, None
+        else:
+            Log.s(f"Successful HTTP Request")
+            return True, response
+    except Exception as e:
+        Log.e("Request Failed.", error=e)
+        return False
+
+
