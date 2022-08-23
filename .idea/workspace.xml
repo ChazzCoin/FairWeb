@@ -6,49 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="560a4c82-5719-4761-bc3f-b9ce770e62d8" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/../FCoRE/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FairArticle/FAui/ViewElements.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FairArticle/FAui/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FairArticle/FAui/jarticle.ui" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FairArticle/FAui/jarticleMain.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FairMongo/FCM/FQ/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FairMongo/FCM/MCCollection.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FairMongo/FCM/MCCore.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FairMongo/FCM/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FW/Core/UrlTester.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FW/FairSocket/Client.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FW/FairSocket/DuckDNS.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FW/FairSocket/FusedSocket.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FW/FairSocket/Message.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FW/FairSocket/Server.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FW/FairSocket/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FairArticle/.idea/FairArticle.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../FairArticle/.idea/FairArticle.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FairArticle/FAui/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../FairArticle/FAui/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../FairArticle/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/../FairArticle/setup.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FairMongo/FM/Jarticle/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../FairMongo/FCM/Jarticle/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FairMongo/FM/Jarticle/jArticles.py" beforeDir="false" afterPath="$PROJECT_DIR$/../FairMongo/FCM/Jarticle/jArticles.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FairMongo/FM/Jarticle/jProvider/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../FairMongo/FCM/Jarticle/jProvider/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FairMongo/FM/Jarticle/jProvider/jCategories.py" beforeDir="false" afterPath="$PROJECT_DIR$/../FairMongo/FCM/Jarticle/jProvider/jCategories.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FairMongo/FM/Jarticle/jProvider/jDate.py" beforeDir="false" afterPath="$PROJECT_DIR$/../FairMongo/FCM/Jarticle/jProvider/jDate.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FairMongo/FM/Jarticle/jProvider/jSearch.py" beforeDir="false" afterPath="$PROJECT_DIR$/../FairMongo/FCM/Jarticle/jProvider/jSearch.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FairMongo/FM/Jarticle/jProvider/jSocial.py" beforeDir="false" afterPath="$PROJECT_DIR$/../FairMongo/FCM/Jarticle/jProvider/jSocial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FairMongo/FM/Jarticle/jdexes/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../FairMongo/FCM/Jarticle/jdexes/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FairMongo/FM/Jarticle/jdexes/jArchive.py" beforeDir="false" afterPath="$PROJECT_DIR$/../FairMongo/FCM/Jarticle/jdexes/jArchive.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FairMongo/FM/Jarticle/jdexes/jCompany.py" beforeDir="false" afterPath="$PROJECT_DIR$/../FairMongo/FCM/Jarticle/jdexes/jCompany.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FairMongo/FM/Jarticle/jdexes/jNLP.py" beforeDir="false" afterPath="$PROJECT_DIR$/../FairMongo/FCM/Jarticle/jdexes/jNLP.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FairMongo/FM/Jarticle/jdexes/jSource.py" beforeDir="false" afterPath="$PROJECT_DIR$/../FairMongo/FCM/Jarticle/jdexes/jSource.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FairMongo/FM/Jarticle/jdexes/jURL.py" beforeDir="false" afterPath="$PROJECT_DIR$/../FairMongo/FCM/Jarticle/jdexes/jURL.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FairMongo/FM/Jarticle/jdexes/jWords.py" beforeDir="false" afterPath="$PROJECT_DIR$/../FairMongo/FCM/Jarticle/jdexes/jWords.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FairMongo/FM/MCollection.py" beforeDir="false" afterPath="$PROJECT_DIR$/../FairMongo/FM/MCollection.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FairMongo/FM/MDB.py" beforeDir="false" afterPath="$PROJECT_DIR$/../FairMongo/FM/MDB.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FairMongo/FM/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../FairMongo/FM/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FairMongo/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../FairMongo/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FairMongo/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/../FairMongo/setup.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/FairWeb.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/FairWeb.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FW/Core/CoreDownloaders/ArchiveDownloader_v1.py" beforeDir="false" afterPath="$PROJECT_DIR$/FW/Core/CoreDownloaders/ArchiveDownloader_v1.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FW/Core/CoreDownloaders/ArticleDownloader.py" beforeDir="false" afterPath="$PROJECT_DIR$/FW/Core/CoreDownloaders/ArticleDownloader.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FW/Core/Extractor.py" beforeDir="false" afterPath="$PROJECT_DIR$/FW/Core/Extractor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FW/Core/HttpRequest.py" beforeDir="false" afterPath="$PROJECT_DIR$/FW/Core/HttpRequest.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../TiffanySystems/HarkServer/.idea/HarkServer.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../../TiffanySystems/HarkServer/.idea/HarkServer.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../TiffanySystems/HarkServer/DiscordAPI.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../TiffanySystems/HarkServer/DiscordAPI.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../TiffanySystems/HarkServer/DiscordAlert/Alert.py" beforeDir="false" />

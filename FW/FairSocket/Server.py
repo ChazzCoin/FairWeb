@@ -86,6 +86,10 @@ class FairServer(FairClass):
         fromEventName = self.get_arg("fromEventName", data, default=False)
         self.emit(fromEventName, self.clients)
 
+    def onFairCommand(self, data):
+        commands = self.get_arg("commands", data, default=False)
+        self.emit(fromEventName, self.clients)
+
     def onPrinter(self, data):
         print(f"Printer-> {data} ")
 

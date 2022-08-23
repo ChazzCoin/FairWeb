@@ -2,7 +2,7 @@ from F import DICT
 from F import DATE
 from FNLP.Regex import Re as Regex
 from F.LOG import Log
-from FM.Jarticle.jProvider import jPro as jpro
+from FCM.Jarticle.jProvider import jPro as jpro
 Log = Log("FWEB.Core.Validator")
 
 jp = jpro()
@@ -77,7 +77,7 @@ def v_date(date):
     return False
 
 def save_article(article):
-    return jp.ADD_ARTICLES(article)
+    return jp.add_articles(article)
 
 def mongo_save(func):
     """ -> DECORATOR <- """
@@ -86,7 +86,7 @@ def mongo_save(func):
         article = func(*args)
         if article:
             Log.i("ARTICLE HAS BEEN WRAPPED AND VALIDATED!")
-            jp.ADD_ARTICLES(article)
+            jp.add_articles(article)
             return article
         return article
     return wrapper
@@ -98,7 +98,7 @@ def mongo_update(func):
         article = func(*args)
         if article:
             Log.i("ARTICLE HAS BEEN WRAPPED AND VALIDATED!")
-            jp.ADD_ARTICLES(article)
+            jp.add_articles(article)
             return article
         return article
     return wrapper
