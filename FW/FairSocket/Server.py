@@ -6,6 +6,7 @@ from pyngrok.ngrok import NgrokTunnel
 import F
 from F import OS
 from F.CLASS import FairClass
+from F.CLASS.Process import FairProcess
 from FW.FairSocket.Message import FairMessage
 
 
@@ -113,6 +114,41 @@ def startWebSocketServer():
     socket = FairServer()
     socket.start_server()
     return socket
+
+
+class ProcessServer(FairServer):
+    """ Runs a websocket server for remote control over local processes. """
+
+    target_function = None
+    target_arguments = None
+    serverName = F.OS.get_username()
+    socket = FairServer()
+    fairProcess = FairProcess()
+
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+
+    def add_Target_Arguments(self, target, args):
+        self.target_function = target
+        self.target_arguments = args
+
+    def onStartProcess(self, data):
+        self.fairProcess.set_process(self.target_function, self.target_arguments)
+        self.fairProcess.start_process()
+        self.sendResponse("Crawler has been Started.")
+
+    def onStopProcess(self, data):
+        self.fairProcess.stop_process()
+        self.sendResponse("Crawler has been terminated.")
+
+    def onIsRunning(self, data):
+        if self.fairProcess.isRunning:
+            self.sendResponse({"processIsRunning":"True"})
+        else:
+            self.sendResponse({"processIsRunning":"False"})
+
+    def onGetServerName(self, data):
+        self.sendResponse({"serverName":self.serverName})
 
 
 if __name__ == '__main__':
