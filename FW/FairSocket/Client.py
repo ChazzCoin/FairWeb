@@ -1,7 +1,5 @@
 import time
-
 import socketio
-
 from F import DATE
 from F.CLASS import FairClass
 from FW.FairSocket.Message import FairMessage
@@ -21,14 +19,28 @@ class FairClient(FairClass):
     userName = "FairClient"
     messages = {}
     callback = False
+    OverRideOnResponse = False
     eventName = "onMessage"
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        if not self.serverUrl:
-            self.serverUrl = input("Server Url -> ")
+        # if not self.serverUrl:
+        #     self.serverUrl = input("Server Url -> ")
         self.event_binder()
-        # firstInput = input("Who do you want to message?")
+
+    def looper(self):
+        print("To quit, type: --exit")
+        while True:
+            time.sleep(1)
+            mess = input("\n$ ")
+            if str(mess).startswith("--exit"):
+                break
+            elif str(mess).startswith("--disconnect"):
+                self.socket.disconnect()
+                break
+            fm = FairMessage(message=mess, userName="terminal")
+            self.socket.emit(mess, fm.toJson())
+            time.sleep(1)
 
     def connect(self):
         self.socket.connect(self.serverUrl)
@@ -56,6 +68,7 @@ class FairClient(FairClass):
     def emit(self, eventName:str, eventMessage):
         self.socket.emit(eventName, eventMessage)
 
+    """ Global Messenger Handler """
     def onMessage(self, data):
         fm = FairMessage().fromJson(data)
         if not fm:
@@ -71,8 +84,11 @@ class FairClient(FairClass):
         dateTime = DATE.get_log_date_time_dt()
         self.messages[dateTime] = fairMessage
 
+    """ Global Client Response from Server Handler. """
     def onResponse(self, data):
-        print(data)  # {'from': 'server'}
+        if self.OverRideOnResponse:
+            self.OverRideOnResponse(data)
+        print("onResponse:", data)  # {'from': 'server'}
 
     def _sendCallback(self, data):
         if self.callback:
@@ -84,15 +100,10 @@ def startWebSocketClient(serverUrl=None):
     return socket
 
 
-if __name__ == '__main__':
-    sock = FairClient(userName="terminal")
-    messObj = FairMessage()
-    sock.connect()
-    sock.emitOnConnect()
-    sock.emit("onGetUsers", {"fromEventName": "onMessage"})
-    while True:
-        time.sleep(1)
-        mess = input("\n$ ")
-        fm = FairMessage(message=mess, userName="terminal")
-        sock.emit("onMessage", fm.toJson())
-        time.sleep(1)
+# if __name__ == '__main__':
+#     sock = FairClient(userName="terminal")
+#     messObj = FairMessage()
+#     sock.connect()
+#     sock.emitOnConnect()
+#     # sock.emit("onStartProcess", {"commands": ["python3", "/Users/chazzromeo/ChazzCoin/TiffanySystems/MicroArchivers/MicroCrawler/handler.py"]})
+#     sock.looper()

@@ -75,7 +75,8 @@ class Parse:
         Log.i("Parsing Finished")
 
     def doTest(self):
-        for tr in self.soup.find_all('tr')[2:]:
-            tds = tr.find_all('td')
-            print("Nome: %s, Cognome: %s, Email: %s" + "% tds[0].text, tds[1].text, tds[2].text")
         pass
+        # for tr in self.soup.find_all('tr')[2:]:
+        #     tds = tr.find_all('td')
+        #     print("Nome: %s, Cognome: %s, Email: %s" + "% tds[0].text, tds[1].text, tds[2].text")
+        # pass

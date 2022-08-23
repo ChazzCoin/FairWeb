@@ -1,5 +1,5 @@
 from flask import Flask
-from flask_socketio import SocketIO, join_room, leave_room, emit, send
+from flask_socketio import SocketIO
 from pyngrok import ngrok
 from pyngrok.ngrok import NgrokTunnel
 
@@ -55,9 +55,10 @@ class FairServer(FairClass):
     def register_event(self, eventName, eventFunction):
         self.socket.on(eventName)(eventFunction)
 
-    def start(self):
+    def start_server(self):
         self.socket.run(app=self.app, host=self.host, port=self.port, debug=False)
 
+    """ Master Connection Handler """
     def onConnect(self, data):
         print("ON CONNECTED!!!", data, self)
         user = self.get_arg("userName", data, default=False)
@@ -66,12 +67,7 @@ class FairServer(FairClass):
             self.clients.append(fromEventName)
         self.emit('onResponse', f"Welcome to the Game. {user}")
 
-    def onStartProcess(self, data):
-        pass
-
-    def onStopProcess(self, data):
-        pass
-
+    """ Global Messenger for All Clients """
     def onMessage(self, data):
         messageObj = FairMessage().fromJson(data)
         print(f" IN -> {messageObj.message}")
@@ -88,7 +84,8 @@ class FairServer(FairClass):
 
     def onFairCommand(self, data):
         commands = self.get_arg("commands", data, default=False)
-        self.emit(fromEventName, self.clients)
+        result = OS.run_command(commands)
+        self.emit("onMessage", result)
 
     def onPrinter(self, data):
         print(f"Printer-> {data} ")
@@ -99,12 +96,25 @@ class FairServer(FairClass):
     def sendFairMessage(self, eventName:str, fairMessage:FairMessage):
         self.socket.emit("onMessage", fairMessage.toJson())
 
+    def sendResponse(self, eventMessage=None):
+        if eventMessage is None:
+            eventMessage = {}
+        self.socket.emit("onResponse", eventMessage)
+
+    def onStartProcess(self, data):
+        """ Override This for Process Handling. """
+        pass
+
+    def onStopProcess(self, data):
+        """ Override This for Process Handling. """
+        pass
+
 def startWebSocketServer():
     socket = FairServer()
-    socket.start()
+    socket.start_server()
     return socket
 
 
 if __name__ == '__main__':
-    socket = FairServer(initNgrok=True)
-    socket.start()
+    socket = FairServer(makePublic=True)
+    socket.start_server()

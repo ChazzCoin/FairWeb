@@ -5,8 +5,8 @@ current = os.getcwd()
 
 setup(
     name='FairWEB',
-    version='4.2.0',
-    description='Full HTML WebPage Downloader, Parser and Data Extractor. Web Crawler Included.',
+    version='4.2.2',
+    description='Full HTML WebPage Downloader, Parser and Data Extractor. Web Crawler, Server and Client Included.',
     url='https://github.com/chazzcoin/fairweb',
     author='ChazzCoin',
     author_email='chazzcoin@gmail.com',
