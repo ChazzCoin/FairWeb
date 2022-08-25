@@ -2,7 +2,7 @@ from flask import Flask
 from flask_socketio import SocketIO
 from pyngrok import ngrok
 from pyngrok.ngrok import NgrokTunnel
-
+# import schedule
 import F
 from F import OS
 from F.CLASS import FairClass
@@ -127,28 +127,87 @@ class ProcessServer(FairServer):
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
+        start_process = self.get_arg("start_process", kwargs, default=False)
+        if start_process:
+            self.onStartProcess()
 
     def add_Target_Arguments(self, target, args):
         self.target_function = target
         self.target_arguments = args
 
-    def onStartProcess(self, data):
-        self.fairProcess.set_process(self.target_function, self.target_arguments)
+    def onStartProcess(self, data=None):
+        if self.target_arguments:
+            self.fairProcess.set_process(self.target_function, self.target_arguments)
+        else:
+            self.fairProcess.set_process(self.target_function)
         self.fairProcess.start_process()
         self.sendResponse("Crawler has been Started.")
 
-    def onStopProcess(self, data):
+    def onStopProcess(self, data=None):
         self.fairProcess.stop_process()
         self.sendResponse("Crawler has been terminated.")
 
-    def onIsRunning(self, data):
+    def onIsRunning(self, data=None):
         if self.fairProcess.isRunning:
             self.sendResponse({"processIsRunning":"True"})
         else:
             self.sendResponse({"processIsRunning":"False"})
 
-    def onGetServerName(self, data):
+    def onGetServerName(self, data=None):
         self.sendResponse({"serverName":self.serverName})
+
+
+# class ScheduleProcessServer(FairServer):
+#     """ Runs a websocket server for remote control over local processes. """
+#
+#     target_function = None
+#     target_arguments = None
+#     serverName = F.OS.get_username()
+#     socket = FairServer()
+#     fairProcess = FairProcess()
+#     fairSchedule = schedule
+#     scheduledHours = 1
+#
+#     def __init__(self, **kwargs):
+#         super().__init__(**kwargs)
+#         self.setSchedule()
+#         while True:
+#             self.fairSchedule.run_pending()
+#
+#     def setSchedule(self):
+#         self.fairSchedule.every(self.scheduledHours).minute.do(self.__start_process)
+#
+#     def __start_process(self):
+#         self.fairProcess.set_process(self.target_function, self.target_arguments)
+#         self.fairProcess.start_process()
+#
+#     def isRunning(self):
+#         if self.fairProcess.isRunning:
+#             return True
+#         else:
+#             return False
+#
+#     def add_Target_Arguments(self, target, args):
+#         self.target_function = target
+#         self.target_arguments = args
+#
+#     def onStartProcess(self, data):
+#         self.fairProcess.set_process(self.target_function, self.target_arguments)
+#         self.fairProcess.start_process()
+#         self.sendResponse("Crawler has been Started.")
+#
+#     def onStopProcess(self, data):
+#         self.fairProcess.stop_process()
+#         self.sendResponse("Crawler has been terminated.")
+#
+#     def onIsRunning(self, data):
+#         if self.fairProcess.isRunning:
+#             self.sendResponse({"processIsRunning":"True"})
+#         else:
+#             self.sendResponse({"processIsRunning":"False"})
+#
+#     def onGetServerName(self, data):
+#         self.sendResponse({"serverName":self.serverName})
 
 
 if __name__ == '__main__':
