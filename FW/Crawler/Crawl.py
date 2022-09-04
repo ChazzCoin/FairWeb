@@ -2,7 +2,7 @@ import os
 
 from FW.Crawler import UrlProcess
 from FW.Crawler import UrlExtractor
-from F import DICT
+from F import DICT, LIST
 from FNLP import URL
 from FW.Core import HttpRequest
 from FW.Crawler.UrlQueue import FQueue
@@ -94,6 +94,14 @@ class ArchiveCrawler:
         newClass = cls(_url, **kwargs)
         newClass.run()
         return newClass
+
+    @classmethod
+    def start_Forever_SourceList(cls, _sources, **kwargs):
+        while True:
+            _url = LIST.get_random(_sources, default=False)
+            kwargs["suicideMode"] = True
+            newClass = cls(_url, **kwargs)
+            newClass.run()
 
     """
         -> INIT HELPERS
