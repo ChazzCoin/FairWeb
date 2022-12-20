@@ -5,7 +5,7 @@ current = os.getcwd()
 
 setup(
     name='FairWEB',
-    version='4.3.3',
+    version='4.5.0',
     description='Full HTML WebPage Downloader, Parser and Data Extractor. Web Crawler, Server and Client Included.',
     url='https://github.com/chazzcoin/fairweb',
     author='ChazzCoin',
@@ -15,8 +15,9 @@ setup(
     package_data={
         'Resources': ['*.txt']
     },
-    install_requires=['FairNLP>=4.0.2', 'FairMongo>=4.1.4',
-                      'beautifulsoup4>=4.9.3', 'newspaper3k>=0.2.8', 'pandas>=1.4.2'],
+    install_requires=['FairNLP==4.0.2', 'FairMongo==4.1.4',
+                      'beautifulsoup4>=4.9.3', 'newspaper3k>=0.2.8', 'pandas>=1.4.2',
+                      'pytube==12.10', 'youtube-dl==2021.12.17'],
     classifiers=[
         'Development Status :: 1 - Planning',
         'Intended Audience :: Science/Research',
